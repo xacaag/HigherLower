@@ -1,14 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
     <title>Их үү Бага уу ?</title>
-</head>
-<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
-<body>
-    
-</body>
+  </head>
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
+  <body>
+    <div class="haha">
+      <div class="GodLogo">
+        <img src="./assets/logo/logo.svg" class="logo" />
+      </div>
+      <div class="h3">Highest point:</div>
+    </div>
+
+    <div class="dadButton">
+      <div class="Choice">
+        <img src="./assets/Classic.svg" class="Classic_V2" />
+        <button class="button">
+          Classic
+          <img src="./assets/logo/!.svg" id="myBtn" />
+        </button>
+      </div>
+
+      <div class="Choice">
+        <img src="./assets/multiplayer.svg" class="MultiPlayer_V2" />
+        <button class="button" style="width: 400px">
+          MultiPlayer
+          <img src="./assets/logo/!.svg" id="myBtn2" />
+        </button>
+      </div>
+
+      <div class="Choice">
+        <img src="./assets/genre.svg" class="Genre_V2" />
+        <button class="button">
+          Genre
+          <img src="./assets/logo/!.svg" id="myBtn3" />
+        </button>
+      </div>
+    </div>
+
+    <div id="overlay" onclick="off()">
+      <div id="touch" class="info">
+        <div class="aaa">CLASSIC</div>
+        <div class="haha">
+          <img src="./assets/back_arrow.svg" class="back_arrow" />
+          <div class="coolWords">
+            To play higher or lower, we will give you an question depending on
+          </div>
+          <div class="coolWords">
+            the gamemode and you will have to answer if your subject has higher
+          </div>
+          <div class="coolWords">searches or lower searches in google.</div>
+          <div class="buutttoon">
+            <button class="buuttoon">CLOSE</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="touch2" class="info">
+        <div class="aaa">MULTIPLAYER</div>
+        <div class="haha">
+          <img src="./assets/back_arrow.svg" class="back_arrow" />
+          <div class="coolWords">
+            Create your own match and play against your friends.
+          </div>
+          <div class="coolWords">If you answer a wrong you lose,</div>
+          <div class="coolWords">last one standing will win!</div>
+          <div class="buutttoon">
+            <button class="buuttoon">CLOSE</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="touch3" class="info">
+        <div class="aaa">GENRE</div>
+        <div class="haha">
+          <img src="./assets/back_arrow.svg" class="back_arrow" />
+          <div class="coolWords">
+            In this gamemode you are able to change the genre of it,
+          </div>
+          <div class="coolWords">like movies or music.</div>
+          <div class="coolWords">
+            Play Higher or Lower in your favourite genre.
+          </div>
+          <div class="buutttoon">
+            <button class="buuttoon">CLOSE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="h2">Which one gets searched up more?</div>
+
+    <div id="overlay" onclick="off()"></div>
+  </body>
+  <script src="./js/main.js"></script>
 </html>
