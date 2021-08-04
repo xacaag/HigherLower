@@ -1,12 +1,437 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Classic</title>
 </head>
-<body>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+    body {
+        background-color: grey;
+        color: white;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     
+    .game_holder {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .background {
+        background-color: black;
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .vs {
+        width: 9vw;
+        height: 9vw;
+        position: absolute;
+        background-color: #fff;
+        color: black;
+        border-radius: 50%;
+        font-size: 3vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .checkmark {
+        width: 8vw;
+        height: 8vw;
+    }
+    
+    .score_bar {
+        width: 98%;
+        height: 7%;
+        position: absolute;
+        bottom: 0.5%;
+        left: 2.5%;
+        font-size: 1.7vw;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .current_score {
+        width: 4%;
+        height: 1%;
+        position: absolute;
+        right: 7%;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    
+    .high_score {
+        width: 100%;
+        height: 2%;
+        position: absolute;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    
+    .left_image {
+        background-image: url('../../classic mode/download.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 50%;
+        height: 100%;
+        opacity: 75%;
+    }
+    
+    .left_box {
+        width: 30%;
+        height: 35%;
+        position: absolute;
+        bottom: 24%;
+        left: 10%;
+        font-size: 1.2vw;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .left_name {
+        font-size: 3vw;
+        position: absolute;
+        bottom: 53%;
+    }
+    
+    .left_ammount {
+        font-size: 3.5vw;
+        color: gold;
+        position: absolute;
+        bottom: 26%;
+    }
+    
+    .textunderleftammount {
+        position: absolute;
+        bottom: 16%;
+    }
+    
+    .right_image {
+        background-image: url('../../classic mode/41026708-example-white-stamp-text-on-red-backgroud.jpeg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 50%;
+        height: 100%;
+        opacity: 75%;
+    }
+    
+    .right_box {
+        width: 30%;
+        height: 35%;
+        position: absolute;
+        bottom: 24%;
+        right: 10%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .right_name {
+        font-size: 3vw;
+        color: white;
+        position: absolute;
+        bottom: 53%;
+    }
+    
+    .right_ammount {
+        font-size: 3.5vw;
+        color: gold;
+        position: absolute;
+        bottom: 26%;
+    }
+    
+    .textunderrightammount {
+        position: absolute;
+        bottom: 16%;
+    }
+    
+    .button_holder {
+        width: 35%;
+        height: 35%;
+        position: absolute;
+        bottom: 25%;
+        left: 32.5%;
+        right: 32.5%;
+    }
+    
+    .higher_button {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 45%;
+        background: rgba(0, 0, 0, 0.7);
+        border: 1px solid #FFFFFF;
+        color: white;
+        box-sizing: border-box;
+        border-radius: 17px;
+        font-size: 1.5vw;
+    }
+    
+    .lower_button {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 45%;
+        background: rgba(0, 0, 0, 0.7);
+        border: 1px solid #FFFFFF;
+        color: white;
+        box-sizing: border-box;
+        border-radius: 17px;
+        font-size: 1.5vw;
+    }
+    
+    .higher_button_triangle {
+        width: 10%;
+        height: 35%;
+        background-image: linear-gradient(to bottom right, transparent 50%, white 0), linear-gradient(to top right, white 50%, transparent 0);
+        background-size: 50% 100%;
+        background-repeat: no-repeat;
+        background-position: left, right;
+        position: absolute;
+        left: 80%;
+        top: 30%;
+    }
+    
+    .lower_button_triangle {
+        width: 10%;
+        height: 35%;
+        background-image: linear-gradient(to top right, transparent 50%, white 0), linear-gradient(to bottom right, white 50%, transparent 0);
+        background-size: 50% 100%;
+        background-repeat: no-repeat;
+        background-position: left, right;
+        position: absolute;
+        left: 80%;
+        top: 30%;
+    }
+    
+    .textunderbutton {
+        font-size: 0.8vw;
+        width: 220%;
+        position: absolute;
+        left: -50%;
+        bottom: -55%;
+        color: white;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    
+    .vs_correct {
+        background-image: url(./assets/logo/vs.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        animation-name: correct_circle;
+        animation-duration: 4s;
+    }
+    
+    .vs_wrong {
+        background-image: url(./assets/logo/x.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        animation-name: wrong_circle;
+        animation-duration: 2.5s;
+    }
+    
+    .button_dissapear {
+        animation-name: button_dissapear_anim;
+        animation-duration: 3.5s;
+    }
+    
+    .invisible {
+        display: none;
+    }
+    /* ---------------------------------------- Ask designer if design is good! ---------------------------------------- */
+    
+    @keyframes button_dissapear_anim {
+        0% {}
+        7% {
+            transform: translateY(5%);
+            opacity: 0;
+        }
+        93% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    
+    @keyframes correct_circle {
+        0% {}
+        30% {
+            transform: scale(1);
+            background-color: #3DB549;
+        }
+        45% {
+            background-color: #3DB549;
+            transform: scale(0.00001);
+        }
+        70% {
+            transform: scale(0.00001);
+            background-color: white;
+        }
+        85% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    /* ---------------------------------------- Make better animations! ----------------------------------------*/
+    
+    @keyframes wrong_circle {
+        from {}
+        to {
+            background-color: #DF5454;
+        }
+    }
+</style>
+
+<body>
+    <div class="game_holder">
+        <!-- images -->
+        <div class="background" id="bg">
+            <div class="left_image"></div>
+            <div class="right_image"></div>
+        </div>
+
+        <!-- Circle -->
+        <div class="vs" id="vs_id">VS</div>
+
+        <!-- the score -->
+        <div class="score_bar">
+            <div class="high_score">Дээд оноо:
+                <h1>.</h1>
+                <div id="hi_score">0</div>
+            </div>
+            <div class="current_score">Оноо:
+                <h1>.</h1>
+                <div id="cur_score">0</div>
+            </div>
+        </div>
+
+        <!-- main game -->
+        <div class="game">
+            <!-- left side information -->
+            <div class="left_box">
+                <h1 class="left_name">NAME</h1>
+                <h1 class="left_ammount">100,000</h1>
+                <h2 class="textunderleftammount">Энэ сарын дундаж хайлт</h2>
+            </div>
+            <!-- right side information and buttons -->
+            <div class="right_box">
+                <h1 class="right_name">NAME</h1>
+                <!-- buttons -->
+                <div class="button_holder" id="button_id">
+                    <button onclick="answer_higher()" class="higher_button">Их<div class="higher_button_triangle"></div></button>
+                    <button onclick="answer_lower()" class="lower_button">Бага<div class="lower_button_triangle"></div></button>
+                    <div class="textunderbutton">
+                        <h1>"</h1>
+                        <h1 id="left_name">NAME</h1>
+                        <h1>" гэхээсээ илүү хайлт</h1>
+                    </div>
+                </div>
+                <h1 class="right_ammount invisible" id="r_ammount">100,000</h1>
+                <h2 class="textunderrightammount invisible" id="r_ammount_text">Энэ сарын дундаж хайлт</h2>
+            </div>
+        </div>
+    </div>
 </body>
+<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
+<script>
+    // declaring things
+    var Answer;
+    var isplayercorrect;
+    const high_score = document.getElementById("hi_score")
+    const current_score = document.getElementById("cur_score");
+    let a = 0;
+    let left_ammount = 10;
+    let right_ammount = 100;
+
+    // getting the players answer
+    // in answer true = higher , false = lower
+    const answer_higher = () => {
+        Answer = true;
+        check();
+        console.log("Answer: higher")
+        correct_animation_1();
+    }
+    const answer_lower = () => {
+        Answer = false;
+        wrong_animation_1()
+        check();
+        console.log("Answer: lower")
+    }
+
+    // activating animations
+    const VS = document.getElementById("vs_id");
+    const BUTTON = document.getElementById("button_id")
+    const R_NUM = document.getElementById("r_ammount")
+    const R_TEXT = document.getElementById("r_ammount_text")
+
+    function correct_animation_1() {
+        VS.innerHTML = ("")
+        VS.classList.add('vs_correct');
+        BUTTON.classList.add('button_dissapear');
+        setTimeout(animation_3, 300);
+        setTimeout(animation_4, 2000);
+        setTimeout(correct_animation_1_2, 2000);
+        setTimeout(correct_animation_2, 4000);
+    }
+
+    function correct_animation_1_2() {
+        VS.innerHTML = ("VS")
+    }
+
+    function correct_animation_2() {
+        BUTTON.classList.remove('button_dissapear');
+        VS.classList.remove('vs_correct');
+    }
+
+    function animation_3() {
+        R_NUM.classList.remove("invisible");
+        R_TEXT.classList.remove("invisible")
+    }
+
+    function animation_4() {
+        R_NUM.classList.add("invisible");
+        R_TEXT.classList.add("invisible");
+    }
+
+    function wrong_animation_1() {
+        VS.innerHTML = ("")
+        VS.classList.add('vs_wrong');
+        BUTTON.classList.add('button_dissapear');
+        setTimeout(animation_3, 300);
+        setTimeout(animation_4, 2500);
+        setTimeout(wrong_animation_2, 2500);
+    }
+
+    function wrong_animation_2() {
+        BUTTON.classList.remove('button_dissapear');
+        VS.classList.remove('vs_wrong');
+    }
+</script>
+
 </html>
