@@ -18,8 +18,7 @@ let followers1 = document.getElementById("followers1")
 let followers2 = document.getElementById("followers2")
 let container1= document.getElementById("container")
 let container2 = document.getElementById("container2")
-let Higher = document.getElementById("HigherButton")
-let Lower = document.getElementById("LowerButton")
+
 
 
 
