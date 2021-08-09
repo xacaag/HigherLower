@@ -14,7 +14,18 @@ body {
   justify-content: center;
   align-items: center;
 }
-.sign_up {
+#login_password {
+  width: 24vw;
+  height: 6vh;
+  margin-top: 4vh;
+  border-radius: 8px;
+  border: 1px solid white;
+  background-color: rgba(239, 240, 246, 1);
+  font-size: 1vw;
+  /* padding: 14px 20px; */
+  padding: 0px 1vw;
+}
+#login_email {
   width: 24vw;
   height: 6vh;
   margin-top: 4vh;
@@ -34,6 +45,7 @@ body {
   background-color: rgba(75, 165, 84, 1);
   color: #fff;
   font-size: 1vw;
+  cursor: pointer;
 }
 .logo {
   margin-top: 5vh;
@@ -41,7 +53,7 @@ body {
 }
 .word {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 3vw;
+  font-size: 2vw;
 }
 .button02 {
   width: 17vw;
@@ -51,6 +63,17 @@ body {
   border: 1px solid #fff;
   border-radius: 40px;
   margin-top: 8%;
+  cursor: pointer;
+}
+.button03 {
+  width: 17vw;
+  height: 5vh;
+  background-color: #fff;
+  box-shadow: 0px 0px 2px 1px grey;
+  border: 1px solid #fff;
+  border-radius: 40px;
+  margin-top: 8%;
+  cursor: pointer;
 }
 .google {
   width: 2vw;
@@ -60,19 +83,7 @@ body {
   width: 4vw;
   margin-left: 0;
 }
-.checkbox {
-  width: 15px;
-  height: 15px;
-  margin-top: 1vh;
-}
 .idk {
   color: grey;
   margin-top: 1vh;
-}
-.idk02 {
-  color: grey;
-  margin-left: 2vw;
-  width: 100%;
-  cursor: pointer;
-  margin-top: 5vh;
 }

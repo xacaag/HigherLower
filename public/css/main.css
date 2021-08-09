@@ -172,3 +172,43 @@ body {
   justify-content: center;
   align-items: center;
 }
+.Sign {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  right: 0;
+  color: #fff;
+}
+.Login {
+  width: 70px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  padding: 6px;
+  cursor: pointer;  
+  margin-right: 5px;
+}
+.SignUp {
+  width: 70px;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid;
+  text-align: center;
+  padding: 6px;
+  cursor: pointer;
+  margin-right: 5px;
+  border-radius: 15px;
+}
+.LogOut {
+  width: 70px;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid;
+  text-align: center;
+  padding: 6px;
+  cursor: pointer;
+  border-radius: 15px;
+  /* display: none; */
+}
+.nevtreh {
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+}
