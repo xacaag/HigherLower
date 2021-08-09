@@ -25,9 +25,11 @@ let link2 = document.getElementById("link2")
 let i = 0;
 
 
+
 console.log(link1)
 console.log(link2)
-const start = () => {
+
+setTimeout(() => {
   followers1.innerHTML = data[i].imdb.toLocaleString();
   followers2.innerHTML = data[i+1].imdb.toLocaleString();
   name1.innerHTML = data[i].name;
@@ -39,8 +41,35 @@ const start = () => {
   container1.style.transitionDelay ="2.5s";
   container2.style.transitionDelay ="2.5s";
   link1.href = data[i].photo;
-  link2.href = data[i+1].photo;
-}
+  link2.href = data[i+1].photo;  
+  link1.innerHTML = data[i].name;
+  link2.innerHTML = data[i+1].name;  
+
+}, 1000);
+ 
+
+const start = () => {
+   location.href="./classic.html "
+  }
+
+  // setTimeout(() => {
+  //   followers1.innerHTML = data[i].imdb.toLocaleString();
+  //   followers2.innerHTML = data[i+1].imdb.toLocaleString();
+  //   name1.innerHTML = data[i].name;
+  //   name2.innerHTML = data[i+1].name;
+  //   container1.style.backgroundImage = `url(${data[i].photo})`
+  //   container2.style.backgroundImage = `url(${data[i+1].photo})`
+  //   container1.style.backgroundSize = "cover";
+  //   container2.style.backgroundSize = "cover";
+  //   container1.style.transitionDelay ="2.5s";
+  //   container2.style.transitionDelay ="2.5s";
+  //   link1.href = data[i].photo;
+  //   link2.href = data[i+1].photo;    
+  // }, 1000);
+
+
+
+
 
 const higher = () => {
   if(data[i].imdb <= data[i+1].imdb){

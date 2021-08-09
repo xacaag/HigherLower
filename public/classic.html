@@ -75,6 +75,7 @@
         font-size: 1.7vw;
         display: flex;
         justify-content: space-between;
+
     }
     
     .current_score {
@@ -92,6 +93,7 @@
         position: absolute;
         display: flex;
         flex-wrap: nowrap;
+        flex-direction: column;
     }
     
     .left_image {
@@ -360,6 +362,9 @@
         background-color: yellow;
 
     }
+    /* .a{
+        font-size: 5px;
+    } */
   
    
     /* ---------------------------------------- Ask designer if design is good! ---------------------------------------- */
@@ -438,16 +443,19 @@
 
         <!-- the score -->
         <div class="score_bar">
-            <div class="high_score">Дээд оноо:
-                <h1>.</h1>
-                <div id="hi_score">0</div>
-               
+            <div class="high_score">Дээд оноо: 0
+                <div> <a class="a" target="_blank"  id="link" href=""> </a></div>
             </div>
             <div class="current_score"id="Bscore">Оноо:
-                <h1>.</h1>
+                <div> &nbsp;</div>
                 <div id="cur_score">0</div>
                
             </div>
+        </div>
+
+        <div>
+           
+            <a target="_blank"  id="link2"href=""></a>
         </div>
         
        
@@ -476,15 +484,14 @@
                 </div>
                 <h1 class="right_ammount invisible" id="r_ammount"></h1>
                 <h2 class="textunderrightammount invisible" id="r_ammount_text">Imdb</h2>
-                <button id="start" onclick="start()">start</button>
+                
                  
             </div>
     
         </div>
         
     </div>
-    <a target="_blank"  id="link"href=""></a>
-    <a target="_blank"  id="link2"href=""></a>
+    
 
 </body>
 
