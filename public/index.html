@@ -9,19 +9,27 @@
   </head>
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
   <body>
+    <div class="nevtreh" >
+      <div class="Sign" >
+        <div class="Login" onclick="Login()"> Login </div>
+        <div class="SignUp" onclick="SignUp()"> Sign up </div>
+        <div class="LogOut" onclick="LogOut()"> Log out </div>
+      </div>
+    </div>
     <div class="haha">
       <div class="GodLogo">
         <img src="./assets/logo/logo.svg" class="logo" />
       </div>
-      <div class="h3">Highest point:</div>
+      <div class="h3">Хамгийн өндөр оноо:</div>
     </div>
 
     <div class="dadButton">
       <div class="Choice">
         <img src="./assets/Classic.svg" class="Classic_V2" />
         <button class="button">
-          Classic
+          Классик
           <img src="./assets/logo/!.svg" id="myBtn" />
         </button>
       </div>
@@ -37,7 +45,7 @@
       <div class="Choice">
         <img src="./assets/genre.svg" class="Genre_V2" />
         <button class="button">
-          Genre
+          Төрөл
           <img src="./assets/logo/!.svg" id="myBtn3" />
         </button>
       </div>
@@ -45,7 +53,7 @@
 
     <div id="overlay" onclick="off()">
       <div id="touch" class="info">
-        <div class="aaa">CLASSIC</div>
+        <div class="aaa">Классик</div>
         <div class="haha">
           <img src="./assets/back_arrow.svg" class="back_arrow" />
           <div class="coolWords">
@@ -56,7 +64,7 @@
           </div>
           <div class="coolWords">searches or lower searches in google.</div>
           <div class="buutttoon">
-            <button class="buuttoon">CLOSE</button>
+            <button class="buuttoon">Хаах</button>
           </div>
         </div>
       </div>
@@ -71,13 +79,13 @@
           <div class="coolWords">If you answer a wrong you lose,</div>
           <div class="coolWords">last one standing will win!</div>
           <div class="buutttoon">
-            <button class="buuttoon">CLOSE</button>
+            <button class="buuttoon">Хаах</button>
           </div>
         </div>
       </div>
 
       <div id="touch3" class="info">
-        <div class="aaa">GENRE</div>
+        <div class="aaa">Төрөл</div>
         <div class="haha">
           <img src="./assets/back_arrow.svg" class="back_arrow" />
           <div class="coolWords">
@@ -88,7 +96,7 @@
             Play Higher or Lower in your favourite genre.
           </div>
           <div class="buutttoon">
-            <button class="buuttoon">CLOSE</button>
+            <button class="buuttoon">Хаах</button>
           </div>
         </div>
       </div>
@@ -97,6 +105,6 @@
     <div class="h2">Which one gets searched up more?</div>
 
     <div id="overlay" onclick="off()"></div>
-  </body>
   <script src="./js/main.js"></script>
+  <script src="./js/login-sign_up.js"></script>
 </html>
