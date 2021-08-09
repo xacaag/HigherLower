@@ -11,5 +11,3 @@ firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
 const storage = firebase.storage();
-console.log = db;
-console.log = storage;
