@@ -10,6 +10,8 @@ db.collection("movie").get().then((docs) => {
 
 console.log(data)
 
+
+
 let name1 = document.getElementById("name1")
 let name2 = document.getElementById("name2")
 let followers1 = document.getElementById("followers1")
@@ -26,8 +28,7 @@ let i = 0;
 
 
 
-console.log(link1)
-console.log(link2)
+
 
 setTimeout(() => {
   followers1.innerHTML = data[i].imdb.toLocaleString();
@@ -44,8 +45,10 @@ setTimeout(() => {
   link2.href = data[i+1].photo;  
   link1.innerHTML = data[i].name;
   link2.innerHTML = data[i+1].name;  
-
+  console.log(link1)
+  console.log(link2)
 }, 1000);
+
  
 
 const start = () => {
@@ -73,8 +76,8 @@ const start = () => {
 
 const higher = () => {
   if(data[i].imdb <= data[i+1].imdb){
-    setTimeout(function(){  name1.innerHTML = data[i].name;}, 2530)
-    setTimeout(function(){  name2.innerHTML = data[i+1].name;},2530)
+    setTimeout(function(){  name1.innerHTML = data[i].name; link1.innerHTML = data[i].name; }, 2530)
+    setTimeout(function(){  name2.innerHTML = data[i+1].name; link2.innerHTML = data[i+1].name; },2530)
     setTimeout(function(){ followers1.innerHTML = data[i].imdb.toLocaleString();}, 2530)
     container1.style.backgroundImage = `url(${data[i+1].photo})`
     container2.style.backgroundImage = `url(${data[i+2].photo})`
@@ -83,6 +86,8 @@ const higher = () => {
     correct_animation_1();
     link1.href = data[i+1].photo;
     link2.href = data[i+2].photo;
+    link1.innerHTML = data[i].name;
+    link2.innerHTML = data[i+1].name;  
     i++;
 
   }else{
@@ -94,14 +99,15 @@ const higher = () => {
 
   const lower = () => {
     if(data[i].imdb >= data[i+1].imdb){
-      setTimeout(function(){  name1.innerHTML = data[i].name;}, 2530)
-      setTimeout(function(){  name2.innerHTML = data[i+1].name;},2530)
+      setTimeout(function(){  name1.innerHTML = data[i].name; link1.innerHTML = data[i].name;}, 2530)
+      setTimeout(function(){  name2.innerHTML = data[i+1].name; link2.innerHTML = data[i+1].name; },2530)
       setTimeout(function(){ followers1.innerHTML = data[i].imdb.toLocaleString();}, 2530)
       container1.style.backgroundImage = `url(${data[i+1].photo})`
       container2.style.backgroundImage = `url(${data[i+2].photo})` 
       followers2.innerHTML = data[i+1].imdb.toLocaleString();
       link1.href = data[i+1].photo;
       link2.href = data[i+2].photo;
+      
       correct_animation_1();
       i++;
       

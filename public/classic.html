@@ -74,7 +74,9 @@
         left: 2.5%;
         font-size: 1.7vw;
         display: flex;
-        justify-content: space-between;
+        justify-content:space-around;
+        
+       
 
     }
     
@@ -85,6 +87,8 @@
         right: 7%;
         display: flex;
         flex-wrap: nowrap;
+        flex-direction: column;
+       
     }
     
     .high_score {
@@ -352,14 +356,23 @@
         top: 40%;
     }
     #link{
-        background-color: yellow;
-        width: 20px;
-        height: 20px;
+       
+        width: 100px;
+        
+        font-size: 10px;
+        color: white;
+        position: absolute;
+        bottom: -55px;
+       
     }
     #link2{
-        width: 20px;
-        height: 20px;
-        background-color: yellow;
+        width: 100px;
+        
+        font-size: 10px;
+        color: white;
+        position: absolute;
+        bottom:-55px;
+       
 
     }
     /* .a{
@@ -443,19 +456,23 @@
 
         <!-- the score -->
         <div class="score_bar">
+            
             <div class="high_score">Дээд оноо: 0
-                <div> <a class="a" target="_blank"  id="link" href=""> </a></div>
+                <div> <a target="_blank"  id="link" href=""> </a></div>
             </div>
-            <div class="current_score"id="Bscore">Оноо:
-                <div> &nbsp;</div>
-                <div id="cur_score">0</div>
-               
+            
+            
+            <div class="current_score"id="Bscore">Оноо:0
+                <!-- <div> &nbsp;</div> -->
+                <!-- <div id="cur_score"></div> -->
+                 <div> <a target="_blank"  id="link2" href=""> </a></div>
             </div>
+         
+           
         </div>
 
         <div>
            
-            <a target="_blank"  id="link2"href=""></a>
         </div>
         
        
