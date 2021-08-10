@@ -74,7 +74,10 @@
         left: 2.5%;
         font-size: 1.7vw;
         display: flex;
-        justify-content: space-between;
+        justify-content:space-around;
+        
+       
+
     }
     
     .current_score {
@@ -84,6 +87,8 @@
         right: 7%;
         display: flex;
         flex-wrap: nowrap;
+        flex-direction: column;
+       
     }
     
     .high_score {
@@ -92,6 +97,7 @@
         position: absolute;
         display: flex;
         flex-wrap: nowrap;
+        flex-direction: column;
     }
     
     .left_image {
@@ -350,16 +356,28 @@
         top: 40%;
     }
     #link{
-        background-color: yellow;
-        width: 20px;
-        height: 20px;
+       
+        width: 100px;
+        
+        font-size: 10px;
+        color: white;
+        position: absolute;
+        bottom: -55px;
+       
     }
     #link2{
-        width: 20px;
-        height: 20px;
-        background-color: yellow;
+        width: 100px;
+        
+        font-size: 10px;
+        color: white;
+        position: absolute;
+        bottom:-55px;
+       
 
     }
+    /* .a{
+        font-size: 5px;
+    } */
   
    
     /* ---------------------------------------- Ask designer if design is good! ---------------------------------------- */
@@ -438,16 +456,23 @@
 
         <!-- the score -->
         <div class="score_bar">
-            <div class="high_score">Дээд оноо:
-                <h1>.</h1>
-                <div id="hi_score">0</div>
-               
+            
+            <div class="high_score">Дээд оноо: 0
+                <div> <a target="_blank"  id="link" href=""> </a></div>
             </div>
-            <div class="current_score"id="Bscore">Оноо:
-                <h1>.</h1>
-                <div id="cur_score">0</div>
-               
+            
+            
+            <div class="current_score"id="Bscore">Оноо:0
+                <!-- <div> &nbsp;</div> -->
+                <!-- <div id="cur_score"></div> -->
+                 <div> <a target="_blank"  id="link2" href=""> </a></div>
             </div>
+         
+           
+        </div>
+
+        <div>
+           
         </div>
         
        
@@ -476,15 +501,14 @@
                 </div>
                 <h1 class="right_ammount invisible" id="r_ammount"></h1>
                 <h2 class="textunderrightammount invisible" id="r_ammount_text">Imdb</h2>
-                <button id="start" onclick="start()">start</button>
+                
                  
             </div>
     
         </div>
         
     </div>
-    <a target="_blank"  id="link"href=""></a>
-    <a target="_blank"  id="link2"href=""></a>
+    
 
 </body>
 
