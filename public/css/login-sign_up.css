@@ -14,16 +14,9 @@ body {
   justify-content: center;
   align-items: center;
 }
-#signup_email {
-  width: 24vw;
-  height: 6vh;
-  margin-top: 4vh;
-  border-radius: 8px;
-  border: 1px solid white;
-  background-color: rgba(239, 240, 246, 1);
-  font-size: 1vw;
-  /* padding: 14px 20px; */
-  padding: 0px 1vw;
+.row1 {
+  display: flex;
+  flex-direction: row;
 }
 #signup_password {
   width: 24vw;
@@ -33,27 +26,51 @@ body {
   border: 1px solid white;
   background-color: rgba(239, 240, 246, 1);
   font-size: 1vw;
-  /* padding: 14px 20px; */
+  padding: 0px 1vw;
+}
+#signup_email {
+  width: 24vw;
+  height: 6vh;
+  margin-top: 4vh;
+  border-radius: 8px;
+  border: 1px solid white;
+  background-color: rgba(239, 240, 246, 1);
+  font-size: 1vw;
   padding: 0px 1vw;
 }
 .button {
-  margin-top: 5vh;
+  margin-top: 2vh;
   width: 26vw;
   height: 6vh;
   border-radius: 8px;
-  border: 1px solid rgba(75, 165, 84, 1);
-  background-color: rgba(75, 165, 84, 1);
+  border: 1px solid #ECD55A;
+  background-color: #ECD55A;
   color: #fff;
   font-size: 1vw;
   cursor: pointer;
 }
 .logo {
-  margin-top: 5vh;
+  margin-top: 8vh;
   width: 20vw;
 }
-.word {
+.word1 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 2vw;
+}
+.word2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1vw;
+}
+.word3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9vw;
+  margin-left: 5px;
+}
+.word4 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9vw;
+  margin-top: 6px;
+  margin-left: -5px;
 }
 .button02 {
   width: 17vw;
@@ -77,19 +94,23 @@ body {
 }
 .google {
   width: 2vw;
-  margin-left: 0;
+  margin-left: -10px;
 }
 .facebook {
-  width: 4vw;
-  margin-left: 0;
-}
-.checkbox {
-  width: 15px;
-  height: 15px;
-  margin-top: 1vh;
-  cursor: pointer;
+  width: 3vw;
+  margin-left: 0px;
 }
 .idk {
   color: grey;
   margin-top: 1vh;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9vw;
+}
+.idk2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9vw;
+  color: grey;
+  margin-top: 2vh;
+  margin-left: -250px;
+  cursor: pointer;
 }
