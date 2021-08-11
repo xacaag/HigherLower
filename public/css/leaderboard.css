@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(#353c44, #222931);
+}
+.column {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.idk {
+  color: grey;
+  font-size: 1.5vw;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2%;
+}
+.lologo {
+  height: 200px;
+  width: 360px;
+}
+.board {
+  height: 550px;
+  width: 760px;
+  border-radius: 8px;
+  border: 1px solid #fff;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.leaderboard {
+  height: 480px;
+  width: 760px;
+  background: radial-gradient(#353c44, #222931);
+  border-radius: 0px 0px 8px 8px;
+}
+.cololumn {
+  display: flex;
+  flex-direction: column;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.5vw;
+  justify-content: space-between;
+  margin-left: 3vw;
+  margin-right: 2vw;
+  margin-top: 2vh;
+}
+.TenOfTen {
+  color: #fff;
+  font-size: 1.5vw;
+}
+.name {
+  font-size: 1.5vw;
+  color: lightgoldenrodyellow;
+  width: 100%;
+  margin-left: 3vw;
+}
+.score {
+  font-size: 1.5vw;
+  color: lightgoldenrodyellow;
+}
+.row:nth-child(1) .name {
+  color: #fdd017;
+}
+.row:nth-child(1) .score {
+  color: #fdd017;
+}
+.row:nth-child(2) .name {
+  color: #c0c0c0;
+}
+.row:nth-child(2) .score {
+  color: #c0c0c0;
+}
+.row:nth-child(3) .name {
+  color: #c9ae5d;
+}
+.row:nth-child(3) .score {
+  color: #c9ae5d;
+}
