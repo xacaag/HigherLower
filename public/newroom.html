@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lobby</title>
+    </head>
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-storage.js"></script>
+    <style>
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+    </style>
+<body>
+
+    <div class="container">
+        <div>
+        <div id='room-input' contenteditable="true"></div>
+        <button onclick="createroom()"> Create room </button>
+    </div>
+
+    <div>
+        <input value="" id='join' />
+        <button onclick="join()"> join </button> 
+    </div>
+
+    </div>
+
+</body>
+    <script src="./js/room.js"></script>
+    <script src="./js/firebase.js"></script>
+</html>
