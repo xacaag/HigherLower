@@ -196,3 +196,9 @@ let reset = () => {
   timeLeft = 12;
 }
 
+let roomdiv = document.getElementById('roomid');
+let roomid = sessionStorage.getItem('roomid')
+
+if(roomid.length > 0){
+  roomdiv.innerHTML = `Pass Code : ${roomid}`;
+}

@@ -38,7 +38,7 @@
 
       <div class="Choice">
         <img src="./assets/multiplayer.svg" class="MultiPlayer_V2" />
-        <button class="button" style="width: 400px">
+        <button onclick="goToRoom()" class="button" style="width: 400px">
           MultiPlayer
           <img src="./assets/logo/!.svg" id="myBtn2" />
         </button>
@@ -108,11 +108,19 @@
 
 
     <div class="h2">Which one gets searched up more?</div>
+</body>
 
-    <div id="overlay" onclick="off()"></div>
+  <div id="overlay" onclick="off()"></div>
   <script src="./js/main.js"></script>
   <script src="./js/login-sign_up.js"></script>
   <script src="./js/firebase.js"></script>
   <script src="./js/app.js"></script>
-  
+  <script src="room.js"></script>
+
+  <script>
+    const goToRoom = () => {
+      window.location = 'newroom.html'
+    }
+  </script>
+
 </html>
