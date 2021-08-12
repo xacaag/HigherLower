@@ -5,15 +5,19 @@ body {
 
 .fullpage-wrapper {
   height: 100vh;
+  width:100vw;
+  margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
-  font-family: "Advent Pro", sans-serif;
+  font-family: 'Advent Pro', sans-serif;
   font-size: 3em;
-  margin: 0.2em 0.5em;
-  color: rgba(0, 0, 0, 0.3);
+  margin: .2em .5em;
+  /* color: rgba(0,0,0, 0.3); */
+  overflow: hidden;
+  filter: brightness(30%);
 }
 .center {
   color: #fff;
@@ -27,12 +31,15 @@ body {
 .button {
   width: 10vw;
   height: 5vh;
-  margin-top: 1%;
+  
   border-radius: 50px;
   border: 1px solid white;
   color: white;
   background-color: Transparent;
   font-size: 1.5vw;
+}
+.button:hover{
+  cursor: pointer;
 }
 .light_score {
   color: #fff;
@@ -44,10 +51,31 @@ body {
   margin-top: 20px;
   font-weight: bold;
 }
-
-/* ///////background >>> solih */
-html {
-  background: url(https://www.ignboards.com/proxy.php?image=http%3A%2F%2Fcdn3.whatculture.com%2Fwp-content%2Fuploads%2F2013%2F11%2Fbrad-pitt-burn-after-reading-s.gif&hash=a349cbd5874f4b3168ededafb5a64c25)
-    no-repeat center center fixed;
+html { 
+  background: no-repeat center center fixed; 
   background-size: cover;
+}
+.opa{
+
+  position:fixed;
+  top:15vw;
+  left:65vh;
+  height: 55vh;
+  width: 30vw;
+
+}
+.butto{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ 
+}
+body{
+  overflow: hidden;
+  /* background-color: black; */
+  background-color: black;
+  height: 100vh;
+  margin:0;
+
 }
