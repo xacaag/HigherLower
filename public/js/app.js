@@ -43,7 +43,7 @@ setTimeout(() => {
   link2.innerHTML = data[i+1].name;  
  
   VS2.classList.add("invisible");
-  intervala();
+  
 }, 1000);
 
  
@@ -75,7 +75,7 @@ const higher = () => {
   }else{
     followers2.innerHTML = data[i+1].imdb.toLocaleString();
     setTimeout(function(){ wrong_animation_1();}, 300)
-    setTimeout(function(){ location.href="./gameover.html";;}, 2500)
+    setTimeout(function(){ location.href="./loser-screen.html";;}, 2500)
   }
   
  
@@ -97,7 +97,7 @@ const higher = () => {
     }else{
     followers2.innerHTML = data[i+1].imdb.toLocaleString();
     setTimeout(function(){ wrong_animation_1();}, 300)
-    setTimeout(function(){ location.href="./gameover.html";;}, 2500)
+    setTimeout(function(){ location.href="./loser-screen.html";;}, 2500)
     }
   }
   
@@ -162,7 +162,7 @@ const higher = () => {
     function wrong_animation_1() {
       // setTimeout(function(){ VS.innerHTML = ("");;}, 0)
       // setTimeout(function(){ VS.classList.add('vs_wrong');},0)
-      setTimeout(function(){  VS2.classList.add("vs_wrong");},1000)
+      setTimeout(function(){  VS2.classList.add("vs_wrong");},500)
         setTimeout(function(){ VS2.classList.remove('invisible');},0)
         setTimeout(function(){ VS2.classList.add('invisible');},4000)
       setTimeout(function(){ BUTTON.classList.add('button_dissapear');;},0)
@@ -176,7 +176,7 @@ const higher = () => {
     if(timeLeft === 0 ){
       followers2.innerHTML = data[i+1].imdb.toLocaleString();
         setTimeout(function(){ wrong_animation_1();}, 300)  
-        setTimeout(function(){ location.href="./gameover.html";;}, 2500)
+        setTimeout(function(){ location.href="./gameover.html";;}, 3000)
     }else{
       VS.innerHTML = String( timeLeft );
       timeLeft--;
@@ -189,3 +189,9 @@ let reset = () => {
   timeLeft = 12;
 }
 
+let roomdiv = document.getElementById('roomid');
+let roomid = sessionStorage.getItem('roomid')
+
+if(roomid.length > 0){
+  roomdiv.innerHTML = `Pass Code : ${roomid}`;
+}
