@@ -25,20 +25,23 @@ body {
   width: 360px;
 }
 .board {
-  height: 550px;
-  width: 760px;
+  height: 50vh;
+  width: 38vw;
   border-radius: 8px;
   border: 1px solid #fff;
   background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-bottom: 10vh;
 }
 .leaderboard {
-  height: 480px;
-  width: 760px;
+  height: 45vh;
+  width: 38vw;
   background: radial-gradient(#353c44, #222931);
   border-radius: 0px 0px 8px 8px;
+  word-wrap: break-word;
+  overflow: scroll;
 }
 .cololumn {
   display: flex;

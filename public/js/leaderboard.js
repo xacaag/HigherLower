@@ -1,6 +1,6 @@
 db.collection("score")
   .orderBy("score", "desc")
-  .limit(8)
+  .limit(50)
   .get()
   .then((querySnapshot) => {
     let i = 1;
