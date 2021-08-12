@@ -63,7 +63,6 @@
     .checkmark {
         width: 8vw;
         height: 8vw;
-
     }
     
     .score_bar {
@@ -442,18 +441,69 @@
             opacity: 1;
         }
     }
+    .spinner {
+        width: 70vw;
+        height: 70vw;
+        margin: auto;
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+    }
+
+    .loader1 {
+        width: 70vw;
+        height: 70vw;
+        border-radius: 50%;
+        background-color: black;
+        margin: auto;
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+        
+        -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+        animation: sk-bounce 2.0s infinite ease-in-out;
+    }
+    .loader2 {
+        width: 70vw;
+        height: 70vw;
+        border-radius: 50%;
+        background-color: white;
+        margin: auto;
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+        
+        -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+        animation: sk-bounce 2.0s infinite ease-in-out;
+        -webkit-animation-delay: -1.0s;
+        animation-delay: -1.0s;
+    }
+
+    @-webkit-keyframes sk-bounce {
+        0%, 100% { 
+            -webkit-transform: scale(0.0) 
+        }
+        50% { 
+            -webkit-transform: scale(2.0) 
+        }
+    }
+
+    @keyframes sk-bounce {
+        0%, 100% { 
+                transform: scale(0.0);
+                -webkit-transform: scale(0.0);
+        } 50% { 
+                transform: scale(2.0);
+                -webkit-transform: scale(2.0);
+        }
+    }
 </style>
 
-<body>
+<body id='body'>
     <div class="game_holder">
-        
         <!-- images -->
       
         <div class="background" id="bg">
             <div class="left_image" id = "container1"></div>
             <div class="right_image"id = "container2"></div>
         </div>
-
         <!-- Circle -->
         <div class="vs" id="vs_id"></div>
         <div class="vs" id="vs_id2"></div>
@@ -471,15 +521,7 @@
                 <!-- <div id="cur_score"></div> -->
                  <div> <a target="_blank"  id="link2" href=""> </a></div>
             </div>
-         
-           
         </div>
-
-        <div>
-           
-        </div>
-        
-       
         <!-- main game -->
         <div class="game">
             <!-- left side information -->
@@ -487,33 +529,28 @@
                 <h1 class="left_name" id="name1">NAME</h1>
                 <h1 class="left_ammount" id="followers1"></h1>
                 <h2 class="textunderleftammount">Imdb</h2>
-                
             </div>
             <!-- right side information and buttons -->
             <div class="right_box">
                 <h1 class="right_name" id="name2">NAME</h1>
-                
                 <!-- buttons -->
                 <div class="button_holder" id="button_id">
                     <button onclick="higher()" id="higher"class="higher_button">Их<div class="higher_button_triangle" ></div></button>
                     <button onclick="lower()" id="lower"class="lower_button">Бага<div class="lower_button_triangle"></div></button>
                     <div class="textunderbutton">
-                     
                         <h1 id="left_name"></h1>
                         <!-- <h1>" гэхээсээ илүү хайлт</h1> -->
                     </div>
                 </div>
                 <h1 class="right_ammount invisible" id="r_ammount"></h1>
                 <h2 class="textunderrightammount invisible" id="r_ammount_text">Imdb</h2>
-                
-                 
             </div>
-    
         </div>
-        
-    </div>
-    
-
+    </div> 
+            <div id="loading" class="spinner">
+            <div  class="loader1">  </div>
+            <div class="loader2">  </div>
+            </div>  
 </body>
 
 <script src="./js/firebase.js"></script>

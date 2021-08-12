@@ -2,14 +2,15 @@
 let data = [];
 let timeLeft;
 
+
 db.collection("movie").get().then((docs) => {
   docs.forEach((doc) => {
     data.push(doc.data())
   })
   data = data.sort(() => Math.random() - 0.5)
+  document.getElementById('loading').style.display = 'none'
 })
 
-console.log(data)
 
 
 
@@ -55,8 +56,9 @@ setTimeout(() => {
  
 
 const start = () => {
-   location.href="./classic.html "
+    location.href="./classic.html "
   }
+  
 
 
 
