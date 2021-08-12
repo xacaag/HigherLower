@@ -39,3 +39,4 @@ const Login = () => {
 const SignUp = () => {
   location.href="./signUp.html"
 }
+
