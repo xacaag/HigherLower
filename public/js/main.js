@@ -1,3 +1,7 @@
+
+
+
+
 document.getElementById("myBtn").onclick = function () {
   myFunction();
 };
@@ -39,4 +43,5 @@ const Login = () => {
 const SignUp = () => {
   location.href="./signUp.html"
 }
+const user = firebase.auth().currentUser;
 

@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href='../public/css/multiplayer.css'/>
+    <link rel="stylesheet" href="./css/multiplayer.css" />
     <title>Document</title>
 </head>
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-storage.js"></script>
 <body>
     <div class="Container1" >
         <div class="Container2" >
@@ -19,15 +23,24 @@
             <div class="Container4" >
                 <div class="Heading2" > ӨРӨӨ НЭЭХ </div>
                 <img src="./assets/room.svg" class="Room">
-                <div class="createBtn" onclick="create()"> Өрөө нээх </div>
+                <div class="createBtn" onclick="createroom()"> Өрөө нээх </div>
             </div>
             <div class="Container5" >
                 <div class="Heading3" > НЭГДЭХ </div>
                 <img src="./assets/join.svg" class="Join">
-                <div class="joinBtn" onclick="join()"> Нэгдэх </div>
+                <div class="joinBtn" onclick="goToJoin()"> Нэгдэх </div>
             </div>  
         </div>
      </div>
 </body>
-</html>
+<script src="./js/firebase.js"></script>
 <script src="./js/multiplayer.js"></script>
+
+<!-- <script src="./js/app.js"></script> -->
+<script src="./js/room.js"></script>
+
+<script> const goToJoin = () => {
+    window.location = 'joincode.html'
+}  
+</script>
+</html>

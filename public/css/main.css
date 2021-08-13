@@ -253,6 +253,9 @@ body {
   -webkit-animation-delay: -1s;
   animation-delay: -1s;
 }
+.none{
+  display: none;
+}
 
 @-webkit-keyframes sk-bounce {
   0%,

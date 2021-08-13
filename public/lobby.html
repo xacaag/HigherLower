@@ -164,11 +164,11 @@
                      <button class="genre">Төрөл</button>
                 </div>
                 <div class="buttons">
-                    <ul>
-                        <li class="four" id="four">Кино</li>
-                        <li class="four" id="four">Дуу</li>
-                        <li class="four" id="four">Инстаграм</li>
-                        <li class="four" id="four">Тоглоом</li>
+                    <ul> 
+                        <li onclick="kino()" class="four" id="kino" value="movie" >Кино</li>
+                        <li onclick="duu()" class="four" id="duu" value="music">Дуу</li>
+                        <li onclick="insta()" class="four" id="insta" value="insta">Инстаграм</li>
+                        <li onclick="tglm()" class="four" id="game" value="game">Тоглоом</li>
 
                     </ul>
                     <!-- <button class="four" id="four">Кино</button>
@@ -190,7 +190,7 @@
 
            </div>
            <div class="start">
-               <button class="start-button" id="start">Эхлэх</button>
+               <button onclick="startGame()" class="start-button" id="start">Эхлэх</button>
 
            </div>
 
@@ -199,6 +199,7 @@
     </div>
 </body>
 <script src="./js/firebase.js"></script>
-<script src="./js/app.js"></script>
+<!-- <script src="./js/app.js"></script> -->
+<script src="./js/join.js"></script>
     
 </html>
