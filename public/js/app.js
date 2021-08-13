@@ -8,11 +8,8 @@ db.collection("movie").get().then((docs) => {
     data.push(doc.data())
   })
   data = data.sort(() => Math.random() - 0.5)
-  document.getElementById('loading').style.display = 'none'
+  document.getElementById('loader').style.display = 'none';
 })
-
-
-
 
 let name1 = document.getElementById("name1")
 let name2 = document.getElementById("name2")
@@ -28,10 +25,6 @@ let link1 = document.getElementById("link")
 let link2 = document.getElementById("link2")
 
 let i = 0;
-
-
-
-
 
 setTimeout(() => {
   followers1.innerHTML = data[i].imdb.toLocaleString();
