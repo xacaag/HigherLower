@@ -5,10 +5,12 @@ const randomIdGenerator = () => {
   };
   
   const createroom = async () => {
-    let roomName = document.getElementById("room-input").innerText;
+    // let roomName = document.getElementById("room-input").innerText;
     let ref = await db.collection("rooms").add({
-      roomName: roomName,
+      // roomName: roomName,
       players: 0,
+      ready: false,
+      start: false,
       time: firebase.firestore.FieldValue.serverTimestamp(),
     });  
     await db
@@ -16,7 +18,6 @@ const randomIdGenerator = () => {
       .get()
       .then((doc) => {
         doc.forEach((el) => {
-          console.log(el.data());
           let playersNumber = el.data().players;
           playersNumber++;
           db.collection("rooms").doc(el.id).update({
@@ -29,8 +30,6 @@ const randomIdGenerator = () => {
     await db.doc(`links/${uid}`).set({
       link: ref.id,
     });
-  
-    sessionStorage.setItem("roomid", uid);
   
     window.location = `lobby.html?roomid=${uid}`;
   };
@@ -52,14 +51,14 @@ const randomIdGenerator = () => {
       .doc(`${realcode}`)
       .get()
       .then((el) => {
-        console.log(el.data());
         let playersNumber = el.data().players;
         playersNumber++;
         db.collection("rooms").doc(el.id).update({
           players: playersNumber,
+          ready: true
         });
         setTimeout(() => {
-          window.location = `lobby.html?roomid=${el.id}`;
+          window.location = `lobby.html?roomid=${joincode}`;
         }, 500);
       });
   };
