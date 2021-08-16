@@ -1,8 +1,7 @@
-db.collection("score")
+db.collection("users")
   .orderBy("score", "desc")
   .limit(50)
-  .get()
-  .then((querySnapshot) => {
+  .onSnapshot((querySnapshot) => {
     let i = 1;
     querySnapshot.forEach((doc) => {
       let container = document.createElement("div");
