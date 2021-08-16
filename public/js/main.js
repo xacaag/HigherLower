@@ -1,4 +1,7 @@
-
+let logind = document.getElementById("login")
+let signupd = document.getElementById("signup")
+let logoutd = document.getElementById("logout")
+let leaderboard = document.getElementById("leaderboard")
 
 
 
@@ -36,12 +39,4 @@ function off() {
   document.getElementById("touch2").classList.remove("show");
   document.getElementById("touch3").classList.remove("show");
 }
-
-const Login = () => {
-  location.href="./login.html"
-}
-const SignUp = () => {
-  location.href="./signUp.html"
-}
-const user = firebase.auth().currentUser;
 
