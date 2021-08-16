@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lobby</title>
+    <title> Өрөө нээх </title>
 </head>
     <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
@@ -29,30 +29,23 @@
             width:50vw;
             height: 100vh;
             align-items: center;
-
         }
         .right-container{
             width:50vw;
             height: 100vh;
             align-items: center;
-
         }
         .roomid-st{
             display: flex;
             justify-content: center;
             font-size: 45px;
-
-
         }
-        
         .genre-st{
             width:50vw;
             height: 20vh;
-
             display: flex;
             justify-content: space-evenly;
-            align-items: center;
-            
+            align-items: center;  
         }
         .classic{
             width:180px;
@@ -61,7 +54,6 @@
             background-color: gold;
             font-size: 20px;
             border:0px;
-        
         }
         .genre{
             width:180px;
@@ -70,8 +62,6 @@
             background-color: gold;
             font-size: 20px;
             border:0px;
-            
-
         }
         .roomid{
             border-bottom: 4px gold solid;
@@ -92,7 +82,6 @@
             justify-content: space-around;
             flex-direction:column;
             margin-top: 50px;
-
         }
         .four{
             width:180px;
@@ -102,7 +91,6 @@
             font-size: 20px;
             color: white;
             list-style-type: none;
-
         }
         .container{
             background-color: black;
@@ -123,15 +111,12 @@
             width: 50vw;
             height: 60vh;
             border-left: 4px gold solid;
-          
-            
         }
         .start{
             width: 50vw;
             height: 20vh;
             display:flex;
-            justify-content: center;
-            
+            justify-content: center;           
             align-items: center;
         }
         .start-button{
@@ -141,8 +126,7 @@
             border:0px;
             border-radius: 25px;
             font-style: italic;
-            font-size: 40px;
-            
+            font-size: 40px;            
         }
     </style>
 <body>
@@ -169,37 +153,26 @@
                         <li onclick="duu()" class="four" id="duu" value="music">Дуу</li>
                         <li onclick="insta()" class="four" id="insta" value="insta">Инстаграм</li>
                         <li onclick="tglm()" class="four" id="game" value="game">Тоглоом</li>
-
                     </ul>
                     <!-- <button class="four" id="four">Кино</button>
                     <button class="four" id="four">Дуу</button>
                     <button class="four" id="four">Инстаграм</button>
                     <button class="four" id="four">Тоглоом</button> -->
-
                 </div>
-               
-
-
         </div>
         <div class="right-container">
             <div class="title">
                 <h1>Тоглогчид</h1>
            </div>
-           <div class="players">
-               
-
+           <div class="players"> 
            </div>
            <div class="start">
                <button onclick="startGame()" class="start-button" id="start">Эхлэх</button>
-
            </div>
-
         </div>
-
     </div>
 </body>
 <script src="./js/firebase.js"></script>
 <!-- <script src="./js/app.js"></script> -->
 <script src="./js/join.js"></script>
-    
 </html>

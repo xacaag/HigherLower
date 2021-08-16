@@ -20,6 +20,7 @@ db.collection("score")
       container.appendChild(name);
       container.appendChild(score);
       document.getElementsByClassName("cololumn")[0].appendChild(container);
+      document.getElementById('loader').style.display = 'none';
       i++;
     });
   });
