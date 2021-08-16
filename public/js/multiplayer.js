@@ -6,11 +6,3 @@ const profile = () => {
 
 }
 
-const create = () => {
-    location.href = "newroom.html"
-}
-
-// const join = () => {
-    
-// }
- 

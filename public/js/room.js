@@ -5,6 +5,7 @@ const randomIdGenerator = () => {
   };
   
   const createroom = async () => {
+    document.getElementById('loader').style.visibility = 'visible';
     // let roomName = document.getElementById("room-input").innerText;
     let ref = await db.collection("rooms").add({
       // roomName: roomName,
@@ -30,7 +31,6 @@ const randomIdGenerator = () => {
     await db.doc(`links/${uid}`).set({
       link: ref.id,
     });
-  
     window.location = `lobby.html?roomid=${uid}`;
   };
   
