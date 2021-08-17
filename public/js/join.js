@@ -5,7 +5,7 @@ let roomid = param.get("roomid");
 console.log(roomid);
 
 if (roomid.length > 0) {
-  roomdiv.innerHTML = `Pass Code : ${roomid}`;
+  roomdiv.innerHTML = `Код : ${roomid}`;
 }
 
 const startGame = () => {
