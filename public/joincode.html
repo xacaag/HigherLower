@@ -12,18 +12,26 @@
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-storage.js"></script>
   <body>
+    <img src="./assets/back.svg" class="backBtn" onclick="back()">
+    <div class="Username" onclick="profile()"> xacaag </div>
     <div class="column">
       <img src="./assets/logo/logo.svg" class="lologo" />
       <div class="row">
         <div class="input-wrapper">
           <input type="text" id='join' maxlength="6"  value="" />
         </div>
-        <div class="joinBtn" onclick="join()"> Нэгдэх </div>
       </div>
-      <div class="idk">Кодыг оруулна уу!</div>
+      <div class="idk">Кодыг оруулна уу</div>
+      <div class="idk2"> кодоо найзуудаасаа аваарай! тоглоомоо сайхан өнгөрүүлээрэй</div>
+      <div class="joinBtn" onclick="join()"> Нэгдэх </div>
     </div>
   </body>
   <script src="./js/joincode.js"></script>
   <script src="./js/room.js"></script>
   <script src="./js/firebase.js"></script>
+
+  <script> const back = () => {
+    location.href ="multiplayer.html"
+  } 
+  </script>
 </html>
