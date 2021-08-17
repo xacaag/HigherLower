@@ -45,9 +45,6 @@ setTimeout(() => {
   VS2.classList.add("invisible");
 }, 2000);
 
-const start = () => {
-  location.href = "./classic.html ";
-};
 let onoo = 0;
 let highScore;
 const higher = async () => {
