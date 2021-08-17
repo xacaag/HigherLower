@@ -29,6 +29,10 @@ function myFunction3() {
   document.getElementById("overlay").style.display = "block";
 }
 
+function myFunction4() {
+  document.getElementById("touch4").classList.add("show");
+  document.getElementById("overlay").style.display = "block";
+}
 function on() {
   document.getElementById("overlay").style.display = "block";
 }
@@ -38,5 +42,6 @@ function off() {
   document.getElementById("touch").classList.remove("show");
   document.getElementById("touch2").classList.remove("show");
   document.getElementById("touch3").classList.remove("show");
+  document.getElementById("touch4").classList.remove("show");
 }
 
