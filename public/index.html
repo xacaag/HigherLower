@@ -28,22 +28,25 @@
       <div class="dadButton">
         <div class="Choice">
           <img src="./assets/Classic.svg" class="Classic_V2" />
-          <div onclick="start()" id="button1" class="classicBtn">
-            Классик
+          <div  id="button1" class="classicBtn">
+       
+            <p  class="buttonw"onclick="start()" >  Классик </p>
             <img src="./assets/logo/!.svg" id="myBtn" />
           </div>
         </div>
         <div class="Choice">
           <img src="./assets/multiplayer.svg" class="MultiPlayer_V2" />
-          <div onclick="goToRoom()" class="multiplayerBtn">
-             Холбогдож тоглох
+          <div  class="multiplayerBtn">
+            <p  class="buttonw"onclick="goToRoom()" > Холбогдож тоглох</p>
+         
             <img src="./assets/logo/!.svg" id="myBtn2" />
           </div>
         </div>
         <div class="Choice">
           <img src="./assets/genre.svg" class="Genre_V2" />
-          <div onclick="" class="categoryBtn">
-            Төрөл
+          <div class="categoryBtn">
+            <p  class="buttonw"onclick="genre()" >  Төрөл</p>
+    
             <img src="./assets/logo/!.svg" id="myBtn3" />
           </div>
         </div>
@@ -101,10 +104,20 @@
           </div>
         </div>
       </div>
+      <div id="touch4" class="info">
+       
+        <div class="haha">
+          <p class="buttonw">Олуулаа тоголхын тулд та бүртгэл үүсгэж орсон байх хэрэгтэй!</p>
+          <div class="buutttoon">
+            <button onclick="gotosign()"class="buuttoon">SignUp</button>
+          </div>
+        </div>
+      </div>
     </div>
+    
   </body>
 
-  <div id="overlay" onclick="off()"></div>
+  
   <script src="./js/main.js"></script>
   <script src="./js/login-sign_up.js"></script>
   <script src="./js/firebase.js"></script>
@@ -121,15 +134,25 @@
     const SignUp = () => {
       location.href = "./signUp.html";
     };
+    const gotosign = () =>{
+      window.location = "./signUp.html"
+    }
+    let unen;
     const goToRoom = () => {
-      window.location = "multiplayer.html";
-    };
+        if(unen === true){
+          window.location = "multiplayer.html";
+        }else{
+          myFunction4()
+        }
+        };
 
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
+        unen = true;
         logind.classList.add("none");
         signupd.classList.add("none");
       } else {
+        unen = false;
         leaderboard.classList.add("none");
         logoutd.classList.add("none");
       }
