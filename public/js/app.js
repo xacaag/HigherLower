@@ -43,13 +43,16 @@ setTimeout(() => {
   link2.innerHTML = data[i + 1].name;
 
   VS2.classList.add("invisible");
-}, 1000);
+}, 2000);
 
 const start = () => {
   location.href = "./classic.html ";
 };
 let onoo = 0;
-const higher = () => {
+let highScore;
+const higher = async () => {
+  const currentUser = firebase.auth().currentUser;
+
   if (data[i].imdb <= data[i + 1].imdb) {
     setTimeout(function () {
       name1.innerHTML = data[i].name;
@@ -74,6 +77,19 @@ const higher = () => {
     i++;
     onoo++;
     document.getElementById("Bscore").innerHTML = `Оноо: ${onoo}`;
+
+    await db
+      .collection("users")
+      .doc(`${currentUser.uid}`)
+      .onSnapshot((el) => {
+        highScore = el.data().score;
+      });
+    if (highScore < onoo) {
+      db.collection("users").doc(`${currentUser.uid}`).update({
+        score: onoo,
+      });
+    }
+
     reset();
   } else {
     followers2.innerHTML = data[i + 1].imdb.toLocaleString();
@@ -86,7 +102,8 @@ const higher = () => {
   }
 };
 
-const lower = () => {
+const lower = async () => {
+  const currentUser = firebase.auth().currentUser;
   if (data[i].imdb >= data[i + 1].imdb) {
     setTimeout(function () {
       name1.innerHTML = data[i].name;
@@ -108,6 +125,19 @@ const lower = () => {
     i++;
     onoo++;
     document.getElementById("Bscore").innerHTML = `Оноо: ${onoo}`;
+
+    await db
+      .collection("users")
+      .doc(`${currentUser.uid}`)
+      .onSnapshot((el) => {
+        highScore = el.data().score;
+      });
+    if (highScore < onoo) {
+      db.collection("users").doc(`${currentUser.uid}`).update({
+        score: onoo,
+      });
+    }
+
     reset();
   } else {
     followers2.innerHTML = data[i + 1].imdb.toLocaleString();
@@ -232,31 +262,3 @@ let intervala = setInterval(() => {
 let reset = () => {
   timeLeft = 12;
 };
-
-// let HighScore = document.getElementById("HighScore");
-
-// HighScore.addEventListener("click", function () {
-//   let user = document.getElementById("user").value;
-//   let SSScore = document.getElementById("SSScore").value;
-
-//   let data = {
-//     user: user,
-//     SSScore: SSScore,
-//   };
-//   let database = firebase.database();
-//   let ref = database.ref("records");
-//   ref.push("data");
-// });
-
-// Add a new document with a generated id.
-
-// setTimeout(()=> {
-//   const ScoreUser = firebase.auth().currentUser;
-// },1000)
-
-// console.log(ScoreUser);
-
-// db.collection("score").add({
-//   name: {},
-//   score: onoo,
-// });
