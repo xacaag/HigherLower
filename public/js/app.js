@@ -73,6 +73,7 @@ const higher = async () => {
     link2.innerHTML = data[i + 1].name;
     i++;
     onoo++;
+    reset();
     document.getElementById("Bscore").innerHTML = `Оноо: ${onoo}`;
 
     await db
@@ -86,8 +87,6 @@ const higher = async () => {
         score: onoo,
       });
     }
-
-    reset();
   } else {
     followers2.innerHTML = data[i + 1].imdb.toLocaleString();
     setTimeout(function () {
@@ -121,6 +120,7 @@ const lower = async () => {
     correct_animation_1();
     i++;
     onoo++;
+    reset();
     document.getElementById("Bscore").innerHTML = `Оноо: ${onoo}`;
 
     await db
@@ -134,8 +134,6 @@ const lower = async () => {
         score: onoo,
       });
     }
-
-    reset();
   } else {
     followers2.innerHTML = data[i + 1].imdb.toLocaleString();
     setTimeout(function () {
