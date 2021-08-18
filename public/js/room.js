@@ -30,6 +30,10 @@ const join = async () => {
   let roomData = await db.collection("rooms").doc(`${link}`).get();
 
   let { players } = roomData.data();
+  if (players > 5) {
+    alert("Өрөө дүүрсэн байна");
+    return;
+  }
   await db
     .collection("rooms")
     .doc(`${link}`)
