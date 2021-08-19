@@ -108,13 +108,32 @@
                   <div class="borderSborder" style="background-color: purple">
                     <img src="./assets/players.svg" />
                   </div>
+                <div class="genre-st">
+                     <button class="classic" onclick="lobbyClassic()" > Классик </button>
+                     <button class="genre" onclick="lobbyGenre()" > Төрөл </button>
+                </div>
+                <div class="buttons">
+                    <ul> 
+                        <li onclick="typer(this)" class="four" id="movie" value="movie" >Кино</li>
+                        <li onclick="typer(this)" class="four" id="music" value="music">Дуу</li>
+                        <li onclick="typer(this)" class="four" id="instagram" value="insta">Инстаграм</li>
+                        <li onclick="typer(this)" class="four" id="game" value="game">Тоглоом</li>
+                        
+                    </ul>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="start">
-          <div onclick="startGame()" class="start-button" id="start">Эхлэх</div>
+        <div class="right-container">
+            <div class="title">
+                <h1 class="toglogch">Тоглогчид</h1>
+           </div>
+           <div class="players"> 
+           </div>
+           <div class="start">
+               <button onclick="startGame()" class="start-button" id="startB" > Эхлэх </button>
+           </div>
         </div>
       </div>
     </div>
