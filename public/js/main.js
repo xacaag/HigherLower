@@ -3,6 +3,22 @@ let signupd = document.getElementById("signup")
 let logoutd = document.getElementById("logout")
 let leaderboard = document.getElementById("leaderboard")
 
+const close = () => {
+  document.getElementById("overlay1").style.display = "none";
+}
+
+const edit = () => {
+  
+}
+
+const save = () => {
+  
+}
+
+const logOut = () => {
+  
+}
+
 
 
 document.getElementById("myBtn").onclick = function () {

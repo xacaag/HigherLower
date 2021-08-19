@@ -14,6 +14,7 @@
   <body>
     <div id="overlay1" onclick="off1()">
       <div id="settings">
+        <img src="./assets/logo/close.svg" class="close" onclick="haah()">
         <div id="heading1"> ТОХИРГОО </div>
         <div class="contain1"> 
           <div id="circle" ></div>
@@ -210,26 +211,15 @@
         logoutd.classList.add("none");
       }
     });
-    var acc = document.getElementsByClassName("accordion");
-    var i;
-    
-    for (i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.maxHeight) {
-          panel.style.maxHeight = null;
-        } else {
-          panel.style.maxHeight = panel.scrollHeight + "px";
-        } 
-      });
-    }
-
     function on1() {
       document.getElementById("overlay1").style.display = "block";
     }
 
     function off1() {
+      // document.getElementById("overlay1").style.display = "none";
+    }
+
+    const haah = () => {
       document.getElementById("overlay1").style.display = "none";
     }
     var a;
