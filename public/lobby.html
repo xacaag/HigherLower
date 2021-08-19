@@ -1,191 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Өрөө нээх </title>
-</head>
-    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-storage.js"></script>
-    <style>
-        body{
-            overflow: hidden;
-            background: radial-gradient(#353c44, #222931);
-        }
-        .title{
-            display: flex;
-            justify-content: center;
-            font-size: 20px;
-            color: white;
-            margin-top: 30px;
-        }
-        .container{
-            display: flex;
-            flex-direction: row;
-        }
-        .left-container{
-            width:50vw;
-            height: 100vh;
-            align-items: center;
-        }
-        .right-container{
-            width:50vw;
-            height: 100vh;
-            align-items: center;
-        }
-        .roomid-st{
-            display: flex;
-            justify-content: center;
-            font-size: 45px;
-            margin-top: 20px;
-        }
-        .genre-st{
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;  
-        }
-        .classic{
-            width: 200px;
-            height: 60px;
-            background-color: #ECD55A;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            color: black;
-            font-family: Arial, Helvetica, sans-serif;
-            border: 1px solid #ECD55A;
-            border-radius: 50px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-        .genre{
-            width: 200px;
-            height: 60px;
-            background-color: #ECD55A;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            color: black;
-            font-family: Arial, Helvetica, sans-serif;
-            border: 1px solid #ECD55A;
-            border-radius: 50px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-        .roomid{
-            border-bottom: 4px gold solid;
-            color: white;
-        }
-        .title-2{
-            display: flex;
-            justify-content: center;
-            width: 50vw;
-            height: 5vw;
-            color: white;
-            margin-top: 50px;
-        }
-        .buttons{
-            width: 50vw;
-            height: 30vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .four{
-            width:180px;
-            height: 40px;
-            background: none;
-            border: 0px;
-            font-size: 20px;
-            color: white;
-            list-style-type: none;
-        }
-        .container{
-            background: radial-gradient(#353c44, #222931);
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        .classic:hover{
-            cursor: pointer;
-        }
-        .genre:hover{
-            cursor: pointer;
-        }
-        .four:hover{
-            cursor: pointer;
-        }
-        .none{
-            display: none;
-        }
-        .players{
-            width: 50vw;
-            height: 60vh;
-            border-left: 4px gold solid;
-        }
-        .start{
-            width: 50vw;
-            height: 20vh;
-            display:flex;
-            justify-content: center;           
-            align-items: center;
-        }
-        .start-button{
-            width: 220px;
-            height: 70px;
-            background-color: #ECD55A;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 33px;
-            color: black;
-            font-family: Arial, Helvetica, sans-serif;
-            border: 1px solid #ECD55A;
-            border-radius: 50px;
-            cursor: pointer;          
-        }
-    </style>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/players.css" />
+    <title>Өрөө нээх</title>
+  </head>
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-storage.js"></script>
+  <body>
     <div class="container">
-        <div class="left-container">
-                <div class="title">
-                     <h1>Тохиргоо</h1>
-                </div>
-                <div class="roomid-st">
-                     <div class="roomid" id="roomid" ></div>
-                </div>
-                <div class="title-2">
-                    <h1>Тоглоомын горим</h1>
-                </div>
-                <div class="genre-st">
-                     <div class="classic" onclick="lobbyClassic()" > Классик </div>
-                     <div class="genre" onclick="lobbyGenre()" > Төрөл </div>
-                </div>
-                <div class="buttons">
-                    <ul> 
-                        <li onclick="kino()" class="four" id="kino" value="movie" >Кино</li>
-                        <li onclick="duu()" class="four" id="duu" value="music">Дуу</li>
-                        <li onclick="insta()" class="four" id="insta" value="insta">Инстаграм</li>
-                        <li onclick="tglm()" class="four" id="game" value="game">Тоглоом</li>
-                    </ul>
-                </div>
+      <div class="left-container">
+        <div class="title">
+          <h1>Тохиргоо</h1>
         </div>
-        <div class="right-container">
-            <div class="title">
-                <h1>Тоглогчид</h1>
-           </div>
-           <div class="players"> 
-           </div>
-           <div class="start">
-               <div onclick="startGame()" class="start-button" id="start" > Эхлэх </div>
-           </div>
+        <div class="roomid-st">
+          <div class="roomid" id="roomid"></div>
         </div>
+        <div class="title-2">
+          <h1>Тоглоомын горим</h1>
+        </div>
+        <div class="genre-st">
+          <div class="classic" onclick="lobbyClassic()">Классик</div>
+          <div class="genre" onclick="lobbyGenre()">Төрөл</div>
+        </div>
+        <div class="buttons">
+          <ul>
+            <li onclick="kino()" class="four" id="kino" value="movie">Кино</li>
+            <li onclick="duu()" class="four" id="duu" value="music">Дуу</li>
+            <li onclick="insta()" class="four" id="insta" value="insta">
+              Инстаграм
+            </li>
+            <li onclick="tglm()" class="four" id="game" value="game">
+              Тоглоом
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="right-container">
+        <div class="title">
+          <h1>Тоглогчид</h1>
+        </div>
+        <div class="players">
+          <div class="row">
+            <div class="column">
+              <div class="playersID">
+                <div class="words"></div>
+                <div class="missil">
+                  <div class="borderSborder" style="background-color: red">
+                    <img src="./assets/players.svg" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="playersID2">
+                  <div class="words"></div>
+                  <div class="missil">
+                    <div
+                      class="borderSborder"
+                      style="background-color: lightblue"
+                    >
+                      <img src="./assets/players.svg" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="playersID3">
+                <div class="words"></div>
+                <div class="missil">
+                  <div
+                    class="borderSborder"
+                    style="background-color: lightpink"
+                  >
+                    <img src="./assets/players.svg" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="column" style="margin-left: 10vw">
+              <div class="playersID4">
+                <div class="words"></div>
+                <div class="missil">
+                  <div
+                    class="borderSborder"
+                    style="background-color: lightgreen"
+                  >
+                    <img src="./assets/players.svg" />
+                  </div>
+                </div>
+              </div>
+              <div class="playersID5">
+                <div class="words"></div>
+                <div class="missil">
+                  <div class="borderSborder" style="background-color: orange">
+                    <img src="./assets/players.svg" />
+                  </div>
+                </div>
+              </div>
+              <div class="playersID6">
+                <div class="words"></div>
+                <div class="missil">
+                  <div class="borderSborder" style="background-color: purple">
+                    <img src="./assets/players.svg" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="start">
+          <div onclick="startGame()" class="start-button" id="start">Эхлэх</div>
+        </div>
+      </div>
     </div>
-</body>
-<script src="./js/firebase.js"></script>
-<!-- <script src="./js/app.js"></script> -->
-<script src="./js/join.js"></script>
+  </body>
+  <script src="./js/firebase.js"></script>
+  <!-- <script src="./js/app.js"></script> -->
+  <script src="./js/join.js"></script>
 </html>
