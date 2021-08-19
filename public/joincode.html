@@ -18,19 +18,34 @@
       <img src="./assets/logo/logo.svg" class="lologo" />
       <div class="row">
         <div class="input-wrapper">
-          <input type="text" id='join' maxlength="6"  value="" />
+          <input type="text" id='join' maxlength="6"  value="" onkeyup="changeTheColorOfButtonDemo()"/>
         </div>
       </div>
       <div class="idk">Кодыг оруулна уу</div>
       <div class="idk2"> кодоо найзуудаасаа аваарай! тоглоомоо сайхан өнгөрүүлээрэй</div>
-      <div class="joinBtn" onclick="join()"> Нэгдэх </div>
+      <div class="joinBtn" id="joinroom"onclick="join()" > Нэгдэх </div>
     </div>
   </body>
-  <script src="./js/joincode.js"></script>
+  <!-- <script src="./js/joincode.js"></script> -->
   <script src="./js/room.js"></script>
   <script src="./js/firebase.js"></script>
 
-  <script> const back = () => {
+  <script> 
+let joinroom = document.getElementById("joinroom")
+let joinvalue = document.getElementById("join")
+// console.log(joinvalue.value)
+// if(joinvalue.value.length > 5){
+// joinroom.classList.add("hello")
+// }else{
+// joinroom.classList.remove("hello")
+// }
+function changeTheColorOfButtonDemo() {
+joinroom.style.backgroundColor = "gold"
+joinroom.style.color = "black"
+
+   }
+
+  const back = () => {
     location.href ="multiplayer.html"
   } 
   </script>
