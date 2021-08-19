@@ -36,28 +36,18 @@ const signUp = () => {
   firebase
     .auth()
     .createUserWithEmailAndPassword(email, password)
-    .then((result) => {
-      let user = result.user;
-      let uid = user.uid;
-      db.collection("users").doc(`${user.uid}`).set({
+    .then(async (userCredential) => {
+      let user = userCredential.user
+      await db.collection("users").doc(`${user.uid}`).set({
         name: email,
         time: firebase.firestore.FieldValue.serverTimestamp(),
         score: 0,
-      });
+      })
+        location.href = "./index.html";  
     })
     .catch((err) => {
-      let errorCode = err.code;
-      let errorMessage = err.message;
       alert(err);
     });
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      location.href = "./index.html";
-      //   document.getElementsByClassName("LogOut")[0].display= "none";
-      // }else {
-      //     document.getElementsByClassName("LogOut")[0].visibility = "visible";
-    }
-  });
 };
 
 const LogOut = () => {

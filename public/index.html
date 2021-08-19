@@ -12,11 +12,28 @@
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-storage.js"></script>
   <body>
+    <div id="overlay1" onclick="off1()">
+      <div id="settings">
+        <div id="heading1"> ТОХИРГОО </div>
+        <div class="contain1"> 
+          <div id="circle" ></div>
+          <div id="username" > xacaag </div>
+          <div id="edit" onclick="edit()" > Засах </div>
+        </div>
+        <div id="heading2" > xэрэглэгчийн нэр</div>
+        <div id="line" ></div>
+        <div class="contain2"> 
+          <input id="name" >
+          <div id="save" onclick="save()" > Хадгалах </div>
+        </div>
+        <div id="logOut" onclick="logOut()" > Гарах </div>
+      </div>
+    </div>
     <div class="nevtreh">
       <div class="Sign">
         <div id="login" class="Login" onclick="Login()">Login</div>
         <div id="signup" class="SignUp" onclick="SignUp()">Sign up</div>
-        <div id="logout" class="LogOut" onclick="LogOut()">Log out</div>
+        <div id="profile" class="profile" onclick="on1()"> xacaag </div>
       </div>
     </div>
     <div class="haha">
@@ -24,39 +41,56 @@
         <img src="./assets/logo/logo.svg" class="logo" />
       </div>
     </div>
+    <div class="bair">
     <div class="column">
       <div class="dadButton">
         <div class="Choice">
           <img src="./assets/Classic.svg" class="Classic_V2" />
           <div  id="button1" class="classicBtn">
        
-            <p  class="buttonw"onclick="start()" >  Классик </p>
+            <p  id="start_p"onmouseover="start_hover(this)" onmouseout="start_normal(this)" class="buttonw"onclick="start()" >  Классик </p>
             <img src="./assets/logo/!.svg" id="myBtn" />
           </div>
         </div>
         <div class="Choice">
           <img src="./assets/multiplayer.svg" class="MultiPlayer_V2" />
-          <div  class="multiplayerBtn">
-            <p  class="buttonw"onclick="goToRoom()" > Холбогдож тоглох</p>
+          <div  class="multiplayerBtn" id="multi__button">
+            <p  onmouseover="multi_hover(this)" onmouseout="multi_normal(this)" class="buttonw"onclick="goToRoom()" id="multi_p"> Холбогдож тоглох</p>
          
             <img src="./assets/logo/!.svg" id="myBtn2" />
           </div>
         </div>
+        <div class="genre_container">
         <div class="Choice">
           <img src="./assets/genre.svg" class="Genre_V2" />
-          <div class="categoryBtn">
-            <p  class="buttonw"onclick="genre()" >  Төрөл</p>
+          <div class="categoryBtn"id="genre__button">
+            <p  onmouseover="genre_hover(this)" onmouseout="genre_normal(this)" id="genre_button"class="buttonw "onclick="genre()" >  Төрөл</p>
     
             <img src="./assets/logo/!.svg" id="myBtn3" />
           </div>
         </div>
+        <div  class="genre_start_button"  id="genre_start" >
+        <p  onmouseover="genre_start_hover(this)" onmouseout="genre_start_normal(this)" onclick="genrestart()" id="genre_start_p">Эхлэх</p>
       </div>
-      <div id="leaderboard" class="button" style="margin-top: 3vh">
-        <a class="leaderboardlink" href="./leaderboard.html">
-          тоглогчийн самбар</a
-        >
+        <div id="genre_list"  class="none"class="genres">
+          <ul id="ul_">
+            <li onclick="kino()" class="genres_button">Кино</li>
+            <li onclick="duu()" class="genres_button">Дуу</li>
+            <li onclick="insta()" class="genres_button">Инстаграм</li>
+            <li onclick="togloom()" class="genres_button">Тоглоом</li>
+          </ul>
+
+        </div>
+      </div>
       </div>
     </div>
+      <div  id="leaderboard" class="button"id="leader_p" style="margin-top: 3vh">
+        
+          <p  onmouseover="leader_hover(this)" onmouseout="leader_normal(this)" class="leaderboardlink" onclick="leader_b()" id="leader_p"> Тоглогчийн самбар</p>
+         
+      </div>
+    </div>
+   
     <div id="overlay" onclick="off()">
       <div id="touch" class="info">
         <div class="aaa">Классик</div>
@@ -125,6 +159,9 @@
   <script src="room.js"></script>
 
   <script>
+    const leader_b = () =>{
+      location.href = "./leaderboard.html"
+    }
     const start = () => {
       location.href = "./classic.html ";
     };
@@ -137,7 +174,23 @@
     const gotosign = () =>{
       window.location = "./signUp.html"
     }
+    
+    let button1 = document.getElementById("button1")
+    let l_button = document.getElementsByClassName("button")[0];
+    // let leaderboard = document.getElementById("leaderboard")
+    let multi__button = document.getElementById("multi__button")
+    let leader_p = document.getElementById("leader_p")
+    let multi_p = document.getElementById("multi_p")
+    let start_p = document.getElementById("start_p")
+    let ul = document.getElementById("ul_")
+    let genre_list = document.getElementById("genre_list")
     let unen;
+    let genre_button = document.getElementById("genre_button")
+    let genre_start = document.getElementById("genre_start")
+    let genre__button =document.getElementById("genre__button")
+    let genre_start_p = document.getElementById("genre_start_p")
+    
+
     const goToRoom = () => {
         if(unen === true){
           window.location = "multiplayer.html";
@@ -157,5 +210,127 @@
         logoutd.classList.add("none");
       }
     });
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        } 
+      });
+    }
+
+    function on1() {
+      document.getElementById("overlay1").style.display = "block";
+    }
+
+    function off1() {
+      document.getElementById("overlay1").style.display = "none";
+    }
+    var a;
+    const genrestart = () =>{
+       window.location = `./${a}.html`;
+    }
+    const genre = () =>{
+
+      if(genre_list.classList.contains('none')){
+        genre_list.setAttribute('class', "flex")
+      }else{
+        genre_list.setAttribute('class', "none")
+      }  
+      genre_start.style.display="none"
+      ul.style.height="150px"
+    }
+
+    const kino = () =>{
+      genre_list.classList.add("none")
+      genre_button.innerHTML = "Кино"
+     genre_start.style.display="flex"
+     a = "movie";
+    
+
+    }
+    const duu = () =>{
+      genre_list.classList.add("none")
+      genre_button.innerHTML = "Дуу"
+      genre_start.style.display="flex"
+      a = "music";
+    }
+    const insta = () =>{
+      genre_list.classList.add("none")
+      genre_button.innerHTML = "Инста"
+      genre_start.style.display="flex"
+      a = "instagram";
+    }
+    const togloom = () =>{
+      genre_list.classList.add("none")
+      genre_button.innerHTML = "Тоглоом"
+      genre_start.style.display="flex"
+      a = "game";
+    }
+    function start_hover (x) {
+     
+      start_p.style.fontSize="22px"
+      button1.style.boxShadow="0px 0px 40px 0px black"
+   
+}
+
+    function  start_normal(x) {
+    
+    start_p.style.fontSize="20px"
+    button1.style.boxShadow="none"
+    }
+    
+
+
+    function multi_hover (x) {
+     multi_p.style.fontSize="22px"
+     multi__button.style.boxShadow="0px 0px 40px 0px black"
+     }
+    function  multi_normal(x) {
+      multi_p.style.fontSize="20px"
+      multi__button.style.boxShadow="none"
+   }
+
+
+
+   function genre_hover (x) {  
+     genre_button.style.fontSize="22px"
+     genre__button.style.boxShadow="0px 0px 40px 0px black"
+    }
+   function  genre_normal(x) {
+    genre_button.style.fontSize="20px"
+    genre__button.style.boxShadow="none"
+   }
+
+
+
+
+
+   function leader_hover (x) {
+     leader_p.style.fontSize="22px"
+     l_button.style.boxShadow="0px 0px 40px 0px black"
+    }
+
+   function  leader_normal(x) {
+     leader_p.style.fontSize="20px"
+     l_button.style.boxShadow="none"
+   }
+
+
+   function genre_start_hover (x) {
+     genre_start_p.style.fontSize="22px"
+     genre_start.style.boxShadow="0px 37px 40px 0px black"
+    }
+
+   function genre_start_normal(x) {
+     genre_start_p.style.fontSize="20px"
+     genre_start.style.boxShadow="none"
+   }
   </script>
 </html>
