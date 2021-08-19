@@ -12,11 +12,28 @@
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-storage.js"></script>
   <body>
+    <div id="overlay1" onclick="off1()">
+      <div id="settings">
+        <div id="heading1"> ТОХИРГОО </div>
+        <div class="contain1"> 
+          <div id="circle" ></div>
+          <div id="username" > xacaag </div>
+          <div id="edit" onclick="edit()" > Засах </div>
+        </div>
+        <div id="heading2" > xэрэглэгчийн нэр</div>
+        <div id="line" ></div>
+        <div class="contain2"> 
+          <input id="name" >
+          <div id="save" onclick="save()" > Хадгалах </div>
+        </div>
+        <div id="logOut" onclick="logOut()" > Гарах </div>
+      </div>
+    </div>
     <div class="nevtreh">
       <div class="Sign">
         <div id="login" class="Login" onclick="Login()">Login</div>
         <div id="signup" class="SignUp" onclick="SignUp()">Sign up</div>
-        <div id="logout" class="LogOut" onclick="LogOut()">Log out</div>
+        <div id="profile" class="profile" onclick="on1()"> xacaag </div>
       </div>
     </div>
     <div class="haha">
@@ -157,5 +174,27 @@
         logoutd.classList.add("none");
       }
     });
-  </script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        } 
+      });
+    }
+
+    function on1() {
+      document.getElementById("overlay1").style.display = "block";
+    }
+
+    function off1() {
+      document.getElementById("overlay1").style.display = "none";
+    }
+    </script>
 </html>
