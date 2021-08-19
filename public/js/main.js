@@ -1,8 +1,7 @@
 let logind = document.getElementById("login")
 let signupd = document.getElementById("signup")
-let logoutd = document.getElementById("logout")
+let profiled = document.getElementById("profile")
 let leaderboard = document.getElementById("leaderboard")
-
 
 
 document.getElementById("myBtn").onclick = function () {
