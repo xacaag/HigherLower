@@ -18,8 +18,7 @@
         <div id="heading1"> ТОХИРГОО </div>
         <div class="contain1"> 
           <div id="circle" ></div>
-          <div id="username" > xacaag </div>
-          <div id="edit" onclick="edit()" > Засах </div>
+          <div id="username" > </div>
         </div>
         <div id="heading2" > xэрэглэгчийн нэр</div>
         <div id="line" ></div>
@@ -34,7 +33,10 @@
       <div class="Sign">
         <div id="login" class="Login" onclick="Login()">Login</div>
         <div id="signup" class="SignUp" onclick="SignUp()">Sign up</div>
-        <div id="profile" class="profile" onclick="on1()"> xacaag </div>
+        <div id="profile" class="profile" onclick="on1()"> 
+          <div id="ner" ></div>
+          <img src="./assets/down.svg" class="down" >
+        </div>
       </div>
     </div>
     <div class="haha">
@@ -202,24 +204,39 @@
 
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
+        db.collection("users").doc(user.uid).onSnapshot(el => {
+          document.getElementById("ner").innerHTML = el.data().name;
+          document.getElementById("username").innerHTML = el.data().name;
+        })
         unen = true;
         logind.classList.add("none");
         signupd.classList.add("none");
       } else {
         unen = false;
         leaderboard.classList.add("none");
-        logoutd.classList.add("none");
+        profiled.classList.add("none");
       }
     });
     function on1() {
       document.getElementById("overlay1").style.display = "block";
     }
 
-    function off1() {
-      // document.getElementById("overlay1").style.display = "none";
-    }
-
     const haah = () => {
+      document.getElementById("overlay1").style.display = "none";
+    }
+    
+    const save = async () => {
+      const input = document.getElementById("name").value;  
+      const user = firebase.auth().currentUser;
+      await db.collection('users').doc(`${user.uid}`).update({
+        name: input
+      })
+      document.getElementById("overlay1").style.display = "none";
+    }
+    const logOut = () => {
+      firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+      })
       document.getElementById("overlay1").style.display = "none";
     }
     var a;
