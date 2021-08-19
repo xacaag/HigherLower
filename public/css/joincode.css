@@ -6,7 +6,7 @@ body {
 .lologo {
   height: 200px;
   width: 360px;
-  margin-top: 5vh;
+  margin-top: 6.5vh;
 }
 .column {
   display: flex;
@@ -97,16 +97,21 @@ input[type="text"] {
   background-color: #8F8E88;
 }
 .Username {
-  margin-top: 38px;
-  margin-right: 8px;
-  color: #FFF;
-  height: 50px;
-  width: 100px;
-  font-family: Arial, Helvetica, sans-serif;
-  cursor: pointer;
-  font-size: 24px;
-  position: absolute;
-  right: 0;
+  color: white;
+    cursor: pointer;
+    width: 120px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 15px;
+    position: absolute;
+    right: 0;
+    margin-top: 33px;
+    margin-right: 50px;
 }
 .backBtn {
   margin-top: 38px;
