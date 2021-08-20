@@ -180,19 +180,17 @@
     
     let button1 = document.getElementById("button1")
     let l_button = document.getElementsByClassName("button")[0];
-    // let leaderboard = document.getElementById("leaderboard")
     let multi__button = document.getElementById("multi__button")
     let leader_p = document.getElementById("leader_p")
     let multi_p = document.getElementById("multi_p")
     let start_p = document.getElementById("start_p")
     let ul = document.getElementById("ul_")
     let genre_list = document.getElementById("genre_list")
-    let unen;
     let genre_button = document.getElementById("genre_button")
     let genre_start = document.getElementById("genre_start")
     let genre__button =document.getElementById("genre__button")
     let genre_start_p = document.getElementById("genre_start_p")
-    
+    let unen;
 
     const goToRoom = () => {
         if(unen === true){
@@ -207,12 +205,15 @@
         db.collection("users").doc(user.uid).onSnapshot(el => {
           document.getElementById("ner").innerHTML = el.data().name;
           document.getElementById("username").innerHTML = el.data().name;
+          
         })
         unen = true;
         logind.classList.add("none");
         signupd.classList.add("none");
       } else {
         unen = false;
+        logind.classList.remove("none");
+        signupd.classList.remove("none");
         leaderboard.classList.add("none");
         profiled.classList.add("none");
       }
