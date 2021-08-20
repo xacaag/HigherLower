@@ -4,14 +4,18 @@ const randomIdGenerator = () => {
   return uniqid;
 };
 
+var a;
 const createroom = async () => {
+  a = 1;
   document.getElementById("loader").style.visibility = "visible";
   let ref = await db.collection("rooms").add({
     players: 1,
     ready: false,
     start: false,
     time: firebase.firestore.FieldValue.serverTimestamp(),
+    
   });
+  localStorage.setItem('admin', a);
 
   let uid = randomIdGenerator().slice(8);
   await db.doc(`links/${uid}`).set({

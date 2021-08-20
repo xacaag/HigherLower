@@ -1,50 +1,81 @@
 let roomdiv = document.getElementById("roomid");
 
+let classic = document.getElementById("classic")
+let genre = document.getElementById("genre")
+let start = document.getElementById("startB")
+
+let movie = document.getElementById("movie")
+let instagram = document.getElementById("instagram")
+let game = document.getElementById("game")
+let music = document.getElementById("music")
+console.log(start)
+
+
+
 let param = new URLSearchParams(window.location.search);
 let roomid = param.get("roomid");
 
-if (roomid.length > 0) {
+if (roomid) {
   roomdiv.innerHTML = `Код : ${roomid}`;
 }
 
-const startGame = () => {
-  db.collection("links")
+var admin = localStorage.getItem('admin')
+console.log(admin)
+var a = parseFloat(admin)
+
+if(a === 1){
+  start.style.display="flex"
+}else{
+      start.disabled = true;
+      movie.onclick = () => {}
+      instagram.onclick = () => {}
+      game.onclick = () => {}
+      music.onclick = () => {}
+      console.log('asd')
+      
+      // classic.disabled =true;
+      // genre.disabled = true;
+}
+
+const startGame = async () => { 
+  await db.collection("links")
     .doc(`${roomid}`)
     .get()
-    .then((el) => {
+    .then(async (el) => {
       let link = el.data().link;
-      db.collection("rooms").doc(link).update({
+      await db.collection("rooms").doc(link).update({
         start: true,
+      });
+      await db.collection("rooms").doc(link).update({
+        start: false,
       });
     });
 };
-var a;
-const kino = () => {
-  a = "classic";
-};
-const duu = () => {
-  a = "music";
-};
-const insta = () => {
-  a = "insta";
-};
-const tglm = () => {
-  a = "game";
-};
+
+const typer = async (e) => {
+
+  await db.collection("links")
+  .doc(`${roomid}`)
+  .get()
+  .then(async(el) => {
+    let roomname = el.data().link;
+    await db.collection("rooms").doc(roomname).update({
+      name : e.id
+    });
+  });
+}
 
 db.collection("links")
   .doc(`${roomid}`)
-  .get()
-  .then((el) => {
-    let code = el.data().link;
+  .onSnapshot((el)=> {
+    let roomname = el.data().link;
     db.collection("rooms")
-      .doc(`${code}`)
+      .doc(`${roomname}`)
       .onSnapshot((el) => {
-        let startbutton = el.data().start;
+        let startbutton = el.data().start; 
+        let type = el.data().name
         if (startbutton === true) {
-          setTimeout(() => {
-            window.location = `./${a}.html`;
-          }, 1000);
+          window.location = `./${type}.html`;  
         }
       });
   });
@@ -73,6 +104,10 @@ firebase.auth().onAuthStateChanged((user) => {
               case 2:
                 {
                   document.getElementsByClassName(
+                    "playersID"
+                  )[0].style.visibility = "visible";
+
+                  document.getElementsByClassName(
                     "playersID2"
                   )[0].style.visibility = "visible";
                   document.getElementsByClassName("words")[0].innerHTML =
@@ -81,6 +116,14 @@ firebase.auth().onAuthStateChanged((user) => {
                 break;
               case 3:
                 {
+                  document.getElementsByClassName(
+                    "playersID"
+                  )[0].style.visibility = "visible";
+
+                  document.getElementsByClassName(
+                    "playersID2"
+                  )[0].style.visibility = "visible";
+
                   document.getElementsByClassName(
                     "playersID3"
                   )[0].style.visibility = "visible";
@@ -91,6 +134,18 @@ firebase.auth().onAuthStateChanged((user) => {
               case 4:
                 {
                   document.getElementsByClassName(
+                    "playersID"
+                  )[0].style.visibility = "visible";
+
+                  document.getElementsByClassName(
+                    "playersID2"
+                  )[0].style.visibility = "visible";
+
+                  document.getElementsByClassName(
+                    "playersID3"
+                  )[0].style.visibility = "visible";
+
+                  document.getElementsByClassName(
                     "playersID4"
                   )[0].style.visibility = "visible";
                   document.getElementsByClassName("words")[0].innerHTML =
@@ -100,6 +155,22 @@ firebase.auth().onAuthStateChanged((user) => {
               case 5:
                 {
                   document.getElementsByClassName(
+                    "playersID"
+                  )[0].style.visibility = "visible";
+
+                  document.getElementsByClassName(
+                    "playersID2"
+                  )[0].style.visibility = "visible";
+
+                  document.getElementsByClassName(
+                    "playersID3"
+                  )[0].style.visibility = "visible";
+
+                  document.getElementsByClassName(
+                    "playersID4"
+                  )[0].style.visibility = "visible";
+
+                  document.getElementsByClassName(
                     "playersID5"
                   )[0].style.visibility = "visible";
                   document.getElementsByClassName("words")[0].innerHTML =
@@ -108,6 +179,26 @@ firebase.auth().onAuthStateChanged((user) => {
                 break;
               case 6:
                 {
+                  document.getElementsByClassName(
+                    "playersID"
+                  )[0].style.visibility = "visible";
+
+                  document.getElementsByClassName(
+                    "playersID2"
+                  )[0].style.visibility = "visible";
+
+                  document.getElementsByClassName(
+                    "playersID3"
+                  )[0].style.visibility = "visible";
+
+                  document.getElementsByClassName(
+                    "playersID4"
+                  )[0].style.visibility = "visible";
+
+                  document.getElementsByClassName(
+                    "playersID5"
+                  )[0].style.visibility = "visible";
+
                   document.getElementsByClassName(
                     "playersID6"
                   )[0].style.visibility = "visible";
