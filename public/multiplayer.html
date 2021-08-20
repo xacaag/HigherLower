@@ -12,8 +12,28 @@
     <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-storage.js"></script>
 <body>
+    <div id="overlay1" >
+        <div id="settings">
+          <img src="./assets/logo/close.svg" class="close" onclick="haah()">
+          <div id="heading1"> ТОХИРГОО </div>
+          <div class="contain1"> 
+            <div id="circle" ></div>
+            <div id="username" > </div>
+          </div>
+          <div id="heading2" > xэрэглэгчийн нэр</div>
+          <div id="line" ></div>
+          <div class="contain2"> 
+            <input id="name" >
+            <div id="save" onclick="save()" > Хадгалах </div>
+          </div>
+          <div id="logOut" onclick="logOut()" > Гарах </div>
+        </div>
+    </div>
     <div class="Container1" >
-        <div class="Username" onclick="profile()"> xacaag </div>
+        <div id="profile" class="profile" onclick="on1()"> 
+            <div id="ner" ></div>
+            <img src="./assets/down.svg" class="down" >
+        </div>
         <img src="./assets/back.svg" class="backBtn" onclick="back()">
         <img src="./assets/logo/logo.svg" class="Logo">
         <div class="Heading1" > <b> ХОЛБОГДОЖ ТОГЛОХ </b></div>
@@ -41,5 +61,40 @@
 <script> const goToJoin = () => {
     window.location = 'joincode.html'
 }  
+
+const back = () => {
+    location.href ="index.html"
+}
+firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+        db.collection("users").doc(user.uid).onSnapshot(el => {
+            document.getElementById("ner").innerHTML = el.data().name;
+            document.getElementById("username").innerHTML = el.data().name;
+        })
+    }
+});
+
+function on1() {
+  document.getElementById("overlay1").style.display = "block";
+}
+
+const haah = () => {
+  document.getElementById("overlay1").style.display = "none";
+}
+
+const save = async () => {
+    const input = document.getElementById("name").value;  
+    const user = firebase.auth().currentUser;
+    await db.collection('users').doc(`${user.uid}`).update({
+      name: input
+    })
+    document.getElementById("overlay1").style.display = "none";
+  }
+  const logOut = () => {
+    firebase.auth().signOut().then(() => {
+      // Sign-out successful.
+    })
+    document.getElementById("overlay1").style.display = "none";
+  }
 </script>
 </html>
