@@ -73,6 +73,10 @@ firebase.auth().onAuthStateChanged((user) => {
               case 2:
                 {
                   document.getElementsByClassName(
+                    "playersID"
+                  )[0].style.visibility = "visible";
+
+                  document.getElementsByClassName(
                     "playersID2"
                   )[0].style.visibility = "visible";
                   document.getElementsByClassName("words")[0].innerHTML =
@@ -81,6 +85,14 @@ firebase.auth().onAuthStateChanged((user) => {
                 break;
               case 3:
                 {
+                  document.getElementsByClassName(
+                    "playersID"
+                  )[0].style.visibility = "visible";
+
+                  document.getElementsByClassName(
+                    "playersID2"
+                  )[0].style.visibility = "visible";
+
                   document.getElementsByClassName(
                     "playersID3"
                   )[0].style.visibility = "visible";
@@ -91,6 +103,18 @@ firebase.auth().onAuthStateChanged((user) => {
               case 4:
                 {
                   document.getElementsByClassName(
+                    "playersID"
+                  )[0].style.visibility = "visible";
+
+                  document.getElementsByClassName(
+                    "playersID2"
+                  )[0].style.visibility = "visible";
+
+                  document.getElementsByClassName(
+                    "playersID3"
+                  )[0].style.visibility = "visible";
+
+                  document.getElementsByClassName(
                     "playersID4"
                   )[0].style.visibility = "visible";
                   document.getElementsByClassName("words")[0].innerHTML =
@@ -100,6 +124,22 @@ firebase.auth().onAuthStateChanged((user) => {
               case 5:
                 {
                   document.getElementsByClassName(
+                    "playersID"
+                  )[0].style.visibility = "visible";
+
+                  document.getElementsByClassName(
+                    "playersID2"
+                  )[0].style.visibility = "visible";
+
+                  document.getElementsByClassName(
+                    "playersID3"
+                  )[0].style.visibility = "visible";
+
+                  document.getElementsByClassName(
+                    "playersID4"
+                  )[0].style.visibility = "visible";
+
+                  document.getElementsByClassName(
                     "playersID5"
                   )[0].style.visibility = "visible";
                   document.getElementsByClassName("words")[0].innerHTML =
@@ -108,6 +148,26 @@ firebase.auth().onAuthStateChanged((user) => {
                 break;
               case 6:
                 {
+                  document.getElementsByClassName(
+                    "playersID"
+                  )[0].style.visibility = "visible";
+
+                  document.getElementsByClassName(
+                    "playersID2"
+                  )[0].style.visibility = "visible";
+
+                  document.getElementsByClassName(
+                    "playersID3"
+                  )[0].style.visibility = "visible";
+
+                  document.getElementsByClassName(
+                    "playersID4"
+                  )[0].style.visibility = "visible";
+
+                  document.getElementsByClassName(
+                    "playersID5"
+                  )[0].style.visibility = "visible";
+
                   document.getElementsByClassName(
                     "playersID6"
                   )[0].style.visibility = "visible";
