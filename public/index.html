@@ -1,357 +1,392 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="icon" src="./assets/logo/close.svg   ">
+    <link rel="icon" src="./assets/logo/close.svg   " />
     <title>Их үү Бага уу ?</title>
-</head>
-<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-storage.js"></script>
+  </head>
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-storage.js"></script>
 
-<body>
+  <body>
     <div id="overlay1" onclick="off1()">
-        <div id="settings">
-            <img src="./assets/logo/close.svg" class="close" onclick="haah()">
-            <div id="heading1"> ТОХИРГОО </div>
-            <div class="contain1">
-                <div id="circle"></div>
-                <div id="username"> </div>
-            </div>
-            <div id="heading2"> xэрэглэгчийн нэр</div>
-            <div id="line"></div>
-            <div class="contain2">
-                <input id="name">
-                <div id="save" onclick="save()"> Хадгалах </div>
-            </div>
-            <div id="logOut" onclick="logOut()"> Гарах </div>
+      <div id="settings">
+        <img src="./assets/logo/close.svg" class="close" onclick="haah()" />
+        <div id="heading1">ТОХИРГОО</div>
+        <div class="contain1">
+          <div id="circle"></div>
+          <div class="field">
+            <div id="username"></div>
+            <div class="yourhighest"></div>
+          </div>
         </div>
+        <div id="heading2">Нэр солих</div>
+        <div id="line"></div>
+        <div class="contain2">
+          <input id="name" />
+          <div id="save" onclick="save()">Хадгалах</div>
+        </div>
+        <div id="logOut" onclick="logOut()">Гарах</div>
+      </div>
     </div>
     <div class="nevtreh">
-        <div class="Sign">
-            <div id="login" class="Login" onclick="Login()">Login</div>
-            <div id="signup" class="SignUp" onclick="SignUp()">Sign up</div>
-            <div id="profile" class="profile" onclick="on1()">
-                <div id="ner"></div>
-                <img src="./assets/down.svg" class="down">
-            </div>
+      <div class="Sign">
+        <div id="login" class="Login" onclick="Login()">Login</div>
+        <div id="signup" class="SignUp" onclick="SignUp()">Sign up</div>
+        <div id="profile" class="profile" onclick="on1()">
+          <div id="ner"></div>
+          <img src="./assets/down.svg" class="down" />
         </div>
+      </div>
     </div>
     <div class="haha">
-        <div class="GodLogo">
-            <img src="./assets/logo/logo.svg" class="logo" />
-        </div>
+      <div class="GodLogo">
+        <img src="./assets/logo/logo.svg" class="logo" />
+      </div>
     </div>
     <div class="bair">
-        <div class="column">
-            <div class="dadButton">
-                <div class="Choice">
-                    <img src="./assets/Classic.svg" class="Classic_V2" />
-                    <div id="button1" class="classicBtn">
-                        <p id="start_p" onmouseover="start_hover(this)" onmouseout="start_normal(this)" class="buttonw" onclick="start()"> Классик </p>
-                        <img src="./assets/logo/!.svg" id="myBtn" />
-                    </div>
-                </div>
-                <div class="Choice">
-                    <img src="./assets/multiplayer.svg" class="MultiPlayer_V2" />
-                    <div class="multiplayerBtn" id="multi__button">
-                        <p onmouseover="multi_hover(this)" onmouseout="multi_normal(this)" class="buttonw" onclick="goToRoom()" id="multi_p"> Холбогдож тоглох</p>
-
-                        <img src="./assets/logo/!.svg" id="myBtn2" />
-                    </div>
-                </div>
-                <div class="genre_container">
-                    <div class="Choice">
-                        <img src="./assets/genre.svg" class="Genre_V2" />
-                        <div class="categoryBtn" id="genre__button">
-                            <p onmouseover="genre_hover(this)" onmouseout="genre_normal(this)" id="genre_button" class="buttonw " onclick="genre()">  Төрөл</p>
-
-                            <img src="./assets/logo/!.svg" id="myBtn3" />
-                        </div>
-                    </div>
-                    <div class="genre_start_button" id="genre_start">
-                        <p onmouseover="genre_start_hover(this)" onmouseout="genre_start_normal(this)" onclick="genrestart()" id="genre_start_p">Эхлэх ></p>
-                    </div>
-                    <div class="genre_list_holder">
-                        <div id="genre_list" class="none" class="genres">
-                            <ul id="ul_" style="padding-left: 25px;">
-                                <li onclick="kino()" class="genres_button">Кино</li>
-                                <li onclick="duu()" class="genres_button">Дуу</li>
-                                <li onclick="insta()" class="genres_button">Инстаграм</li>
-                                <li onclick="togloom()" class="genres_button">Тоглоом</li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
+      <div class="column">
+        <div class="dadButton">
+          <div class="Choice">
+            <img src="./assets/Classic.svg" class="Classic_V2" />
+            <div id="button1" class="classicBtn">
+              <p
+                id="start_p"
+                onmouseover="start_hover(this)"
+                onmouseout="start_normal(this)"
+                class="buttonw"
+                onclick="start()"
+              >
+                Классик
+              </p>
+              <img src="./assets/logo/!.svg" id="myBtn" />
             </div>
-        </div>
-        <div id="leaderboard" class="button" id="leader_p" style="margin-top: 3vh">
+          </div>
+          <div class="Choice">
+            <img src="./assets/multiplayer.svg" class="MultiPlayer_V2" />
+            <div class="multiplayerBtn" id="multi__button">
+              <p
+                onmouseover="multi_hover(this)"
+                onmouseout="multi_normal(this)"
+                class="buttonw"
+                onclick="goToRoom()"
+                id="multi_p"
+              >
+                 Холбогдож тоглох
+              </p>
 
-            <p onmouseover="leader_hover(this)" onmouseout="leader_normal(this)" class="leaderboardlink" onclick="leader_b()" id="leader_p"> Тоглогчийн самбар</p>
+              <img src="./assets/logo/!.svg" id="myBtn2" />
+            </div>
+          </div>
+          <div class="genre_container">
+            <div class="Choice">
+              <img src="./assets/genre.svg" class="Genre_V2" />
+              <div class="categoryBtn" id="genre__button">
+                <p
+                  onmouseover="genre_hover(this)"
+                  onmouseout="genre_normal(this)"
+                  id="genre_button"
+                  class="buttonw"
+                  onclick="genre()"
+                >
+                    Төрөл
+                </p>
 
+                <img src="./assets/logo/!.svg" id="myBtn3" />
+              </div>
+            </div>
+            <div class="genre_start_button" id="genre_start">
+              <p
+                onmouseover="genre_start_hover(this)"
+                onmouseout="genre_start_normal(this)"
+                onclick="genrestart()"
+                id="genre_start_p"
+              >
+                Эхлэх >
+              </p>
+            </div>
+            <div class="genre_list_holder">
+              <div id="genre_list" class="none" class="genres">
+                <ul id="ul_" style="padding-left: 25px">
+                  <li onclick="kino()" class="genres_button">Кино</li>
+                  <li onclick="duu()" class="genres_button">Дуу</li>
+                  <li onclick="insta()" class="genres_button">Инстаграм</li>
+                  <li onclick="togloom()" class="genres_button">Тоглоом</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+      <div
+        id="leaderboard"
+        class="button"
+        id="leader_p"
+        style="margin-top: 3vh"
+      >
+        <p
+          onmouseover="leader_hover(this)"
+          onmouseout="leader_normal(this)"
+          class="leaderboardlink"
+          onclick="leader_b()"
+          id="leader_p"
+        >
+          Тоглогчийн самбар
+        </p>
+      </div>
     </div>
 
     <div id="overlay" onclick="off()">
-        <div id="touch" class="info">
-            <div class="aaa">Классик</div>
-            <div class="haha">
-                <img src="./assets/back_arrow.svg" class="back_arrow" />
-                <div class="coolWords">
-                    To play higher or lower, we will give you an question depending on
-                </div>
-                <div class="coolWords">
-                    the gamemode and you will have to answer if your subject has higher
-                </div>
-                <div class="coolWords">searches or lower searches in google.</div>
-                <div class="buutttoon">
-                    <button class="buuttoon">Хаах</button>
-                </div>
-            </div>
+      <div id="touch" class="info">
+        <div class="aaa">Классик</div>
+        <div class="haha">
+          <img src="./assets/back_arrow.svg" class="back_arrow" />
+          <div class="coolWords">
+            To play higher or lower, we will give you an question depending on
+          </div>
+          <div class="coolWords">
+            the gamemode and you will have to answer if your subject has higher
+          </div>
+          <div class="coolWords">searches or lower searches in google.</div>
+          <div class="buutttoon">
+            <button class="buuttoon">Хаах</button>
+          </div>
         </div>
-        <div id="touch2" class="info">
-            <div class="aaa">MULTIPLAYER</div>
-            <div class="haha">
-                <img src="./assets/back_arrow.svg" class="back_arrow" />
-                <div class="coolWords">
-                    Create your own match and play against your friends.
-                </div>
-                <div class="coolWords">If you answer a wrong you lose,</div>
-                <div class="coolWords">last one standing will win!</div>
-                <div class="buutttoon">
-                    <button class="buuttoon">Хаах</button>
-                </div>
-            </div>
+      </div>
+      <div id="touch2" class="info">
+        <div class="aaa">MULTIPLAYER</div>
+        <div class="haha">
+          <img src="./assets/back_arrow.svg" class="back_arrow" />
+          <div class="coolWords">
+            Create your own match and play against your friends.
+          </div>
+          <div class="coolWords">If you answer a wrong you lose,</div>
+          <div class="coolWords">last one standing will win!</div>
+          <div class="buutttoon">
+            <button class="buuttoon">Хаах</button>
+          </div>
         </div>
-        <div id="touch3" class="info">
-            <div class="aaa">Төрөл</div>
-            <div class="haha">
-                <img src="./assets/back_arrow.svg" class="back_arrow" />
-                <div class="coolWords">
-                    In this gamemode you are able to change the genre of it,
-                </div>
-                <div class="coolWords">like movies or music.</div>
-                <div class="coolWords">
-                    Play Higher or Lower in your favourite genre.
-                </div>
-                <div class="buutttoon">
-                    <button class="buuttoon">Хаах</button>
-                </div>
-            </div>
+      </div>
+      <div id="touch3" class="info">
+        <div class="aaa">Төрөл</div>
+        <div class="haha">
+          <img src="./assets/back_arrow.svg" class="back_arrow" />
+          <div class="coolWords">
+            In this gamemode you are able to change the genre of it,
+          </div>
+          <div class="coolWords">like movies or music.</div>
+          <div class="coolWords">
+            Play Higher or Lower in your favourite genre.
+          </div>
+          <div class="buutttoon">
+            <button class="buuttoon">Хаах</button>
+          </div>
         </div>
-        <div id="touch4" class="info">
-
-            <div class="haha">
-                <p class="buttonw">Олуулаа тоголхын тулд та бүртгэл үүсгэж орсон байх хэрэгтэй!</p>
-                <div class="buutttoon">
-                    <button onclick="gotosign()" class="buuttoon">SignUp</button>
-                </div>
-            </div>
+      </div>
+      <div id="touch4" class="info">
+        <div class="haha">
+          <p class="buttonw">
+            Олуулаа тоголхын тулд та бүртгэл үүсгэж орсон байх хэрэгтэй!
+          </p>
+          <div class="buutttoon">
+            <button onclick="gotosign()" class="buuttoon">SignUp</button>
+          </div>
         </div>
+      </div>
     </div>
+  </body>
 
-</body>
+  <script src="./js/main.js"></script>
+  <script src="./js/login-sign_up.js"></script>
+  <script src="./js/firebase.js"></script>
+  <!-- <script src="./js/app.js"></script> -->
+  <script src="room.js"></script>
 
-
-<script src="./js/main.js"></script>
-<script src="./js/login-sign_up.js"></script>
-<script src="./js/firebase.js"></script>
-<!-- <script src="./js/app.js"></script> -->
-<script src="room.js"></script>
-
-<script>
+  <script>
     const leader_b = () => {
-        location.href = "./leaderboard.html"
-    }
+      location.href = "./leaderboard.html";
+    };
     const start = () => {
-        location.href = "./classic.html ";
+      location.href = "./classic.html ";
     };
     const Login = () => {
-        location.href = "./login.html";
+      location.href = "./login.html";
     };
     const SignUp = () => {
-        location.href = "./signUp.html";
+      location.href = "./signUp.html";
     };
     const gotosign = () => {
-        window.location = "./signUp.html"
-    }
+      window.location = "./signUp.html";
+    };
 
-    let button1 = document.getElementById("button1")
+    let button1 = document.getElementById("button1");
     let l_button = document.getElementsByClassName("button")[0];
-    let multi__button = document.getElementById("multi__button")
-    let leader_p = document.getElementById("leader_p")
-    let multi_p = document.getElementById("multi_p")
-    let start_p = document.getElementById("start_p")
-    let ul = document.getElementById("ul_")
-    let genre_list = document.getElementById("genre_list")
-    let genre_button = document.getElementById("genre_button")
-    let genre_start = document.getElementById("genre_start")
-    let genre__button = document.getElementById("genre__button")
-    let genre_start_p = document.getElementById("genre_start_p")
+    let multi__button = document.getElementById("multi__button");
+    let leader_p = document.getElementById("leader_p");
+    let multi_p = document.getElementById("multi_p");
+    let start_p = document.getElementById("start_p");
+    let ul = document.getElementById("ul_");
+    let genre_list = document.getElementById("genre_list");
+    let genre_button = document.getElementById("genre_button");
+    let genre_start = document.getElementById("genre_start");
+    let genre__button = document.getElementById("genre__button");
+    let genre_start_p = document.getElementById("genre_start_p");
     let unen;
 
     const goToRoom = () => {
-        if (unen === true) {
-            window.location = "multiplayer.html";
-        } else {
-            myFunction4()
-        }
+      if (unen === true) {
+        window.location = "multiplayer.html";
+      } else {
+        myFunction4();
+      }
     };
 
     firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-            db.collection("users").doc(user.uid).onSnapshot(el => {
-                document.getElementById("ner").innerHTML = el.data().name;
-                document.getElementById("username").innerHTML = el.data().name;
-
-            })
-            unen = true;
-            logind.classList.add("none");
-            signupd.classList.add("none");
-        } else {
-            unen = false;
-            logind.classList.remove("none");
-            signupd.classList.remove("none");
-            leaderboard.classList.add("none");
-            profiled.classList.add("none");
-        }
+      if (user) {
+        db.collection("users")
+          .doc(user.uid)
+          .onSnapshot((el) => {
+            document.getElementById("ner").innerHTML = el.data().name;
+            document.getElementById("username").innerHTML = el.data().name;
+            document.getElementsByClassName(
+              "yourhighest"
+            )[0].innerHTML = `Таны дээд амжилт: ${el.data().score}`;
+          });
+        unen = true;
+        logind.classList.add("none");
+        signupd.classList.add("none");
+      } else {
+        unen = false;
+        logind.classList.remove("none");
+        signupd.classList.remove("none");
+        leaderboard.classList.add("none");
+        profiled.classList.add("none");
+      }
     });
 
     function on1() {
-        document.getElementById("overlay1").style.display = "block";
+      document.getElementById("overlay1").style.display = "block";
     }
 
     const haah = () => {
-        document.getElementById("overlay1").style.display = "none";
-    }
+      document.getElementById("overlay1").style.display = "none";
+    };
 
-    const save = async() => {
-        const input = document.getElementById("name").value;
-        const user = firebase.auth().currentUser;
-        await db.collection('users').doc(`${user.uid}`).update({
-            name: input
-        })
-        document.getElementById("overlay1").style.display = "none";
-    }
+    const save = async () => {
+      const input = document.getElementById("name").value;
+      const user = firebase.auth().currentUser;
+      await db.collection("users").doc(`${user.uid}`).update({
+        name: input,
+      });
+      document.getElementById("overlay1").style.display = "none";
+    };
     const logOut = () => {
-        firebase.auth().signOut().then(() => {
-            // Sign-out successful.
-        })
-        document.getElementById("overlay1").style.display = "none";
-    }
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          // Sign-out successful.
+        });
+      document.getElementById("overlay1").style.display = "none";
+    };
     var a;
     const genrestart = () => {
-        window.location = `./${a}.html`;
-    }
+      window.location = `./${a}.html`;
+    };
     const genre = () => {
-
-        if (genre_list.classList.contains('none')) {
-            genre_list.setAttribute('class', "flex")
-            genre_list.classList.add("genre_list_anim")
-        } else {
-            genre_list.classList.remove("genre_list_anim")
-            genre_list.setAttribute('class', "none")
-        }
-        genre_start.style.display = "none"
-        ul.style.height = "150px"
-    }
+      if (genre_list.classList.contains("none")) {
+        genre_list.setAttribute("class", "flex");
+        genre_list.classList.add("genre_list_anim");
+      } else {
+        genre_list.classList.remove("genre_list_anim");
+        genre_list.setAttribute("class", "none");
+      }
+      genre_start.style.display = "none";
+      ul.style.height = "150px";
+    };
 
     const kino = () => {
-        genre_list.classList.add("none")
-        genre_button.innerHTML = "Кино"
-        genre_start.style.display = "flex"
-        a = "movie";
-        genre_list.classList.remove("genre_list_anim")
-    }
+      genre_list.classList.add("none");
+      genre_button.innerHTML = "Кино";
+      genre_start.style.display = "flex";
+      a = "movie";
+      genre_list.classList.remove("genre_list_anim");
+    };
     const duu = () => {
-        genre_list.classList.add("none")
-        genre_button.innerHTML = "Дуу"
-        genre_start.style.display = "flex"
-        a = "music";
-        genre_list.classList.remove("genre_list_anim")
-    }
+      genre_list.classList.add("none");
+      genre_button.innerHTML = "Дуу";
+      genre_start.style.display = "flex";
+      a = "music";
+      genre_list.classList.remove("genre_list_anim");
+    };
     const insta = () => {
-        genre_list.classList.add("none")
-        genre_button.innerHTML = "Инста"
-        genre_start.style.display = "flex"
-        a = "instagram";
-        genre_list.classList.remove("genre_list_anim")
-    }
+      genre_list.classList.add("none");
+      genre_button.innerHTML = "Инста";
+      genre_start.style.display = "flex";
+      a = "instagram";
+      genre_list.classList.remove("genre_list_anim");
+    };
     const togloom = () => {
-        genre_list.classList.add("none")
-        genre_button.innerHTML = "Тоглоом"
-        genre_start.style.display = "flex"
-        a = "game";
-        genre_list.classList.remove("genre_list_anim")
-    }
+      genre_list.classList.add("none");
+      genre_button.innerHTML = "Тоглоом";
+      genre_start.style.display = "flex";
+      a = "game";
+      genre_list.classList.remove("genre_list_anim");
+    };
 
     function start_hover(x) {
-
-        start_p.style.fontSize = "22px"
-        button1.style.boxShadow = "0px 0px 40px 0px black"
-
+      start_p.style.fontSize = "22px";
+      button1.style.boxShadow = "0px 0px 40px 0px black";
     }
 
     function start_normal(x) {
-
-        start_p.style.fontSize = "20px"
-        button1.style.boxShadow = "none"
+      start_p.style.fontSize = "20px";
+      button1.style.boxShadow = "none";
     }
 
-
-
     function multi_hover(x) {
-        multi_p.style.fontSize = "22px"
-        multi__button.style.boxShadow = "0px 0px 40px 0px black"
+      multi_p.style.fontSize = "22px";
+      multi__button.style.boxShadow = "0px 0px 40px 0px black";
     }
 
     function multi_normal(x) {
-        multi_p.style.fontSize = "20px"
-        multi__button.style.boxShadow = "none"
+      multi_p.style.fontSize = "20px";
+      multi__button.style.boxShadow = "none";
     }
 
-
-
     function genre_hover(x) {
-        genre_button.style.fontSize = "22px"
-        genre__button.style.boxShadow = "0px 0px 40px 0px black"
+      genre_button.style.fontSize = "22px";
+      genre__button.style.boxShadow = "0px 0px 40px 0px black";
     }
 
     function genre_normal(x) {
-        genre_button.style.fontSize = "20px"
-        genre__button.style.boxShadow = "none"
+      genre_button.style.fontSize = "20px";
+      genre__button.style.boxShadow = "none";
     }
 
-
-
-
-
     function leader_hover(x) {
-        leader_p.style.fontSize = "22px"
-        l_button.style.boxShadow = "0px 0px 40px 0px black"
+      leader_p.style.fontSize = "22px";
+      l_button.style.boxShadow = "0px 0px 40px 0px black";
     }
 
     function leader_normal(x) {
-        leader_p.style.fontSize = "20px"
-        l_button.style.boxShadow = "none"
+      leader_p.style.fontSize = "20px";
+      l_button.style.boxShadow = "none";
     }
 
-
     function genre_start_hover(x) {
-        genre_start_p.style.fontSize = "22px"
-        genre_start.style.boxShadow = "0px 37px 40px 0px black"
+      genre_start_p.style.fontSize = "22px";
+      genre_start.style.boxShadow = "0px 37px 40px 0px black";
     }
 
     function genre_start_normal(x) {
-        genre_start_p.style.fontSize = "20px"
-        genre_start.style.boxShadow = "none"
+      genre_start_p.style.fontSize = "20px";
+      genre_start.style.boxShadow = "none";
     }
-</script>
-
+  </script>
 </html>

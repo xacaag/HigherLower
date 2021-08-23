@@ -5,54 +5,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/joincode.css" />
-    <title> Нэгдэх </title>
+    <title>Нэгдэх</title>
   </head>
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-storage.js"></script>
   <body>
-    <div id="overlay1" >
+    <div id="overlay1">
       <div id="settings">
-        <img src="./assets/logo/close.svg" class="close" onclick="haah()">
-        <div id="heading1"> ТОХИРГОО </div>
-        <div class="contain1"> 
-          <div id="circle" ></div>
-          <div id="username" > </div>
+        <img src="./assets/logo/close.svg" class="close" onclick="haah()" />
+        <div id="heading1">ТОХИРГОО</div>
+        <div class="contain1">
+          <div id="circle"></div>
+          <div id="username"></div>
         </div>
-        <div id="heading2" > xэрэглэгчийн нэр</div>
-        <div id="line" ></div>
-        <div class="contain2"> 
-          <input id="name" >
-          <div id="save" onclick="save()" > Хадгалах </div>
+        <div id="heading2">Хэрэглэгчийн нэр</div>
+        <div id="line"></div>
+        <div class="contain2">
+          <input id="name" />
+          <div id="save" onclick="save()">Хадгалах</div>
         </div>
-        <div id="logOut" onclick="logOut()" > Гарах </div>
+        <div id="logOut" onclick="logOut()">Гарах</div>
       </div>
-   </div>
-    <img src="./assets/back.svg" class="backBtn" onclick="back()">
-    <div id="profile" class="profile" onclick="on1()"> 
-      <div id="ner" ></div>
-      <img src="./assets/down.svg" class="down" >
+    </div>
+    <img src="./assets/back.svg" class="backBtn" onclick="back()" />
+    <div id="profile" class="profile" onclick="on1()">
+      <div id="ner"></div>
+      <img src="./assets/down.svg" class="down" />
     </div>
     <div class="column">
       <img src="./assets/logo/logo.svg" class="lologo" />
       <div class="row">
         <div class="input-wrapper">
-          <input type="text" id='join' maxlength="6"  value="" onkeyup="changeTheColorOfButtonDemo()"/>
+          <input
+            type="text"
+            id="join"
+            maxlength="6"
+            value=""
+            onkeyup="changeTheColorOfButtonDemo()"
+          />
         </div>
       </div>
       <div class="idk">Кодыг оруулна уу</div>
-      <div class="idk2"> кодоо найзуудаасаа аваарай! тоглоомоо сайхан өнгөрүүлээрэй</div>
-      <div class="joinBtn" id="joinroom"onclick="join()" > Нэгдэх </div>
+      <div class="idk2">
+        кодоо найзуудаасаа аваарай! тоглоомоо сайхан өнгөрүүлээрэй
+      </div>
+      <div class="joinBtn" id="joinroom" onclick="join()">Нэгдэх</div>
     </div>
   </body>
   <!-- <script src="./js/joincode.js"></script> -->
   <script src="./js/room.js"></script>
   <script src="./js/firebase.js"></script>
 
-  <script> 
-    let joinroom = document.getElementById("joinroom")
-    let joinvalue = document.getElementById("join")
+  <script>
+    let joinroom = document.getElementById("joinroom");
+    let joinvalue = document.getElementById("join");
     // console.log(joinvalue.value)
     // if(joinvalue.value.length > 5){
     // joinroom.classList.add("hello")
@@ -60,20 +68,22 @@
     // joinroom.classList.remove("hello")
     // }
     function changeTheColorOfButtonDemo() {
-    joinroom.style.backgroundColor = "gold"
-    joinroom.style.color = "black"
+      joinroom.style.backgroundColor = "gold";
+      joinroom.style.color = "black";
     }
 
     const back = () => {
-      location.href ="multiplayer.html"
-    } 
+      location.href = "multiplayer.html";
+    };
 
     firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-        db.collection("users").doc(user.uid).onSnapshot(el => {
+      if (user) {
+        db.collection("users")
+          .doc(user.uid)
+          .onSnapshot((el) => {
             document.getElementById("ner").innerHTML = el.data().name;
             document.getElementById("username").innerHTML = el.data().name;
-        })
+          });
       }
     });
 
@@ -83,21 +93,24 @@
 
     const haah = () => {
       document.getElementById("overlay1").style.display = "none";
-    }
+    };
 
     const save = async () => {
-        const input = document.getElementById("name").value;  
-        const user = firebase.auth().currentUser;
-        await db.collection('users').doc(`${user.uid}`).update({
-          name: input
-        })
-        document.getElementById("overlay1").style.display = "none";
-      }
-      const logOut = () => {
-        firebase.auth().signOut().then(() => {
+      const input = document.getElementById("name").value;
+      const user = firebase.auth().currentUser;
+      await db.collection("users").doc(`${user.uid}`).update({
+        name: input,
+      });
+      document.getElementById("overlay1").style.display = "none";
+    };
+    const logOut = () => {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
           // Sign-out successful.
-        })
-        document.getElementById("overlay1").style.display = "none";
-      }
+        });
+      document.getElementById("overlay1").style.display = "none";
+    };
   </script>
 </html>

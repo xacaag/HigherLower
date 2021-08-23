@@ -5,17 +5,20 @@ const signInWithGoogle = () => {
   auth().signInWithPopup(provider);
   firebase.auth().onAuthStateChanged(async (user) => {
     if (user) {
-      await db.collection('users').doc(`${user.uid}`).onSnapshot(el => {
-        if(el.data() === undefined){
-           db.collection("users").doc(`${user.uid}`).set({
-            name: user.email,
-            time: firebase.firestore.FieldValue.serverTimestamp(),
-            score: 0,
-          });
-        }else{
-          console.log('asuudalgui baina')
-        }
-      })
+      await db
+        .collection("users")
+        .doc(`${user.uid}`)
+        .onSnapshot((el) => {
+          if (el.data() === undefined) {
+            db.collection("users").doc(`${user.uid}`).set({
+              name: user.email,
+              time: firebase.firestore.FieldValue.serverTimestamp(),
+              score: 0,
+            });
+          } else {
+            console.log("asuudalgui baina");
+          }
+        });
       location.href = "./index.html";
     }
   });
@@ -43,13 +46,13 @@ const signUp = () => {
     .auth()
     .createUserWithEmailAndPassword(email, password)
     .then(async (userCredential) => {
-      let user = userCredential.user
+      let user = userCredential.user;
       await db.collection("users").doc(`${user.uid}`).set({
         name: email,
         time: firebase.firestore.FieldValue.serverTimestamp(),
         score: 0,
-      })
-        location.href = "./index.html";  
+      });
+      location.href = "./index.html";
     })
     .catch((err) => {
       alert(err);
