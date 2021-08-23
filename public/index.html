@@ -13,23 +13,22 @@
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-storage.js"></script>
 
-  <body>
-    <div id="overlay1" onclick="off1()">
-      <div id="settings">
-        <img src="./assets/logo/close.svg" class="close" onclick="haah()" />
-        <div id="heading1">ТОХИРГОО</div>
-        <div class="contain1">
-          <div id="circle"></div>
-          <div class="field">
-            <div id="username"></div>
-            <div class="yourhighest"></div>
-          </div>
-        </div>
-        <div id="heading2">Нэр солих</div>
-        <div id="line"></div>
-        <div class="contain2">
-          <input id="name" />
-          <div id="save" onclick="save()">Хадгалах</div>
+<body>
+    <div id="overlay1">
+        <div id="settings">
+            <img src="./assets/logo/close.svg" class="close" onclick="haah()">
+            <div id="heading1"> ТОХИРГОО </div>
+            <div class="contain1">
+                <div id="circle"></div>
+                <div id="username"> </div>
+            </div>
+            <div id="heading2"> xэрэглэгчийн нэр</div>
+            <div id="line"></div>
+            <div class="contain2">
+                <input id="name">
+                <div id="save" onclick="save()"> Хадгалах </div>
+            </div>
+            <div id="logOut" onclick="logOut()"> Гарах </div>
         </div>
         <div id="logOut" onclick="logOut()">Гарах</div>
       </div>

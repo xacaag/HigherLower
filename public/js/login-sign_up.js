@@ -5,21 +5,20 @@ const signInWithGoogle = () => {
   auth().signInWithPopup(provider);
   firebase.auth().onAuthStateChanged(async (user) => {
     if (user) {
-      await db
-        .collection("users")
-        .doc(`${user.uid}`)
-        .onSnapshot((el) => {
-          if (el.data() === undefined) {
-            db.collection("users").doc(`${user.uid}`).set({
-              name: user.email,
-              time: firebase.firestore.FieldValue.serverTimestamp(),
-              score: 0,
-            });
-          } else {
-            console.log("asuudalgui baina");
-          }
-        });
-      location.href = "./index.html";
+      await db.collection('users').doc(`${user.uid}`).onSnapshot(el => {
+        if(el.data() === undefined){
+          db.collection("users").doc(`${user.uid}`).set({
+            name: user.email,
+            time: firebase.firestore.FieldValue.serverTimestamp(),
+            score: 0,
+          });           
+        }else{
+          console.log('asuudalgui baina')
+        }
+      })
+      setTimeout(() => {
+        location.href = "./index.html";
+      }, 2000); 
     }
   });
 };
