@@ -4,10 +4,10 @@ let classic = document.getElementById("classic")
 let genre = document.getElementById("genre")
 let start = document.getElementById("startB")
 
-let movie = document.getElementById("movie")
-let instagram = document.getElementById("instagram")
-let game = document.getElementById("game")
-let music = document.getElementById("music")
+let movie = document.getElementById("multiplayer-movie")
+let instagram = document.getElementById("multiplayer-instagram")
+let game = document.getElementById("multiplayer-game")
+let music = document.getElementById("multiplayer-music")
 console.log(start)
 
 
@@ -37,23 +37,7 @@ if(a === 1){
       // genre.disabled = true;
 }
 
-const startGame = async () => { 
-  await db.collection("links")
-    .doc(`${roomid}`)
-    .get()
-    .then(async (el) => {
-      let link = el.data().link;
-      await db.collection("rooms").doc(link).update({
-        start: true,
-      });
-      await db.collection("rooms").doc(link).update({
-        start: false,
-      });
-    });
-};
-
 const typer = async (e) => {
-
   await db.collection("links")
   .doc(`${roomid}`)
   .get()
@@ -65,20 +49,21 @@ const typer = async (e) => {
   });
 }
 
-db.collection("links")
-  .doc(`${roomid}`)
-  .onSnapshot((el)=> {
-    let roomname = el.data().link;
-    db.collection("rooms")
-      .doc(`${roomname}`)
-      .onSnapshot((el) => {
-        let startbutton = el.data().start; 
-        let type = el.data().name
-        if (startbutton === true) {
-          window.location = `./${type}.html`;  
-        }
+const startGame = async () => { 
+          
+  await db.collection("links")
+    .doc(`${roomid}`)
+    .get()
+    .then((el) => {
+      let link = el.data().link;
+       db.collection("rooms").doc(`${link}`).update({
+        start: true,
       });
-  });
+       db.collection("rooms").doc(`${link}`).update({
+        start: false,
+      });
+    });
+};
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
@@ -214,3 +199,18 @@ firebase.auth().onAuthStateChanged((user) => {
   } else {
   }
 });
+
+db.collection("links")
+  .doc(`${roomid}`)
+  .onSnapshot((el)=> {
+    let roomname = el.data().link;
+    db.collection("rooms")
+      .doc(`${roomname}`)
+      .onSnapshot((el) => {
+        let startbutton = el.data().start; 
+        let type = el.data().name
+        if (startbutton === true) {
+          window.location = `./${type}.html`;  
+        }
+      });
+  });
