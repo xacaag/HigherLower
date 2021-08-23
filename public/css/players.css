@@ -150,70 +150,46 @@ body {
   margin-top: 10vh;
 }
 .playersID {
-  width: 15vw;
-  height: 6vh;
-  background-color: gold;
   border-radius: 30px;
-  margin-top: 4vh;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   visibility: hidden;
+  margin-bottom: 15px;
 }
 .playersID2 {
-  width: 15vw;
-  height: 6vh;
-  background-color: gold;
   border-radius: 30px;
-  margin-top: 4vh;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   visibility: hidden;
+  margin-bottom: 15px;
 }
 .playersID3 {
-  width: 15vw;
-  height: 6vh;
-  background-color: gold;
   border-radius: 30px;
-  margin-top: 4vh;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   visibility: hidden;
+  margin-bottom: 15px;
 }
 .playersID4 {
-  width: 15vw;
-  height: 6vh;
-  background-color: gold;
   border-radius: 30px;
-  margin-top: 4vh;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   visibility: hidden;
+  margin-bottom: 15px;
 }
 .playersID5 {
-  width: 15vw;
-  height: 6vh;
-  background-color: gold;
   border-radius: 30px;
-  margin-top: 4vh;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   visibility: hidden;
+  margin-bottom: 15px;
 }
 .playersID6 {
-  width: 15vw;
-  height: 6vh;
-  background-color: gold;
   border-radius: 30px;
-  margin-top: 4vh;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   visibility: hidden;
+  margin-bottom: 15px;
 }
 .boorder {
   width: 50px;
@@ -232,17 +208,18 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* margin-left: 0vw; */
 }
 
-.words {
+#namefield {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
   font-family: Arial, Helvetica, sans-serif;
   color: #fff;
-  font-size: 30px;
+  background-color: gold;
+  font-size: 15px;
   display: flex;
-  justify-content: center;
+  padding-left: 10px;
   align-items: center;
-  width: 70%;
 }
 .borderSborder {
   width: 40px;
