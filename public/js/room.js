@@ -17,9 +17,8 @@ const createroom = async () => {
     ready: false,
     start: false,
     time: firebase.firestore.FieldValue.serverTimestamp(),
-    
   });
-  localStorage.setItem('admin', a);
+  localStorage.setItem("admin", a);
 
   let uid = randomIdGenerator().slice(8);
   await db.doc(`links/${uid}`).set({
