@@ -31,6 +31,26 @@ if (a === 1) {
   // genre.disabled = true;
 }
 
+db.collection("links")
+  .doc(roomid)
+  .onSnapshot((el) => {
+    let code = el.data().link;
+    db.collection("rooms")
+      .doc(code)
+      .onSnapshot((item) => {
+        let redy = item.data().ready;
+        if (!redy) {
+          document.getElementById("startB").disabled = true;
+          document.getElementById("startB").style.backgroundColor = "grey";
+          document.getElementById("startB").style.cursor = "not-allowed";
+        } else {
+          document.getElementById("startB").disabled = false;
+          document.getElementById("startB").style.backgroundColor = "#ecd55a";
+          document.getElementById("startB").style.cursor = "pointer";
+        }
+      });
+  });
+
 const typer = async (e) => {
   await db
     .collection("links")
