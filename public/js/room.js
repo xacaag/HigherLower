@@ -6,13 +6,10 @@ const randomIdGenerator = () => {
 
 var a;
 const createroom = async () => {
-  // await db
-  // .collection("multiplayer-score").doc(`${cu}`).set({
-  // score: 0,
-// });  
   a = 1;
   document.getElementById("loader").style.visibility = "visible";
   let ref = await db.collection("rooms").add({
+    nameArr: [],
     players: 1,
     ready: false,
     start: false,
@@ -37,10 +34,6 @@ const join = async () => {
   let roomData = await db.collection("rooms").doc(`${link}`).get();
 
   let { players } = roomData.data();
-  await db
-  .collection("multiplayer-score").doc(`${user.uid}`).set({
-  score: 0,
-});  
   if (players > 5) {
     alert("Өрөө дүүрсэн байна");
     return;

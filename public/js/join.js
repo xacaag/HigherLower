@@ -26,7 +26,6 @@ if (a === 1) {
   instagram.onclick = () => {};
   game.onclick = () => {};
   music.onclick = () => {};
-  console.log("asd");
 
   // classic.disabled =true;
   // genre.disabled = true;
@@ -63,31 +62,34 @@ const startGame = async () => {
 
 firebase.auth().onAuthStateChanged(async (user) => {
   if (user) {
-    let arr = [];
-    await db
-      .collection("users")
+    db.collection("users")
       .doc(user.uid)
       .get()
-      .then((el) => {
-        arr.push(el.data().name);
+      .then((name) => {
         db.collection("links")
           .doc(`${roomid}`)
           .get()
           .then((el) => {
             let code = el.data().link;
-            db.collection("rooms").doc(`${code}`).set(
-              {
-                nameArr: arr,
-              },
-              { merge: true }
-            );
+            db.collection("rooms")
+              .doc(`${code}`)
+              .get()
+              .then((doc) => {
+                let arr = doc.data().nameArr;
+                arr.push(name.data().name);
+                db.collection("rooms").doc(`${code}`).set(
+                  {
+                    nameArr: arr,
+                  },
+                  { merge: true }
+                );
+              });
           });
       });
 
     db.collection("links")
       .doc(`${roomid}`)
-      .get()
-      .then((el) => {
+      .onSnapshot((el) => {
         let code = el.data().link;
         db.collection("rooms")
           .doc(`${code}`)
@@ -112,6 +114,8 @@ firebase.auth().onAuthStateChanged(async (user) => {
                   document.getElementsByClassName(
                     "playersID2"
                   )[0].style.visibility = "visible";
+                  document.getElementsByClassName("words")[0].innerHTML =
+                    el.data().nameArr[0];
                   document.getElementsByClassName("words2")[0].innerHTML =
                     el.data().nameArr[1];
                 }
@@ -129,6 +133,10 @@ firebase.auth().onAuthStateChanged(async (user) => {
                   document.getElementsByClassName(
                     "playersID3"
                   )[0].style.visibility = "visible";
+                  document.getElementsByClassName("words")[0].innerHTML =
+                    el.data().nameArr[0];
+                  document.getElementsByClassName("words2")[0].innerHTML =
+                    el.data().nameArr[1];
                   document.getElementsByClassName("words3")[0].innerHTML =
                     el.data().nameArr[2];
                 }
@@ -150,6 +158,12 @@ firebase.auth().onAuthStateChanged(async (user) => {
                   document.getElementsByClassName(
                     "playersID4"
                   )[0].style.visibility = "visible";
+                  document.getElementsByClassName("words")[0].innerHTML =
+                    el.data().nameArr[0];
+                  document.getElementsByClassName("words2")[0].innerHTML =
+                    el.data().nameArr[1];
+                  document.getElementsByClassName("words3")[0].innerHTML =
+                    el.data().nameArr[2];
                   document.getElementsByClassName("words4")[0].innerHTML =
                     el.data().nameArr[3];
                 }
@@ -175,6 +189,14 @@ firebase.auth().onAuthStateChanged(async (user) => {
                   document.getElementsByClassName(
                     "playersID5"
                   )[0].style.visibility = "visible";
+                  document.getElementsByClassName("words")[0].innerHTML =
+                    el.data().nameArr[0];
+                  document.getElementsByClassName("words2")[0].innerHTML =
+                    el.data().nameArr[1];
+                  document.getElementsByClassName("words3")[0].innerHTML =
+                    el.data().nameArr[2];
+                  document.getElementsByClassName("words4")[0].innerHTML =
+                    el.data().nameArr[3];
                   document.getElementsByClassName("words5")[0].innerHTML =
                     el.data().nameArr[4];
                 }
@@ -204,6 +226,16 @@ firebase.auth().onAuthStateChanged(async (user) => {
                   document.getElementsByClassName(
                     "playersID6"
                   )[0].style.visibility = "visible";
+                  document.getElementsByClassName("words")[0].innerHTML =
+                    el.data().nameArr[0];
+                  document.getElementsByClassName("words2")[0].innerHTML =
+                    el.data().nameArr[1];
+                  document.getElementsByClassName("words3")[0].innerHTML =
+                    el.data().nameArr[2];
+                  document.getElementsByClassName("words4")[0].innerHTML =
+                    el.data().nameArr[3];
+                  document.getElementsByClassName("words5")[0].innerHTML =
+                    el.data().nameArr[4];
                   document.getElementsByClassName("words6")[0].innerHTML =
                     el.data().nameArr[5];
                 }
@@ -268,6 +300,19 @@ firebase.auth().onAuthStateChanged(async (user) => {
                   nameArr: newArr,
                 });
               });
+            });
+          db.collection("links")
+            .doc(`${roomid}`)
+            .onSnapshot((el) => {
+              let code = el.data().link;
+              db.collection("rooms")
+                .doc(code)
+                .onSnapshot((shot) => {
+                  if (shot.data().players <= 0) {
+                    db.collection("rooms").doc(code).delete();
+                    console.log("asd");
+                  }
+                });
             });
         });
     });
