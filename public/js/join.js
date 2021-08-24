@@ -87,7 +87,8 @@ firebase.auth().onAuthStateChanged(async (user) => {
           });
       });
 
-    db.collection("links")
+    await db
+      .collection("links")
       .doc(`${roomid}`)
       .onSnapshot((el) => {
         let code = el.data().link;
@@ -101,6 +102,9 @@ firebase.auth().onAuthStateChanged(async (user) => {
                   document.getElementsByClassName(
                     "playersID"
                   )[0].style.visibility = "visible";
+                  document.getElementsByClassName(
+                    "playersID2"
+                  )[0].style.visibility = "hidden";
                   document.getElementsByClassName("words")[0].innerHTML =
                     el.data().nameArr[0];
                 }
@@ -114,6 +118,9 @@ firebase.auth().onAuthStateChanged(async (user) => {
                   document.getElementsByClassName(
                     "playersID2"
                   )[0].style.visibility = "visible";
+                  document.getElementsByClassName(
+                    "playersID3"
+                  )[0].style.visibility = "hidden";
                   document.getElementsByClassName("words")[0].innerHTML =
                     el.data().nameArr[0];
                   document.getElementsByClassName("words2")[0].innerHTML =
@@ -133,6 +140,9 @@ firebase.auth().onAuthStateChanged(async (user) => {
                   document.getElementsByClassName(
                     "playersID3"
                   )[0].style.visibility = "visible";
+                  document.getElementsByClassName(
+                    "playersID4"
+                  )[0].style.visibility = "hidden";
                   document.getElementsByClassName("words")[0].innerHTML =
                     el.data().nameArr[0];
                   document.getElementsByClassName("words2")[0].innerHTML =
@@ -158,6 +168,9 @@ firebase.auth().onAuthStateChanged(async (user) => {
                   document.getElementsByClassName(
                     "playersID4"
                   )[0].style.visibility = "visible";
+                  document.getElementsByClassName(
+                    "playersID5"
+                  )[0].style.visibility = "hidden";
                   document.getElementsByClassName("words")[0].innerHTML =
                     el.data().nameArr[0];
                   document.getElementsByClassName("words2")[0].innerHTML =
@@ -187,8 +200,8 @@ firebase.auth().onAuthStateChanged(async (user) => {
                   )[0].style.visibility = "visible";
 
                   document.getElementsByClassName(
-                    "playersID5"
-                  )[0].style.visibility = "visible";
+                    "playersID6"
+                  )[0].style.visibility = "hidden";
                   document.getElementsByClassName("words")[0].innerHTML =
                     el.data().nameArr[0];
                   document.getElementsByClassName("words2")[0].innerHTML =
@@ -299,6 +312,7 @@ firebase.auth().onAuthStateChanged(async (user) => {
                   players: toglogchid,
                   nameArr: newArr,
                 });
+                window.location = "./multiplayer.html";
               });
             });
           db.collection("links")
@@ -310,7 +324,6 @@ firebase.auth().onAuthStateChanged(async (user) => {
                 .onSnapshot((shot) => {
                   if (shot.data().players <= 0) {
                     db.collection("rooms").doc(code).delete();
-                    console.log("asd");
                   }
                 });
             });
