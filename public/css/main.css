@@ -398,11 +398,11 @@ li:hover {
 }
 
 #circle {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background-color: #ecd55a;
-  margin-top: 25px;
+  background-color: grey;
+  padding-top: 5px;
 }
 
 #username {
