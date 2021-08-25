@@ -103,7 +103,6 @@ const higher = async () => {
       location.href = "./loser-screen.html";
     }, 2500);
   }
-  localStorage.setItem("highest", highScore);
 };
 
 const lower = async () => {
@@ -152,7 +151,6 @@ const lower = async () => {
       location.href = "./loser-screen.html";
     }, 2500);
   }
-  localStorage.setItem("highest", highScore);
 };
 
 var Answer;

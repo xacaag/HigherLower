@@ -88,6 +88,7 @@ const higher = async () => {
       });
     }
   } else {
+    localStorage.setItem("highlight", onoo);
     players2.innerHTML = data[i + 1].players.toLocaleString();
     setTimeout(function () {
       wrong_animation_1();
@@ -135,6 +136,7 @@ const lower = async () => {
       });
     }
   } else {
+    localStorage.setItem("highlight", onoo);
     players2.innerHTML = data[i + 1].players.toLocaleString();
     setTimeout(function () {
       wrong_animation_1();
@@ -246,7 +248,7 @@ let intervala = setInterval(() => {
       wrong_animation_1();
     }, 300);
     setTimeout(function () {
-      location.href = "./gameover.html";
+      location.href = "./loser-screen.html";
     }, 3000);
   } else {
     VS.innerHTML = String(timeLeft);

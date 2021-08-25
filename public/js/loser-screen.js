@@ -3,18 +3,28 @@ document.getElementById("mouse").addEventListener("mouseout", mouseOut);
 let bg = document.getElementById("bg");
 
 var highlight = localStorage.getItem("highlight");
-var highest = localStorage.getItem("highest");
 
-document.getElementsByClassName("light_score")[0].innerHTML = `${highlight}`;
-if (highest < highlight) {
-  document.getElementsByClassName(
-    "highest_score"
-  )[0].innerHTML = `Шинэ дээд оноо вүүүүүү: ${highlight}`;
-} else {
-  document.getElementsByClassName(
-    "highest_score"
-  )[0].innerHTML = `Одоогоор таны дээд оноо: ${highest}`;
-}
+firebase.auth().onAuthStateChanged(async (user) => {
+  var highest;
+  await db
+    .collection("users")
+    .doc(user.uid)
+    .onSnapshot((el) => {
+      highest = el.data().score;
+      document.getElementsByClassName(
+        "light_score"
+      )[0].innerHTML = `${highlight}`;
+      if (highest < highlight) {
+        document.getElementsByClassName(
+          "highest_score"
+        )[0].innerHTML = `Шинэ дээд оноо вүүүүүү: ${highlight}`;
+      } else {
+        document.getElementsByClassName(
+          "highest_score"
+        )[0].innerHTML = `Одоогоор таны дээд оноо: ${highest}`;
+      }
+    });
+});
 
 function mouseOver() {
   document.getElementById("mouse").style.background = "white";
