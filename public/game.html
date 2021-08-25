@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title> Game </title>
+</head>
+
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap");
+    body {
+        margin: 0;
+        height: 100vh;
+        color: white;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    }
+    
+    .game_holder {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .background {
+      background-color: black;
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .vs {
+      width: 9vw;
+      height: 9vw;
+      position: absolute;
+      background-color: #fff;
+      color: black;
+      border-radius: 50%;
+      font-size: 3vw;
+      margin: auto;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .checkmark {
+      width: 8vw;
+      height: 8vw;
+    }
+
+    .score_bar {
+      width: 98%;
+      height: 9%;
+      position: absolute;
+      bottom: 0.5%;
+      left: 2.5%;
+      font-size: 1.7vw;
+      display: flex;
+      justify-content: space-around;
+    }
+    .column {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .current_score {
+      width: 10%;
+      height: 1%;
+      position: absolute;
+      right: 7%;
+      /* display: flex;
+      flex-wrap: nowrap;
+      flex-direction: column; */
+    }
+
+    .scoooore {
+      width: 5%;
+    }
+    .high_score {
+      width: 98%;
+      /* height: 1%; */
+      position: absolute;
+      /* display: flex;
+      flex-wrap: nowrap;
+      flex-direction: column; */
+    }
+
+    .left_image {
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 50%;
+      height: 100%;
+      opacity: 75%;
+      /* transition-delay: 2.5s; */
+      transition: 1s;
+
+      filter: brightness(50%);
+    }
+
+    .left_box {
+      width: 30%;
+      height: 35%;
+      position: absolute;
+      bottom: 24%;
+      left: 10%;
+      font-size: 1.2vw;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .left_name {
+      font-size: 3vw;
+      position: absolute;
+      bottom: 53%;
+      transition-delay: 3.5s;
+
+      transition-timing-function: ease-in-out;
+    }
+
+    .left_ammount {
+      font-size: 3.5vw;
+      color: gold;
+      position: absolute;
+      bottom: 26%;
+    }
+
+    .textunderleftammount {
+      position: absolute;
+      bottom: 16%;
+      color: gold;
+    }
+
+    .right_image {
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 50%;
+      height: 100%;
+      opacity: 75%;
+      /* transition-delay:2.5s; */
+      transition: 1s;
+
+      filter: brightness(50%);
+    }
+
+    .right_box {
+      width: 30%;
+      height: 35%;
+      position: absolute;
+      bottom: 24%;
+      right: 10%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .right_name {
+      font-size: 3vw;
+      color: white;
+      position: absolute;
+      bottom: 53%;
+      transition-delay: 3.5s;
+
+      transition-timing-function: ease-in-out;
+    }
+
+    .right_ammount {
+      font-size: 3.5vw;
+      color: gold;
+      position: absolute;
+      bottom: 26%;
+      opacity: 0;
+    }
+
+    .textunderrightammount {
+      position: absolute;
+      opacity: 0;
+      bottom: 16%;
+      color: gold;
+    }
+
+    .button_holder {
+      width: 35%;
+      height: 35%;
+      position: absolute;
+      bottom: 25%;
+      left: 32.5%;
+      right: 32.5%;
+    }
+
+    .higher_button {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 45%;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid #ffffff;
+      color: white;
+      box-sizing: border-box;
+      border-radius: 17px;
+      font-size: 1.5vw;
+    }
+
+    .lower_button {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 45%;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid #ffffff;
+      color: white;
+      box-sizing: border-box;
+      border-radius: 17px;
+      font-size: 1.5vw;
+    }
+
+    .higher_button_triangle {
+      width: 8%;
+      height: 30%;
+      background-image: linear-gradient(
+          to bottom right,
+          transparent 50%,
+          white 0
+        ),
+        linear-gradient(to top right, white 50%, transparent 0);
+      background-size: 50% 100%;
+      background-repeat: no-repeat;
+      background-position: left, right;
+      position: absolute;
+      left: 80%;
+      top: 30%;
+      transition: 0.2s;
+    }
+
+    .lower_button_triangle {
+      width: 8%;
+      height: 30%;
+      background-image: linear-gradient(to top right, transparent 50%, white 0),
+        linear-gradient(to bottom right, white 50%, transparent 0);
+      background-size: 50% 100%;
+      background-repeat: no-repeat;
+      background-position: left, right;
+      position: absolute;
+      left: 80%;
+      top: 30%;
+      transition: 0.2s;
+    }
+
+    .textunderbutton {
+      font-size: 0.8vw;
+      width: 220%;
+      position: absolute;
+      left: -50%;
+      bottom: -55%;
+      color: white;
+      display: flex;
+      flex-wrap: nowrap;
+    }
+
+    .vs_correct {
+      background-image: url(./assets/logo/vs.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      animation-name: correct_circle;
+      animation-duration: 5s;
+      animation-delay: 1s;
+      transition: 0.1s;
+    }
+    
+
+    .vs_wrong {
+      background-image: url(./assets/logo/x.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      animation-name: wrong_circle;
+      animation-duration: 3s;
+      transition: 0.1s;
+    }
+
+    .button_dissapear {
+      animation-name: button_dissapear_anim;
+      animation-duration: 4.5s;
+      /* display: none; */
+    }
+
+    .invisible {
+      display: none;
+    }
+    #start {
+      width: 20px;
+      height: 20px;
+    }
+    .higher_button:hover {
+      cursor: pointer;
+      background-color: white;
+      color: black;
+      transition: 0.4s;
+    }
+    .lower_button:hover {
+      cursor: pointer;
+      background-color: white;
+      color: black;
+      transition: 0.4s;
+    }
+    .right_ammount_appear {
+      animation-name: right_ammount_anim;
+      animation-duration: 3s;
+    }
+    .current_score_2 {
+      width: 6%;
+      height: 2%;
+      position: absolute;
+      right: 7%;
+      display: flex;
+      flex-wrap: nowrap;
+    }
+    .higher_button:hover > .higher_button_triangle {
+      width: 8%;
+      height: 30%;
+      background-image: linear-gradient(
+          to bottom right,
+          transparent 50%,
+          black 0
+        ),
+        linear-gradient(to top right, black 50%, transparent 0);
+      background-size: 50% 100%;
+      background-repeat: no-repeat;
+      background-position: left, right;
+      position: absolute;
+      left: 80%;
+      top: 20%;
+    }
+    .lower_button:hover > .lower_button_triangle {
+      width: 8%;
+      height: 30%;
+      background-image: linear-gradient(to top right, transparent 50%, black 0),
+        linear-gradient(to bottom right, black 50%, transparent 0);
+      background-size: 50% 100%;
+      background-repeat: no-repeat;
+      background-position: left, right;
+      position: absolute;
+      left: 80%;
+      top: 40%;
+    }
+    #link {
+      width: 100px;
+
+      font-size: 10px;
+      color: white;
+      position: absolute;
+      bottom: -55px;
+    }
+    #link2 {
+      width: 100px;
+
+      font-size: 10px;
+      color: white;
+      position: absolute;
+      bottom: -55px;
+    }
+    .none {
+      display: none;
+    }
+    /* .a{
+        font-size: 5px;
+    } */
+
+    /* ---------------------------------------- Ask designer if design is good! ---------------------------------------- */
+
+    @keyframes right_ammount_anim {
+      0% {
+      }
+      7% {
+        transform: translateY(-5%);
+        opacity: 1;
+      }
+      80% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-5%);
+        opacity: 0;
+      }
+    }
+    @keyframes correct_circle {
+      0% {
+      }
+      30% {
+        transform: scale(1);
+        background-color: #3db549;
+      }
+      45% {
+        background-color: #3db549;
+        transform: scale(0.00001);
+      }
+      70% {
+        transform: scale(0.00001);
+        background-color: white;
+      }
+      85% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    @keyframes wrong_circle {
+      from {
+      }
+      to {
+        background-color: #df5454;
+      }
+    }
+    @keyframes button_dissapear_anim {
+      0% {
+      }
+      7% {
+        transform: translateY(5%);
+        opacity: 0;
+      }
+      70% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    #loader {
+    color: white;
+    font-size: 90px;
+    text-indent: -9999em;
+    overflow: hidden;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    margin: auto;
+    position: absolute;
+    top: 0; right: 0; left: 0; bottom: 0;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+    animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+    }
+    @-webkit-keyframes load6 {
+      0% {
+        box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+          0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+      }
+      5%,
+      95% {
+        box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+          0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+      }
+      10%,
+      59% {
+        box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em,
+          -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em,
+          -0.297em -0.775em 0 -0.477em;
+      }
+      20% {
+        box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em,
+          -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em,
+          -0.749em -0.34em 0 -0.477em;
+      }
+      38% {
+        box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em,
+          -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em,
+          -0.82em -0.09em 0 -0.477em;
+      }
+      100% {
+        box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+          0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+      }
+    }
+    @keyframes load6 {
+      0% {
+        box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+          0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+      }
+      5%,
+      95% {
+        box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+          0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+      }
+      10%,
+      59% {
+        box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em,
+          -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em,
+          -0.297em -0.775em 0 -0.477em;
+      }
+      20% {
+        box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em,
+          -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em,
+          -0.749em -0.34em 0 -0.477em;
+      }
+      38% {
+        box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em,
+          -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em,
+          -0.82em -0.09em 0 -0.477em;
+      }
+      100% {
+        box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+          0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+      }
+    }
+    @-webkit-keyframes round {
+      0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes round {
+      0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+
+  <body id="body">
+    <div class="game_holder">
+        <div class="background" id="bg">
+            <div class="left_image" id = "container1"></div>
+            <div class="right_image"id = "container2"></div>
+        </div>
+        <div class="vs" id="vs_id"></div>
+        <div class="vs" id="vs_id2"></div>
+        <div class="score_bar">
+            <div class="high_score">Дээд оноо: 0
+                <div> <a target="_blank"  id="link" href=""> </a></div>
+            </div>
+            <div class="current_score"id="Bscore">Оноо:0
+                 <div> <a target="_blank"  id="link2" href=""> </a></div>
+            </div>
+        </div>
+        <div class="game">
+            <div class="left_box">
+                <h1 class="left_name" id="name1">NAME</h1>
+                <h1 class="left_ammount" id="players1"></h1>
+                <h2 class="textunderleftammount">Players</h2>
+            </div>
+            <div class="right_box">
+                <h1 class="right_name" id="name2">NAME</h1>
+                <div class="button_holder" id="button_id">
+                    <button onclick="higher()" id="higher"class="higher_button">Их<div class="higher_button_triangle" ></div></button>
+                    <button onclick="lower()" id="lower"class="lower_button">Бага<div class="lower_button_triangle"></div></button>
+                    <div class="textunderbutton">
+                        <h1 id="left_name"></h1>
+                    </div>
+                </div>
+                <h1 class="right_ammount invisible" id="r_ammount"></h1>
+                <h2 class="textunderrightammount invisible" id="r_ammount_text">Players</h2>
+            </div>
+          </div>
+          <h1 class="right_ammount invisible" id="r_ammount"></h1>
+          <h2 class="textunderrightammount invisible" id="r_ammount_text">
+            Players
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div id="loader"></div>
+</body>
+<script src="./js/firebase.js"></script>
+<script src="./js/game.js"></script>
+</html>
+

@@ -19,7 +19,10 @@ db.collection("users")
       container.appendChild(name);
       container.appendChild(score);
       document.getElementsByClassName("cololumn")[0].appendChild(container);
-      document.getElementById('loader').style.display = 'none';
+      document.getElementById("loader").style.display = "none";
       i++;
     });
   });
+const back = () => {
+  location.href = "./index.html ";
+};
