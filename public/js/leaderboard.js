@@ -26,3 +26,6 @@ db.collection("users")
 const back = () => {
   location.href = "./index.html ";
 };
+  const back_index = () => {
+    window.location = "index.html";
+  }

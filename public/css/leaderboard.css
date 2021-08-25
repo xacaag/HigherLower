@@ -2,6 +2,7 @@ body {
   margin: 0;
   height: 100vh;
   background: radial-gradient(#353c44, #222931);
+  overflow: hidden;
 }
 .column {
   width: 100vw;
@@ -30,6 +31,14 @@ body {
 .lologo {
   height: 200px;
   width: 360px;
+  transition: all 0.3s ease;
+  
+}
+.lologo:hover{
+  cursor: pointer;
+  height: 220px;
+  width: 380px;
+
 }
 .board {
   font-family: Arial, Helvetica, sans-serif;
