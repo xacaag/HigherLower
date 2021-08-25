@@ -25,6 +25,9 @@ const createroom = async () => {
 };
 
 const join = async () => {
+
+  document.getElementById("loader").style.visibility = "visible";
+  
   const joincode = document.getElementById("join").value;
 
   let doc = await db.collection("links").doc(`${joincode}`).get();
