@@ -94,7 +94,7 @@ const higher = async () => {
       wrong_animation_1();
     }, 300);
     setTimeout(function () {
-      location.href = "./game-end-in-game.html";
+      location.href = "./loser-screen.html";
     }, 2500);
   }
 };
@@ -142,7 +142,7 @@ const lower = async () => {
       wrong_animation_1();
     }, 300);
     setTimeout(function () {
-      location.href = "./game-end-in-game.html";
+      location.href = "./loser-screen.html";
     }, 2500);
   }
 };

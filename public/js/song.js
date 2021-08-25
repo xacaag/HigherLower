@@ -88,6 +88,7 @@ const higher = async () => {
       });
     }
   } else {
+    localStorage.setItem("highlight", onoo);
     followers2.innerHTML = data[i + 1].views.toLocaleString();
     setTimeout(function () {
       wrong_animation_1();
@@ -135,6 +136,7 @@ const lower = async () => {
       });
     }
   } else {
+    localStorage.setItem("highlight", onoo);
     followers2.innerHTML = data[i + 1].views.toLocaleString();
     setTimeout(function () {
       wrong_animation_1();
