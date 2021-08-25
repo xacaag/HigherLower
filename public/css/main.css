@@ -579,41 +579,6 @@ li:hover {
   color: black;
   height: 50vh;
 }
-
-.spinner {
-  width: 5vw;
-  height: 5vw;
-  position: absolute;
-  margin: 400px auto;
-}
-
-.loader1 {
-  width: 5vw;
-  height: 5vw;
-  border-radius: 50%;
-  background-color: #df5454;
-  opacity: 0.8;
-  position: absolute;
-  top: 0;
-  left: 0;
-  -webkit-animation: sk-bounce 2s infinite ease-in-out;
-  animation: sk-bounce 2s infinite ease-in-out;
-}
-
-.loader2 {
-  width: 5vw;
-  height: 5vw;
-  border-radius: 50%;
-  background-color: #ecd55a;
-  position: absolute;
-  top: 0;
-  left: 0;
-  -webkit-animation: sk-bounce 2s infinite ease-in-out;
-  animation: sk-bounce 2s infinite ease-in-out;
-  -webkit-animation-delay: -1s;
-  animation-delay: -1s;
-}
-
 .none {
   display: none;
 }
@@ -646,38 +611,6 @@ li:hover {
   text-decoration: none;
   transition: all 0.3s ease;
 }
-
-@-webkit-keyframes sk-bounce {
-  0%,
-  100% {
-    -webkit-transform: scale(0);
-  }
-  50% {
-    -webkit-transform: scale(2);
-  }
-}
-
-@keyframes sk-bounce {
-  0%,
-  100% {
-    transform: scale(0);
-    -webkit-transform: scale(0);
-  }
-  50% {
-    transform: scale(2);
-    -webkit-transform: scale(2);
-  }
-}
-
-@keyframes genre_list_animation {
-  from {
-    transform: translateY(-180px);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-
 /* @keyframes correct_circle {
       0% {
         height:0px;

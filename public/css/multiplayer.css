@@ -240,7 +240,7 @@ body {
   }
 #loader {
     visibility: hidden;
-    color: white;
+    color: gold;
     font-size: 90px;
     text-indent: -9999em;
     overflow: hidden;
