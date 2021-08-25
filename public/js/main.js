@@ -3,6 +3,7 @@ let signupd = document.getElementById("signup")
 let profiled = document.getElementById("profile")
 let leaderboard = document.getElementById("leaderboard")
 
+let ner = document.getElementById("ner")
 
 document.getElementById("myBtn").onclick = function () {
   myFunction();

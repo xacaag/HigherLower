@@ -33,16 +33,19 @@
             </div>
             <div id="logOut" onclick="logOut()"> Гарах </div>
         </div>
-        <div id="logOut" onclick="logOut()">Гарах</div>
+        
       </div>
-    </div>
+  
     <div class="nevtreh">
       <div class="Sign">
         <div id="login" class="Login" onclick="Login()">Login</div>
         <div id="signup" class="SignUp" onclick="SignUp()">Sign up</div>
-        <div id="profile" class="profile" onclick="on1()">
-          <div id="ner"></div>
-          <img src="./assets/down.svg" class="down" />
+        <div id="profile" class="profile" onclick="on1()"
+        onmouseover="profile_hover(this)"
+          onmouseout="profile_normal(this)">
+          <div  id="ner"></div>
+          <img src="./assets/down.svg" class="down" 
+          />
         </div>
       </div>
     </div>
@@ -66,7 +69,9 @@
               >
                 Классик
               </p>
-              <img src="./assets/logo/!.svg" id="myBtn" />
+              <img src="./assets/logo/!.svg" id="myBtn" 
+              onmouseover="myBtn_hover(this)"
+              onmouseout="myBtn_normal(this)"/>
             </div>
           </div>
           <div class="Choice">
@@ -82,7 +87,9 @@
                  Холбогдож тоглох
               </p>
 
-              <img src="./assets/logo/!.svg" id="myBtn2" />
+              <img src="./assets/logo/!.svg" id="myBtn2"
+              onmouseover="myBtn2_hover(this)"
+              onmouseout="myBtn2_normal(this)" />
             </div>
           </div>
           <div class="genre_container">
@@ -99,7 +106,9 @@
                     Төрөл
                 </p>
 
-                <img src="./assets/logo/!.svg" id="myBtn3" />
+                <img src="./assets/logo/!.svg" id="myBtn3"
+                onmouseover="myBtn3_hover(this)"
+                onmouseout="myBtn3_normal(this)" />
               </div>
             </div>
             <div class="genre_start_button" id="genre_start">
@@ -192,11 +201,12 @@
       </div>
       <div id="touch4" class="info">
         <div class="haha">
-          <p class="buttonw">
+          <p class="buttonw2">
             Олуулаа тоголхын тулд та бүртгэл үүсгэж орсон байх хэрэгтэй!
           </p>
           <div class="buutttoon">
-            <button onclick="gotosign()" class="buuttoon">SignUp</button>
+            <button onclick="gotosign()" class="buuttoon2">бүртгүүлэх</button>
+            <button onclick="gotologin()" class="buuttoon2">Нэвтрэх</button>
           </div>
         </div>
       </div>
@@ -224,6 +234,9 @@
     const gotosign = () => {
       window.location = "./signUp.html";
     };
+    const gotologin = () => {
+      window.location = "./login.html";
+    };
 
     let button1 = document.getElementById("button1");
     let l_button = document.getElementsByClassName("button")[0];
@@ -237,6 +250,10 @@
     let genre_start = document.getElementById("genre_start");
     let genre__button = document.getElementById("genre__button");
     let genre_start_p = document.getElementById("genre_start_p");
+    let myBtn = document.getElementById("myBtn");
+    let myBtn2  = document.getElementById("myBtn2");
+    let myBtn3  = document.getElementById("myBtn3");
+    let profile = document.getElementsByClassName("profile")[0];
     let unen;
 
     const goToRoom = () => {
@@ -347,7 +364,7 @@
 
     function start_normal(x) {
       start_p.style.fontSize = "20px";
-      button1.style.boxShadow = "none";
+      button1.style.boxShadow = "0px 0px 20px 0px #b1a043";
     }
 
     function multi_hover(x) {
@@ -357,7 +374,7 @@
 
     function multi_normal(x) {
       multi_p.style.fontSize = "20px";
-      multi__button.style.boxShadow = "none";
+      multi__button.style.boxShadow = "0px 0px 20px 0px #b1a043";
     }
 
     function genre_hover(x) {
@@ -367,7 +384,7 @@
 
     function genre_normal(x) {
       genre_button.style.fontSize = "20px";
-      genre__button.style.boxShadow = "none";
+      genre__button.style.boxShadow = "0px 0px 20px 0px #b1a043";
     }
 
     function leader_hover(x) {
@@ -377,17 +394,67 @@
 
     function leader_normal(x) {
       leader_p.style.fontSize = "20px";
-      l_button.style.boxShadow = "none";
+      l_button.style.boxShadow = "0px 0px 20px 0px #b1a043";
     }
 
     function genre_start_hover(x) {
-      genre_start_p.style.fontSize = "22px";
-      genre_start.style.boxShadow = "0px 37px 40px 0px black";
+      genre_start_p.style.fontSize = "25px";
+      genre_start.style.boxShadow = "0px 20px 20px 0px black";
     }
 
     function genre_start_normal(x) {
       genre_start_p.style.fontSize = "20px";
-      genre_start.style.boxShadow = "none";
+      genre_start.style.boxShadow = "0px 0px 20px 0px #b1a043";
     }
+    function profile_hover(x) {
+      ner.style.fontSize = "23px";
+     profile.style.boxShadow = "0px 0px 40px 0px black";
+      
+    }
+
+    function profile_normal(x) {
+      ner.style.fontSize = "20px";
+      profile.style.boxShadow = "0px 0px 20px 0px #b1a043";
+    
+      
+    }
+  
+    function myBtn_hover(x) {
+  
+  myBtn.style.width="40px"
+  myBtn.style.height="40px"
+      
+    }
+
+    function myBtn_normal(x) {
+      myBtn.style.width="30px"
+      myBtn.style.height="30px"
+    
+      
+    }
+    function myBtn2_hover(x) {
+      myBtn2.style.width="40px"
+      myBtn2.style.height="40px"
+      
+  }
+
+  function myBtn2_normal(x) {
+    myBtn2.style.width="30px"
+    myBtn2.style.height="30px"
+  
+    
+  }
+  function myBtn3_hover(x) {
+    myBtn3.style.width="40px"
+  myBtn3.style.height="40px"
+      
+  }
+
+  function myBtn3_normal(x) {
+    myBtn3.style.width="30px"
+  myBtn3.style.height="30px"
+  
+    
+  }
   </script>
 </html>

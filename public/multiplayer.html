@@ -14,39 +14,58 @@
   <body>
     <div id="overlay1">
       <div id="settings">
-        <img src="./assets/logo/close.svg" class="close" onclick="haah()" />
-        <div id="heading1">ТОХИРГОО</div>
-        <div class="contain1">
-          <div id="circle"></div>
-          <div id="username"></div>
-        </div>
-        <div id="heading2">xэрэглэгчийн нэр</div>
-        <div id="line"></div>
-        <div class="contain2">
-          <input id="name" />
-          <div id="save" onclick="save()">Хадгалах</div>
-        </div>
-        <div id="logOut" onclick="logOut()">Гарах</div>
+          <img src="./assets/logo/close.svg" class="close" onclick="haah()">
+          <div id="heading1"> ТОХИРГОО </div>
+          <div class="contain1">
+              <img id="circle" src="./assets/players.svg" />
+              <div class="field">
+              <div id="username"> </div>
+              <div class="yourhighest"></div>
+            </div>
+          </div>
+          <div id="heading2"> Нэр солих </div>
+          <div id="line"></div>
+          <div class="contain2">
+              <input id="name">
+              <div id="save" onclick="save()"> Хадгалах </div>
+          </div>
+          <div id="logOut" onclick="logOut()"> Гарах </div>
       </div>
+      
     </div>
     <div class="Container1">
-      <div id="profile" class="profile" onclick="on1()">
-        <div id="ner"></div>
-        <img src="./assets/down.svg" class="down" />
+      <div id="profile" class="profile" onclick="on1()"
+      onmouseover="multi_profile_hover(this)"
+        onmouseout="multi_profile_normal(this)">
+        <div  id="ner"
+        ></div>
+        <img src="./assets/down.svg" class="down" 
+        />
       </div>
       <img src="./assets/back.svg" class="backBtn" onclick="back()" />
-      <img src="./assets/logo/logo.svg" class="Logo" />
-      <div class="Heading1"><b> ХОЛБОГДОЖ ТОГЛОХ </b></div>
+      <img src="./assets/logo/logo.svg" class="Logo" onclick="back_index()"/>
+      <div class="Heading2"><b> ХОЛБОГДОЖ ТОГЛОХ </b></div>
       <div class="Container3">
         <div class="Container4">
-          <div class="Heading2">ӨРӨӨ НЭЭХ</div>
+          <div class="Heading23">ӨРӨӨ НЭЭХ</div>
           <img src="./assets/room.svg" class="Room" />
-          <div class="createBtn" onclick="createroom()">Өрөө нээх</div>
+              <div class="createBtn" 
+              onclick="createroom()">
+              <p id="create_p"
+              onmouseover="create_hover(this)"
+              onmouseout="create_normal(this)">Өрөө нээх</p>
+            </div>
         </div>
         <div class="Container5">
           <div class="Heading3">НЭГДЭХ</div>
           <img src="./assets/join.svg" class="Join" />
-          <div class="joinBtn" onclick="goToJoin()">Нэгдэх</div>
+          <div class="joinBtn"  onclick="goToJoin()">
+        <p id="join_p"
+        onmouseover="join_hover(this)"
+        onmouseout="join_normal(this)">Өрөө нээх</p>
+      </div>
+
+        </p></div>
         </div>
       </div>
     </div>
@@ -55,6 +74,12 @@
   <script src="./js/firebase.js"></script>
   <script src="./js/room.js"></script>
   <script>
+    let ner = document.getElementById("ner")
+    let profile = document.getElementsByClassName("profile")[0];
+    let create_p = document.getElementById("create_p")
+    let join_p = document.getElementById("join_p")
+    let createBtn = document.getElementsByClassName("createBtn")[0];
+    let joinBtn = document.getElementsByClassName("joinBtn")[0];
     const goToJoin = () => {
       window.location = "joincode.html";
     };
@@ -73,30 +98,90 @@
       }
     });
 
-    function on1() {
-      document.getElementById("overlay1").style.display = "block";
+    function multi_profile_hover(x) {
+  ner.style.fontSize = "23px";
+ profile.style.boxShadow = "0px 0px 40px 0px black";
+  
+}
+
+function multi_profile_normal(x) {
+  ner.style.fontSize = "20px";
+  profile.style.boxShadow = "0px 0px 20px 0px #b1a043";
+
+  
+}
+function on1() {
+  document.getElementById("overlay1").style.display = "block";
+}
+
+const haah = () => {
+  document.getElementById("overlay1").style.display = "none";
+};
+
+const save = async () => {
+  const input = document.getElementById("name").value;
+  const user = firebase.auth().currentUser;
+  await db.collection("users").doc(`${user.uid}`).update({
+    name: input,
+  });
+  document.getElementById("overlay1").style.display = "none";
+};
+const logOut = () => {
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      // Sign-out successful.
+    });
+  document.getElementById("overlay1").style.display = "none";
+};
+
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    db.collection("users")
+      .doc(user.uid)
+      .onSnapshot((el) => {
+        document.getElementById("ner").innerHTML = el.data().name;
+        document.getElementById("username").innerHTML = el.data().name;
+        document.getElementsByClassName(
+          "yourhighest"
+        )[0].innerHTML = `Таны дээд амжилт: ${el.data().score}`;
+      });
+    unen = true;
+    logind.classList.add("none");
+    signupd.classList.add("none");
+  } else {
+    unen = false;
+    logind.classList.remove("none");
+    signupd.classList.remove("none");
+    leaderboard.classList.add("none");
+    profiled.classList.add("none");
+  }
+});
+function create_hover(x) {
+      createBtn.style.fontSize = "22px";
+      createBtn.style.boxShadow = "0px 0px 40px 0px black";
     }
 
-    const haah = () => {
-      document.getElementById("overlay1").style.display = "none";
-    };
+    function create_normal(x) {
+      createBtn.style.fontSize = "20px";
+      createBtn.style.boxShadow = "0px 0px 20px 0px #b1a043";
+    }
+    function join_hover(x) {
+      joinBtn.style.fontSize = "22px";
+      joinBtn.style.boxShadow = "0px 0px 40px 0px black";
+    }
 
-    const save = async () => {
-      const input = document.getElementById("name").value;
-      const user = firebase.auth().currentUser;
-      await db.collection("users").doc(`${user.uid}`).update({
-        name: input,
-      });
-      document.getElementById("overlay1").style.display = "none";
-    };
-    const logOut = () => {
-      firebase
-        .auth()
-        .signOut()
-        .then(() => {
-          // Sign-out successful.
-        });
-      document.getElementById("overlay1").style.display = "none";
-    };
+    function join_normal(x) {
+      joinBtn.style.fontSize = "20px";
+      joinBtn.style.boxShadow = "0px 0px 20px 0px #b1a043";
+    }
+    const back_index = () =>{
+      window.location = "index.html";
+    }
+
+
+
+
   </script>
 </html>

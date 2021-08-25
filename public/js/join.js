@@ -3,12 +3,12 @@ let roomdiv = document.getElementById("roomid");
 let classic = document.getElementById("classic");
 let genre = document.getElementById("genre");
 let start = document.getElementById("startB");
-
+let profile = document.getElementsByClassName("profile")[0];
 let movie = document.getElementById("multiplayer-movie");
 let instagram = document.getElementById("multiplayer-instagram");
 let game = document.getElementById("multiplayer-game");
 let music = document.getElementById("multiplayer-music");
-
+let ner = document.getElementById("ner")
 let param = new URLSearchParams(window.location.search);
 let roomid = param.get("roomid");
 
