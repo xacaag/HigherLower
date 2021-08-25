@@ -2,6 +2,19 @@ document.getElementById("mouse").addEventListener("mouseover", mouseOver);
 document.getElementById("mouse").addEventListener("mouseout", mouseOut);
 let bg = document.getElementById("bg");
 
+var highlight = localStorage.getItem("highlight");
+var highest = localStorage.getItem("highest");
+
+document.getElementsByClassName("light_score")[0].innerHTML = `${highlight}`;
+if (highest < highlight) {
+  document.getElementsByClassName(
+    "highest_score"
+  )[0].innerHTML = `Шинэ дээд оноо вүүүүүү: ${highlight}`;
+} else {
+  document.getElementsByClassName(
+    "highest_score"
+  )[0].innerHTML = `Одоогоор таны дээд оноо: ${highest}`;
+}
 
 function mouseOver() {
   document.getElementById("mouse").style.background = "white";
@@ -26,39 +39,30 @@ function mouseoout() {
 let data = [];
 let i = 0;
 
+db.collection("loser")
+  .get()
+  .then((docs) => {
+    docs.forEach((doc) => {
+      data.push(doc.data());
+    });
+    data = data.sort(() => Math.random() - 0.5);
+  });
 
-
-db.collection("loser").get().then((docs) => {
-  docs.forEach((doc) => {
-    data.push(doc.data())
-  })
-  data = data.sort(() => Math.random() - 0.5)
-})
-
-console.log(data)
 setTimeout(() => {
-
-  bg.style.backgroundImage = `url(${data[i].bg})`
+  bg.style.backgroundImage = `url(${data[i].bg})`;
   bg.style.backgroundSize = "cover";
-  bg.style.backgroundRepeat = "round"
-
- 
-  
+  bg.style.backgroundRepeat = "round";
 }, 2000);
-const retry = () =>{
-  location.href="./classic.html "
- 
+const retry = () => {
+  location.href = "./classic.html ";
+};
+const menu = () => {
+  location.href = "./index.html ";
+};
 
-}
-const menu = () =>{
-  location.href="./index.html "
-}
-
-
-  // if (performance.type == performance.TYPE_RELOAD) {
-  //   window.location = 'index.html'
-  // } 
-
+// if (performance.type == performance.TYPE_RELOAD) {
+//   window.location = 'index.html'
+// }
 
 // console.log(PerformanceNavigation.TYPE_RELOAD)
 

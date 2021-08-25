@@ -86,8 +86,7 @@ const higher = async () => {
       db.collection("users").doc(`${currentUser.uid}`).update({
         score: onoo,
       });
-    }else{
-
+    } else {
     }
   } else {
     setTimeout(function () {
@@ -108,15 +107,13 @@ const higher = async () => {
     link2.href = data[i + 2].photo;
     wrong_animation_1();
     i++;
-  
+
     reset();
     document.getElementById("Bscore").innerHTML = `Оноо: ${onoo}`;
-
   }
-  if(i > 20){
-    location.href = "./result.html"
-  }else{
-    
+  if (i > 20) {
+    location.href = "./result.html";
+  } else {
   }
 };
 
@@ -155,8 +152,7 @@ const lower = async () => {
       db.collection("users").doc(`${currentUser.uid}`).update({
         score: onoo,
       });
-    }else{
-
+    } else {
     }
   } else {
     setTimeout(function () {
@@ -177,17 +173,14 @@ const lower = async () => {
     link2.href = data[i + 2].photo;
     wrong_animation_1();
     i++;
-  
+
     reset();
     document.getElementById("Bscore").innerHTML = `Оноо: ${onoo}`;
-
   }
-  if(i > 20){
-    location.href = "./result.html"
-  }else{
-
+  if (i > 20) {
+    location.href = "./result.html";
+  } else {
   }
-  
 };
 
 var Answer;
@@ -241,7 +234,7 @@ function wrong_animation_1() {
   // setTimeout(function(){ VS.innerHTML = ("");;}, 0)
   // setTimeout(function(){ VS.classList.add('vs_wrong');},0)
   R_BUTTON.disabled = true;
-  L_BUTTON.disabled = true;  
+  L_BUTTON.disabled = true;
   setTimeout(function () {
     VS2.classList.add("vs_wrong");
   }, 0);
@@ -299,7 +292,6 @@ function animation_4() {
   }, 2200);
 }
 
-
 timeLeft = 10;
 
 let intervala = setInterval(() => {
@@ -322,10 +314,9 @@ let intervala = setInterval(() => {
     link2.href = data[i + 2].photo;
     wrong_animation_1();
     i++;
-  
+
     reset();
     document.getElementById("Bscore").innerHTML = `Оноо: ${onoo}`;
-
   } else {
     VS.innerHTML = String(timeLeft);
     timeLeft--;
@@ -335,3 +326,8 @@ let intervala = setInterval(() => {
 let reset = () => {
   timeLeft = 12;
 };
+
+window.addEventListener("beforeunload", function (event) {
+  event.preventDefault();
+  window.location = "./multiplayer.html";
+});

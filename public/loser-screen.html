@@ -1,32 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="refresh" content="reload; url=index.html">
+    <meta http-equiv="refresh" content="reload; url=index.html" />
     <link rel="stylesheet" href="./css/loser-screen.css" />
     <title>LOL</title>
   </head>
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-storage.js"></script>
   <body>
-    <div class="fullpage-wrapper" id="bg">
-     
-    </div>
+    <div class="fullpage-wrapper" id="bg"></div>
     <div class="opa">
-      <div class="center" style="margin-bottom: 3.5vh">SCORE:</div>
-      <div class="light_score">???</div>
-      <hr style="width: 15%" />
-      <div class="center" style="margin-top: 5vh">Highest Score: ???</div>
-          <div class="butto">
-            <button class="button" id="mouse" style="margin-top: 5vh"onclick="retry()">RETRY</button>
-            <button class="button" id="demo" style="margin-top: 3vh"onclick="menu()">MENU</button>
-          </div>
-        </div>
-    
+      <div class="center" style="margin-bottom: 3.5vh"></div>
+      <div class="scores">Оноо:</div>
+      <div class="light_score"></div>
+      <hr style="width: 40%" />
+      <div class="highest_score"></div>
+      <div class="butto">
+        <button
+          class="button"
+          id="mouse"
+          style="margin-top: 5vh"
+          onclick="retry()"
+        >
+          Дахиад
+        </button>
+        <button
+          class="button"
+          id="demo"
+          style="margin-top: 3vh"
+          onclick="menu()"
+        >
+          Мэню
+        </button>
+      </div>
+    </div>
   </body>
   <script src="./js/firebase.js"></script>
   <script src="./js/loser-screen.js"></script>

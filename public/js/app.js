@@ -1,6 +1,12 @@
 let data = [];
 let timeLeft;
 
+// window.addEventListener("beforeunload", function (event) {
+// event.preventDefault();
+//   window.location = "./index.html";
+//   console.log("app");
+// });
+
 db.collection("movie")
   .get()
   .then((docs) => {
@@ -88,6 +94,7 @@ const higher = async () => {
       });
     }
   } else {
+    localStorage.setItem("highlight", onoo);
     followers2.innerHTML = data[i + 1].imdb.toLocaleString();
     setTimeout(function () {
       wrong_animation_1();
@@ -96,6 +103,7 @@ const higher = async () => {
       location.href = "./loser-screen.html";
     }, 2500);
   }
+  localStorage.setItem("highest", highScore);
 };
 
 const lower = async () => {
@@ -135,6 +143,7 @@ const lower = async () => {
       });
     }
   } else {
+    localStorage.setItem("highlight", onoo);
     followers2.innerHTML = data[i + 1].imdb.toLocaleString();
     setTimeout(function () {
       wrong_animation_1();
@@ -143,6 +152,7 @@ const lower = async () => {
       location.href = "./loser-screen.html";
     }, 2500);
   }
+  localStorage.setItem("highest", highScore);
 };
 
 var Answer;
