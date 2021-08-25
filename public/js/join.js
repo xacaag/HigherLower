@@ -332,7 +332,6 @@ firebase.auth().onAuthStateChanged(async (user) => {
                   players: toglogchid,
                   nameArr: newArr,
                 });
-                window.location = "./multiplayer.html";
               });
             });
           db.collection("links")
