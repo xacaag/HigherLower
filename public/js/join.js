@@ -8,9 +8,11 @@ let movie = document.getElementById("multiplayer-movie");
 let instagram = document.getElementById("multiplayer-instagram");
 let game = document.getElementById("multiplayer-game");
 let music = document.getElementById("multiplayer-music");
-let ner = document.getElementById("ner")
+let ner = document.getElementById("ner");
 let param = new URLSearchParams(window.location.search);
 let roomid = param.get("roomid");
+
+localStorage.setItem("id", roomid);
 
 if (roomid) {
   roomdiv.innerHTML = `Код : ${roomid}`;

@@ -1,4 +1,3 @@
-
 let data = [];
 let timeLeft;
 
@@ -76,20 +75,6 @@ const higher = async () => {
     onoo++;
     reset();
     document.getElementById("Bscore").innerHTML = `Оноо: ${onoo}`;
-
-    await db
-      .collection("users")
-      .doc(`${currentUser.uid}`)
-      .onSnapshot((el) => {
-        highScore = el.data().score;
-      });
-    if (highScore < onoo) {
-      db.collection("users").doc(`${currentUser.uid}`).update({
-        score: onoo,
-      });
-    }else{
-
-    }
   } else {
     setTimeout(function () {
       name1.innerHTML = data[i].account;
@@ -109,17 +94,15 @@ const higher = async () => {
     link2.href = data[i + 2].photo;
     wrong_animation_1();
     i++;
-  
+
     reset();
     document.getElementById("Bscore").innerHTML = `Оноо: ${onoo}`;
-
   }
-//   if(i > 20){
-
-//     location.href = "./result.html"
-//   }else{
-    
-//   }
+  if (i >= 20) {
+    location.href = "./result.html";
+    localStorage.setItem("gamerScore", onoo);
+  } else {
+  }
 };
 
 const lower = async () => {
@@ -146,20 +129,6 @@ const lower = async () => {
     onoo++;
     reset();
     document.getElementById("Bscore").innerHTML = `Оноо: ${onoo}`;
-
-    await db
-      .collection("users")
-      .doc(`${currentUser.uid}`)
-      .onSnapshot((el) => {
-        highScore = el.data().score;
-      });
-    if (highScore < onoo) {
-      db.collection("users").doc(`${currentUser.uid}`).update({
-        score: onoo,
-      });
-    }else{
-
-    }
   } else {
     setTimeout(function () {
       name1.innerHTML = data[i].account;
@@ -179,23 +148,15 @@ const lower = async () => {
     link2.href = data[i + 2].photo;
     wrong_animation_1();
     i++;
-  
+
     reset();
     document.getElementById("Bscore").innerHTML = `Оноо: ${onoo}`;
-
   }
-//   if(i > 20){
-//        db.collection("multiplayer-score").doc(`${currentUser.uid}`).update({
-//         score: onoo,
-//       });
-//       setTimeout(() => {
-//         location.href = "./result.html"
-//       }, 2000);
-   
-//   }else{
-
-//   }
-  
+  if (i >= 20) {
+    location.href = "./result.html";
+    localStorage.setItem("gamerScore", onoo);
+  } else {
+  }
 };
 
 var Answer;
@@ -249,7 +210,7 @@ function wrong_animation_1() {
   // setTimeout(function(){ VS.innerHTML = ("");;}, 0)
   // setTimeout(function(){ VS.classList.add('vs_wrong');},0)
   R_BUTTON.disabled = true;
-  L_BUTTON.disabled = true;  
+  L_BUTTON.disabled = true;
   setTimeout(function () {
     VS2.classList.add("vs_wrong");
   }, 0);
@@ -307,7 +268,6 @@ function animation_4() {
   }, 2200);
 }
 
-
 timeLeft = 10;
 
 let intervala = setInterval(() => {
@@ -330,10 +290,9 @@ let intervala = setInterval(() => {
     link2.href = data[i + 2].photo;
     wrong_animation_1();
     i++;
-  
+
     reset();
     document.getElementById("Bscore").innerHTML = `Оноо: ${onoo}`;
-
   } else {
     VS.innerHTML = String(timeLeft);
     timeLeft--;

@@ -75,19 +75,6 @@ const higher = async () => {
     onoo++;
     reset();
     document.getElementById("Bscore").innerHTML = `Оноо: ${onoo}`;
-
-    await db
-      .collection("users")
-      .doc(`${currentUser.uid}`)
-      .onSnapshot((el) => {
-        highScore = el.data().score;
-      });
-    if (highScore < onoo) {
-      db.collection("users").doc(`${currentUser.uid}`).update({
-        score: onoo,
-      });
-    } else {
-    }
   } else {
     setTimeout(function () {
       name1.innerHTML = data[i].name;
@@ -111,8 +98,9 @@ const higher = async () => {
     reset();
     document.getElementById("Bscore").innerHTML = `Оноо: ${onoo}`;
   }
-  if (i > 20) {
+  if (i >= 20) {
     location.href = "./result.html";
+    localStorage.setItem("gamerScore", onoo);
   } else {
   }
 };
@@ -141,19 +129,6 @@ const lower = async () => {
     onoo++;
     reset();
     document.getElementById("Bscore").innerHTML = `Оноо: ${onoo}`;
-
-    await db
-      .collection("users")
-      .doc(`${currentUser.uid}`)
-      .onSnapshot((el) => {
-        highScore = el.data().score;
-      });
-    if (highScore < onoo) {
-      db.collection("users").doc(`${currentUser.uid}`).update({
-        score: onoo,
-      });
-    } else {
-    }
   } else {
     setTimeout(function () {
       name1.innerHTML = data[i].name;
@@ -177,8 +152,9 @@ const lower = async () => {
     reset();
     document.getElementById("Bscore").innerHTML = `Оноо: ${onoo}`;
   }
-  if (i > 20) {
+  if (i >= 20) {
     location.href = "./result.html";
+    localStorage.setItem("gamerScore", onoo);
   } else {
   }
 };

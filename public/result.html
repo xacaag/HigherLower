@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaderboard</title>
+  </head>
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
+  <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      background-color: #1f1f1f;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .big_text {
+      font-size: 4vw;
+      color: white;
+      margin-top: 10vh;
+    }
+
+    .pillar_holder {
+      width: 80vw;
+      height: 50vh;
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+    }
+
+    .p1 {
+      width: 12vw;
+      height: 50vh;
+      background-color: #ede1a0;
+      border: white 0.15vw solid;
+      border-top-left-radius: 2vw;
+      border-top-right-radius: 2vw;
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .p2 {
+      width: 12vw;
+      height: 42vh;
+      background-color: #ede1a0;
+      border: white 0.15vw solid;
+      border-top-left-radius: 2vw;
+      border-top-right-radius: 2vw;
+      position: absolute;
+      bottom: 0;
+      left: 21.6vw;
+      display: flex;
+      justify-content: center;
+    }
+
+    .p3 {
+      width: 12vw;
+      height: 35vh;
+      background-color: #ede1a0;
+      border: white 0.15vw solid;
+      border-top-left-radius: 2vw;
+      border-top-right-radius: 2vw;
+      position: absolute;
+      bottom: 0;
+      right: 21.6vw;
+      display: flex;
+      justify-content: center;
+    }
+
+    .p4 {
+      width: 12vw;
+      height: 30vh;
+      background-color: #ede1a0;
+      border: white 0.15vw solid;
+      border-top-left-radius: 2vw;
+      border-top-right-radius: 2vw;
+      position: absolute;
+      bottom: 0;
+      left: 10vw;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .p5 {
+      width: 12vw;
+      height: 20vh;
+      background-color: #ede1a0;
+      border: white 0.15vw solid;
+      border-top-left-radius: 2vw;
+      border-top-right-radius: 2vw;
+      position: absolute;
+      bottom: 0;
+      right: 10vw;
+      display: flex;
+      justify-content: center;
+    }
+
+    .p6 {
+      width: 12vw;
+      height: 12vh;
+      background-color: #ede1a0;
+      border: white 0.15vw solid;
+      border-top-left-radius: 2vw;
+      border-top-right-radius: 2vw;
+      position: absolute;
+      bottom: 0;
+      left: 5vw;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+    }
+
+    .p1_text_holder {
+      width: 10vw;
+      height: 25vh;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      top: -10vh;
+    }
+
+    .text_holder {
+      width: 10vw;
+      height: 23vh;
+      /* background-color: white; */
+      position: absolute;
+      top: -4vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .name {
+      margin-top: 1vh;
+      font-size: 1.3vw;
+      margin-bottom: 0.5vh;
+    }
+
+    .points {
+      font-size: 1.3vw;
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 1vh;
+    }
+
+    .text {
+      font-size: 1.3vw;
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: 0.5vw;
+    }
+
+    .none {
+      display: none;
+    }
+
+    .line {
+      width: 5vw;
+      height: 0.2vh;
+      background-color: white;
+    }
+
+    .p4-6_text {
+      font-size: 3.5vw;
+      color: white;
+      -webkit-text-stroke: #b9b9b9 0.1vw;
+    }
+
+    .p1_text {
+      font-size: 3.5vw;
+      color: #ecd55a;
+      -webkit-text-stroke: #8a7b2a 0.1vw;
+    }
+
+    .p2_text {
+      font-size: 3.5vw;
+      color: #d3d3d3;
+      -webkit-text-stroke: #969696 0.1vw;
+    }
+
+    .p3_text {
+      font-size: 3.5vw;
+      color: #e7a95c;
+      -webkit-text-stroke: #986e3b 0.1vw;
+    }
+
+    .arrow_left {
+      width: 35vw;
+      position: absolute;
+      top: 25vh;
+      left: 0;
+    }
+
+    .arrow_right {
+      width: 35vw;
+      position: absolute;
+      transform: rotateY(180deg);
+      right: 0;
+      top: 25vh;
+    }
+  </style>
+  <body>
+    <h1 class="big_text">БАЯР ХҮРГЭЕ</h1>
+    <img src="./assets/multiplayer-leaderboard-arrow.svg" class="arrow_left" />
+    <img src="./assets/multiplayer-leaderboard-arrow.svg" class="arrow_right" />
+    <div class="pillar_holder">
+      <div class="p6" id="p6id">
+        <div class="text_holder">
+          <div class="p4-6_text">6-P</div>
+          <div class="name" id="p6_name"></div>
+          <div class="line"></div>
+          <div class="points" id="p6_points">
+            <div class="text">ОНОО</div>
+          </div>
+        </div>
+      </div>
+      <div class="p4" id="p4id">
+        <div class="text_holder">
+          <div class="p4-6_text">4-P</div>
+          <div class="name" id="p4_name"></div>
+          <div class="line"></div>
+          <div class="points" id="p4_points">
+            <div class="text">ОНОО</div>
+          </div>
+        </div>
+      </div>
+      <div class="p2">
+        <div class="text_holder">
+          <div class="p2_text">2-P</div>
+          <div class="name" id="p2_name"></div>
+          <div class="line"></div>
+          <div class="points" id="p2_points">
+            <div class="text">ОНОО</div>
+          </div>
+        </div>
+      </div>
+      <div class="p1">
+        <div class="text_holder">
+          <div class="p1_text">1-P</div>
+          <div class="name" id="p1_name"></div>
+          <div class="line"></div>
+          <div class="points" id="p1_points">
+            <div class="text">ОНОО</div>
+          </div>
+        </div>
+      </div>
+      <div class="p3" id="p3id">
+        <div class="text_holder">
+          <div class="p3_text">3-P</div>
+          <div class="name" id="p3_name"></div>
+          <div class="line"></div>
+          <div class="points" id="p3_points">
+            <div class="text">ОНОО</div>
+          </div>
+        </div>
+      </div>
+      <div class="p5" id="p5id">
+        <div class="text_holder">
+          <div class="p4-6_text">5-P</div>
+          <div class="name" id="p5_name"></div>
+          <div class="line"></div>
+          <div class="points" id="p5_points">
+            <div class="text">ОНОО</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./js/firebase.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  <script src="./js/result.js"></script>
+</html>
