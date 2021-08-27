@@ -284,7 +284,7 @@ firebase.auth().onAuthStateChanged(async (user) => {
   }
 });
 
-let type = 'classic'
+let type = "classic";
 db.collection("links")
   .doc(`${roomid}`)
   .onSnapshot((el) => {

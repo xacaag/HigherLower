@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/players.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
     <title>Өрөө нээх</title>
   </head>
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
@@ -26,20 +30,31 @@
           <h1>Тоглоомын горим</h1>
         </div>
         <div class="genre-st">
-          <div   id="classic" class="classic" 
-                onclick="typer(this)"
-                onclick="classic_b()"
-                onmouseover="classic_hover(this)"
-                onmouseout="classic_normal(this)">Классик</div>
-          <div   id="lobby_genre" class="genre" onclick="lobbyGenre()"
-                onmouseover="genre_hover(this)"
-                onmouseout="genre_normal(this)">Төрөл</div>
+          <div
+            id="classic"
+            class="classic"
+            onclick="typer(this)"
+            onclick="classic_b()"
+            onmouseover="classic_hover(this)"
+            onmouseout="classic_normal(this)"
+          >
+            Классик
+          </div>
+          <div
+            id="lobby_genre"
+            class="genre"
+            onclick="lobbyGenre()"
+            onmouseover="genre_hover(this)"
+            onmouseout="genre_normal(this)"
+          >
+            Төрөл
+            <i class="material-icons">expand_more</i>
+          </div>
         </div>
         <div class="buttons">
-          <ul id="genres"class="none">
+          <ul id="genres" class="none">
             <li
-              onclick="movie_b()"
-              onclick="typer(this)"
+              onclick="typer(this) ; movie_b()"
               class="four"
               id="multiplayer-movie"
               value="movie"
@@ -47,8 +62,7 @@
               Кино
             </li>
             <li
-              onclick="song_b()"
-              onclick="typer(this)"
+              onclick="typer(this); song_b()"
               class="four"
               id="multiplayer-music"
               value="music"
@@ -56,8 +70,7 @@
               Дуу
             </li>
             <li
-              onclick="insta_b()"
-              onclick="typer(this)"
+              onclick="typer(this) ;insta_b()"
               class="four"
               id="multiplayer-instagram"
               value="insta"
@@ -65,8 +78,7 @@
               Инстаграм
             </li>
             <li
-              onclick="game_b()"
-              onclick="typer(this)"
+              onclick="typer(this); game_b()"
               class="four"
               id="multiplayer-game"
               value="game"
@@ -167,132 +179,118 @@
   <script src="./js/firebase.js"></script>
   <script src="./js/join.js"></script>
   <script>
-    
-
-    let uls = document.getElementById("genres")
-    let lobbygenre = document.getElementById("lobby_genre")
-    let classic_button = document.getElementById("classic")
-    const lobbyGenre = () =>{
+    let uls = document.getElementById("genres");
+    let lobbygenre = document.getElementById("lobby_genre");
+    let classic_button = document.getElementById("classic");
+    const lobbyGenre = () => {
       if (uls.classList.contains("none")) {
-          uls.setAttribute("class", "flex");
-          uls.classList.add("genre_list_anim");
+        uls.setAttribute("class", "flex");
+        uls.classList.add("genre_list_anim");
       } else {
         uls.classList.remove("genre_list_anim");
         uls.setAttribute("class", "none");
       }
-      classic_button.classList.remove("chosen_style")
-
-       
-    }
-    const classic_b = () =>{
+      classic_button.classList.remove("chosen_style");
+    };
+    const classic_b = () => {
       uls.setAttribute("class", "none");
-      classic_button.classList.add("chosen_style")
-    }
+      classic_button.classList.add("chosen_style");
+    };
     // console.log(classic_button.innerHTML)
     function classic_hover(x) {
-      classic_button.style.fontSize="22px";
-      classic_button.style.boxShadow="0px 0px 20px 0px black"
+      classic_button.style.fontSize = "22px";
+      classic_button.style.boxShadow = "0px 0px 20px 0px black";
+    }
 
-      
-  }
+    function classic_normal(x) {
+      classic_button.style.fontSize = "20px";
+      classic_button.style.boxShadow = "0px 0px 20px 0px #b1a043";
+    }
+    function genre_hover(x) {
+      lobbygenre.style.fontSize = "22px";
+      lobbygenre.style.boxShadow = "0px 0px 20px 0px black";
+    }
 
-  function classic_normal(x) {
-    classic_button.style.fontSize="20px";
-    classic_button.style.boxShadow="0px 0px 20px 0px #b1a043"
-    
-  
-    
-  }
-  function genre_hover(x) {
-      lobbygenre.style.fontSize="22px";
-      lobbygenre.style.boxShadow="0px 0px 20px 0px black"
+    function genre_normal(x) {
+      lobbygenre.style.fontSize = "20px";
+      lobbygenre.style.boxShadow = "0px 0px 20px 0px #b1a043";
+    }
+    const movie_b = () => {
+      console.log();
+      movie.style.fontSize = "30px";
+      game.style.fontSize = "20px";
+      music.style.fontSize = "20px";
+      instagram.style.fontSize = "20px";
+      movie.style.color = "gold";
+      game.style.color = "white";
+      music.style.color = "white";
+      instagram.style.color = "white";
 
-      
-  }
+      movie.style.marginTop = "30px";
+      movie.style.marginBottom = "30px";
+      game.style.marginTop = "0px";
+      game.style.marginBottom = "0px";
+      music.style.marginTop = "0px";
+      music.style.marginBottom = "0px";
+      instagram.style.marginBottom = "0px";
+      instagram.style.marginTop = "0px";
+    };
+    const game_b = () => {
+      movie.style.fontSize = "20px";
+      game.style.fontSize = "30px";
+      music.style.fontSize = "20px";
+      instagram.style.fontSize = "20px";
+      movie.style.color = "white";
+      game.style.color = "gold";
+      music.style.color = "white";
+      instagram.style.color = "white";
 
-  function genre_normal(x) {
-    lobbygenre.style.fontSize="20px";
-    lobbygenre.style.boxShadow="0px 0px 20px 0px #b1a043"
-    
-  
-    
-  }
-  const movie_b = () =>{
-    movie.style.fontSize="30px"
-    game.style.fontSize="20px"
-    music.style.fontSize="20px"
-    instagram.style.fontSize="20px"
-    movie.style.color="gold"
-    game.style.color="white"
-    music.style.color="white"
-    instagram.style.color="white"
+      movie.style.marginTop = "0px";
+      movie.style.marginBottom = "0px";
+      game.style.marginTop = "30px";
+      game.style.marginBottom = "30px";
+      music.style.marginTop = "0px";
+      music.style.marginBottom = "0px";
+      instagram.style.marginBottom = "0px";
+      instagram.style.marginTop = "0px";
+    };
+    const song_b = () => {
+      movie.style.fontSize = "20px";
+      game.style.fontSize = "20px";
+      music.style.fontSize = "30px";
+      instagram.style.fontSize = "20px";
+      movie.style.color = "white";
+      game.style.color = "white";
+      music.style.color = "gold";
+      instagram.style.color = "white";
 
-    movie.style.marginTop="30px"
-    movie.style.marginBottom="30px"
-    game.style.marginTop="0px"
-    game.style.marginBottom="0px"
-    music.style.marginTop="0px"
-    music.style.marginBottom="0px"
-    instagram.style.marginBottom="0px"
-    instagram.style.marginTop="0px"
-  }
-  const game_b = () =>{
-    movie.style.fontSize="20px"
-    game.style.fontSize="30px"
-    music.style.fontSize="20px"
-    instagram.style.fontSize="20px"
-    movie.style.color="white"
-    game.style.color="gold"
-    music.style.color="white"
-    instagram.style.color="white"
+      movie.style.marginTop = "0px";
+      movie.style.marginBottom = "0px";
+      game.style.marginTop = "0px";
+      game.style.marginBottom = "0px";
+      music.style.marginTop = "30px";
+      music.style.marginBottom = "30px";
+      instagram.style.marginBottom = "0px";
+      instagram.style.marginTop = "0px";
+    };
+    const insta_b = () => {
+      movie.style.fontSize = "20px";
+      game.style.fontSize = "20px";
+      music.style.fontSize = "20px";
+      instagram.style.fontSize = "30px";
+      movie.style.color = "white";
+      game.style.color = "white";
+      music.style.color = "white";
+      instagram.style.color = "gold";
 
-    movie.style.marginTop="0px"
-    movie.style.marginBottom="0px"
-    game.style.marginTop="30px"
-    game.style.marginBottom="30px"
-    music.style.marginTop="0px"
-    music.style.marginBottom="0px"
-    instagram.style.marginBottom="0px"
-    instagram.style.marginTop="0px"
-  }
-  const song_b = () =>{
-    movie.style.fontSize="20px"
-    game.style.fontSize="20px"
-    music.style.fontSize="30px"
-    instagram.style.fontSize="20px"
-    movie.style.color="white"
-    game.style.color="white"
-    music.style.color="gold"
-    instagram.style.color="white"
-
-    movie.style.marginTop="0px"
-    movie.style.marginBottom="0px"
-    game.style.marginTop="0px"
-    game.style.marginBottom="0px"
-    music.style.marginTop="30px"
-    music.style.marginBottom="30px"
-    instagram.style.marginBottom="0px"
-    instagram.style.marginTop="0px"
-  }
-  const insta_b = () =>{
-    movie.style.fontSize="20px"
-    game.style.fontSize="20px"
-    music.style.fontSize="20px"
-    instagram.style.fontSize="30px"
-    movie.style.color="white"
-    game.style.color="white"
-    music.style.color="white"
-    instagram.style.color="gold"
-
-    movie.style.marginTop="0px"
-    movie.style.marginBottom="0px"
-    game.style.marginTop="0px"
-    game.style.marginBottom="0px"
-    music.style.marginTop="0px"
-    music.style.marginBottom="0px"
-    instagram.style.marginBottom="30px"
-    instagram.style.marginTop="30px"
-   
-  }
+      movie.style.marginTop = "0px";
+      movie.style.marginBottom = "0px";
+      game.style.marginTop = "0px";
+      game.style.marginBottom = "0px";
+      music.style.marginTop = "0px";
+      music.style.marginBottom = "0px";
+      instagram.style.marginBottom = "30px";
+      instagram.style.marginTop = "30px";
+    };
   </script>
 </html>

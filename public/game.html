@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 
 <head>
     <meta charset="UTF-8">
@@ -21,7 +18,8 @@
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap");
     body {
-        background: radial-gradient(#353c44, #222931);
+        margin: 0;
+        height: 100vh;
         color: white;
         font-family: 'Open Sans', sans-serif;
         font-weight: 600;
@@ -29,6 +27,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
+background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
     }
     
     .game_holder {
@@ -96,9 +97,7 @@
       height: 1%;
       position: absolute;
       right: 7%;
-      /* display: flex;
-      flex-wrap: nowrap;
-      flex-direction: column; */
+
     }
 
     .scoooore {
@@ -106,11 +105,9 @@
     }
     .high_score {
       width: 98%;
-      /* height: 1%; */
+
       position: absolute;
-      /* display: flex;
-      flex-wrap: nowrap;
-      flex-direction: column; */
+     
     }
 
     .left_image {
@@ -190,7 +187,6 @@
       bottom: 53%;
       transition-delay: 3.5s;
       text-align: center;
-
       transition-timing-function: ease-in-out;
     }
 
@@ -377,8 +373,6 @@
 
       font-size: 10px;
       color: white;
-      /* position: absolute;
-      bottom: -55px; */
       position: fixed;
       top:95%;
       left:5%;
@@ -571,16 +565,15 @@
         <div class="score_bar">
             <div class="high_score">
                 <div> <a target="_blank"  id="link" href=""> </a></div>
-            </div> -->
-            <div> <a target="_blank"  id="link" href=""> </a></div>
-            <div class="current_score"id="Bscore">Оноо:0
             </div>
-            <div> <a target="_blank"  id="link2" href=""> </a></div>
+            <div class="current_score"id="Bscore">Оноо:0
+                 <div> <a target="_blank"  id="link2" href=""> </a></div>
+            </div>
         </div>
         <div class="game">
             <div class="left_box">
                 <h1 class="left_name" id="name1"></h1>
-                <h1 class="left_ammount" id="followers1"></h1>
+                <h1 class="left_ammount" id="players1"></h1>
                 <h2 class="textunderleftammount">Тоглогчид</h2>
             </div>
             <div class="right_box">

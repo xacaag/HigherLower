@@ -1,13 +1,7 @@
 let data = [];
 let timeLeft;
 
-// window.addEventListener("beforeunload", function (event) {
-// event.preventDefault();
-//   window.location = "./index.html";
-//   console.log("app");
-// });
-
-db.collection("game")
+db.collection("Game")
   .get()
   .then((docs) => {
     docs.forEach((doc) => {
@@ -19,10 +13,10 @@ db.collection("game")
 
 let name1 = document.getElementById("name1");
 let name2 = document.getElementById("name2");
-let followers1 = document.getElementById("followers1");
+let players1 = document.getElementById("players1");
 let container1 = document.getElementById("container1");
 let container2 = document.getElementById("container2");
-let followers2 = document.getElementById("r_ammount");
+let players2 = document.getElementById("r_ammount");
 let R_TEXT = document.getElementById("r_ammount_text");
 let score = document.getElementById("score");
 let R_BUTTON = document.getElementById("higher");
@@ -33,8 +27,8 @@ let link2 = document.getElementById("link2");
 let i = 0;
 
 setTimeout(() => {
-  followers1.innerHTML = data[i].players.toLocaleString();
-  followers2.innerHTML = data[i + 1].players.toLocaleString();
+  players1.innerHTML = data[i].players.toLocaleString();
+  players2.innerHTML = data[i + 1].players.toLocaleString();
   name1.innerHTML = data[i].name;
   name2.innerHTML = data[i + 1].name;
   container1.style.backgroundImage = `url(${data[i].photo})`;
@@ -60,25 +54,23 @@ const higher = async () => {
     setTimeout(function () {
       name1.innerHTML = data[i].name;
       link1.innerHTML = data[i].name;
+    }, 2530);
+    setTimeout(function () {
       name2.innerHTML = data[i + 1].name;
       link2.innerHTML = data[i + 1].name;
-      followers1.innerHTML = data[i].players.toLocaleString();
     }, 2530);
-    // setTimeout(function () {
-    //   name2.innerHTML = data[i + 1].name;
-    //   link2.innerHTML = data[i + 1].name;
-    // }, 2530);
-    // setTimeout(function () {
-    //   followers1.innerHTML = data[i].searches.toLocaleString();
-    // }, 2530);
+    setTimeout(function () {
+      players1.innerHTML = data[i].players.toLocaleString();
+    }, 2530);
     container1.style.backgroundImage = `url(${data[i + 1].photo})`;
     container2.style.backgroundImage = `url(${data[i + 2].photo})`;
     Answer = true;
-    followers2.innerHTML = data[i + 1].players.toLocaleString();
+    players2.innerHTML = data[i + 1].players.toLocaleString();
     correct_animation_1();
     link1.href = data[i + 1].photo;
     link2.href = data[i + 2].photo;
-    
+    link1.innerHTML = data[i].name;
+    link2.innerHTML = data[i + 1].name;
     i++;
     onoo++;
     reset();
@@ -97,7 +89,7 @@ const higher = async () => {
     }
   } else {
     localStorage.setItem("highlight", onoo);
-    followers2.innerHTML = data[i + 1].players.toLocaleString();
+    players2.innerHTML = data[i + 1].players.toLocaleString();
     setTimeout(function () {
       wrong_animation_1();
     }, 300);
@@ -106,7 +98,6 @@ const higher = async () => {
     }, 2500);
   }
 };
-
 
 const lower = async () => {
   const currentUser = firebase.auth().currentUser;
@@ -120,11 +111,11 @@ const lower = async () => {
       link2.innerHTML = data[i + 1].name;
     }, 2530);
     setTimeout(function () {
-      followers1.innerHTML = data[i].players.toLocaleString();
+      players1.innerHTML = data[i].players.toLocaleString();
     }, 2530);
     container1.style.backgroundImage = `url(${data[i + 1].photo})`;
     container2.style.backgroundImage = `url(${data[i + 2].photo})`;
-    followers2.innerHTML = data[i + 1].players.toLocaleString();
+    players2.innerHTML = data[i + 1].players.toLocaleString();
     link1.href = data[i + 1].photo;
     link2.href = data[i + 2].photo;
     correct_animation_1();
@@ -146,7 +137,7 @@ const lower = async () => {
     }
   } else {
     localStorage.setItem("highlight", onoo);
-    followers2.innerHTML = data[i + 1].players.toLocaleString();
+    players2.innerHTML = data[i + 1].players.toLocaleString();
     setTimeout(function () {
       wrong_animation_1();
     }, 300);
@@ -211,20 +202,20 @@ function correct_animation_2() {
   VS.classList.remove("vs_correct");
 }
 function animation_3() {
-  followers2.classList.remove("invisible");
+  players2.classList.remove("invisible");
   R_TEXT.classList.remove("invisible");
-  followers2.classList.add("right_ammount_appear");
+  players2.classList.add("right_ammount_appear");
   R_TEXT.classList.add("right_ammount_appear");
 }
 function animation_4() {
   setTimeout(function () {
-    followers2.classList.add("invisible");
+    players2.classList.add("invisible");
   }, 500);
   setTimeout(function () {
     R_TEXT.classList.add("invisible");
   }, 500);
   setTimeout(function () {
-    followers2.classList.remove("right_ammount_appear");
+    players2.classList.remove("right_ammount_appear");
   }, 2200);
   setTimeout(function () {
     R_TEXT.classList.remove("right_ammount_appear");
@@ -251,8 +242,8 @@ function wrong_animation_1() {
 timeLeft = 10;
 
 let intervala = setInterval(() => {
-  if (timeLeft < 1) {
-    followers2.innerHTML = data[i + 1].players.toLocaleString();
+  if (timeLeft === 0) {
+    players2.innerHTML = data[i + 1].players1.toLocaleString();
     setTimeout(function () {
       wrong_animation_1();
     }, 300);
@@ -268,3 +259,9 @@ let intervala = setInterval(() => {
 let reset = () => {
   timeLeft = 12;
 };
+
+window.addEventListener("beforeunload", function (event) {
+  event.preventDefault();
+  window.location = "./index.html";
+  console.log("app");
+});
