@@ -142,6 +142,7 @@
       position: absolute;
       bottom: 53%;
       transition-delay: 3.5s;
+      text-align: center;
 
       transition-timing-function: ease-in-out;
     }
@@ -188,6 +189,7 @@
       position: absolute;
       bottom: 53%;
       transition-delay: 3.5s;
+      text-align: center;
 
       transition-timing-function: ease-in-out;
     }
@@ -375,16 +377,20 @@
 
       font-size: 10px;
       color: white;
-      position: absolute;
-      bottom: -55px;
+      /* position: absolute;
+      bottom: -55px; */
+      position: fixed;
+      top:95%;
+      left:5%;
     }
     #link2 {
       width: 100px;
 
       font-size: 10px;
       color: white;
-      position: absolute;
-      bottom: -55px;
+      position: fixed;
+      top:95%;
+      left:84%;
     }
     .none {
       display: none;
@@ -563,18 +569,19 @@
         <div class="vs" id="vs_id"></div>
         <div class="vs" id="vs_id2"></div>
         <div class="score_bar">
-            <div class="high_score">
+            <!-- <div class="high_score">
                 <div> <a target="_blank"  id="link" href=""> </a></div>
-            </div>
+            </div> -->
+            <div> <a target="_blank"  id="link" href=""> </a></div>
             <div class="current_score"id="Bscore">Оноо:0
-                 <div> <a target="_blank"  id="link2" href=""> </a></div>
             </div>
+            <div> <a target="_blank"  id="link2" href=""> </a></div>
         </div>
         <div class="game">
             <div class="left_box">
                 <h1 class="left_name" id="name1"></h1>
                 <h1 class="left_ammount" id="followers1"></h1>
-                <h2 class="textunderleftammount">Imdb</h2>
+                <h2 class="textunderleftammount">Сарын google хайлт</h2>
             </div>
             <div class="right_box">
                 <h1 class="right_name" id="name2"></h1>
@@ -586,7 +593,7 @@
                     </div>
                 </div>
                 <h1 class="right_ammount invisible" id="r_ammount"></h1>
-                <h2 class="textunderrightammount invisible" id="r_ammount_text">Imdb</h2>
+                <h2 class="textunderrightammount invisible" id="r_ammount_text">Сарын google хайлт</h2>
             </div>
           </div>
           <h1 class="right_ammount invisible" id="r_ammount"></h1>
@@ -599,5 +606,5 @@
     <div id="loader"></div>
 </body>
 <script src="./js/firebase.js"></script>
-<script src="./js/app.js"></script>
+<script src="./js/classic.js"></script>
 </html>

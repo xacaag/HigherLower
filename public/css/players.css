@@ -2,6 +2,22 @@ body {
   overflow: hidden;
   background: radial-gradient(#353c44, #222931);
 }
+
+.genre_list_anim {
+  display: flex;
+  width: 158px;
+  margin-bottom: -172px;
+  transition: none;
+  animation-name: genre_list_animation;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+}
+ul{
+  flex-direction: column;
+  
+  
+
+}
 .title {
   display: flex;
   justify-content: center;
@@ -41,6 +57,9 @@ body {
   justify-content: space-evenly;
   align-items: center;
 }
+.flex{
+  display: flex;
+}
 .classic {
   width: 200px;
   height: 60px;
@@ -51,10 +70,19 @@ body {
   font-size: 20px;
   color: black;
   font-family: Arial, Helvetica, sans-serif;
-  border: 1px solid #ecd55a;
   border-radius: 50px;
   cursor: pointer;
   margin-top: 20px;
+  box-shadow: 0px 0px 20px 0px #b1a043;
+  transition: all 0.3s ease ;
+}
+@keyframes genre_list_animation {
+  0% {
+      transform: translateY(-170px);
+  }
+  100% {
+      transform: translateY(0);
+  }
 }
 .genre {
   width: 200px;
@@ -70,6 +98,9 @@ body {
   border-radius: 50px;
   cursor: pointer;
   margin-top: 20px;
+  box-shadow: 0px 0px 20px 0px #b1a043;
+  transition: all 0.3s ease ;
+  
 }
 .roomid {
   border-bottom: 4px gold solid;
@@ -98,7 +129,13 @@ body {
   font-size: 20px;
   color: white;
   list-style-type: none;
+  transition: all 0.3s ease;
+  
 }
+.chosen_style{
+  border:4px black solid
+}
+
 .container {
   background: radial-gradient(#353c44, #222931);
   font-family: Arial, Helvetica, sans-serif;
