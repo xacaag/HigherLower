@@ -7,7 +7,7 @@ let timeLeft;
 //   console.log("app");
 // });
 
-db.collection("movie")
+db.collection("classic")
   .get()
   .then((docs) => {
     docs.forEach((doc) => {
@@ -33,8 +33,8 @@ let link2 = document.getElementById("link2");
 let i = 0;
 
 setTimeout(() => {
-  followers1.innerHTML = data[i].imdb.toLocaleString();
-  followers2.innerHTML = data[i + 1].imdb.toLocaleString();
+  followers1.innerHTML = data[i].searches.toLocaleString();
+  followers2.innerHTML = data[i + 1].searches.toLocaleString();
   name1.innerHTML = data[i].name;
   name2.innerHTML = data[i + 1].name;
   container1.style.backgroundImage = `url(${data[i].photo})`;
@@ -56,13 +56,13 @@ let highScore;
 const higher = async () => {
   const currentUser = firebase.auth().currentUser;
 
-  if (data[i].imdb <= data[i + 1].imdb) {
+  if (data[i].searches <= data[i + 1].searches) {
     setTimeout(function () {
       name1.innerHTML = data[i].name;
       link1.innerHTML = data[i].name;
       name2.innerHTML = data[i + 1].name;
       link2.innerHTML = data[i + 1].name;
-      followers1.innerHTML = data[i].imdb.toLocaleString();
+      followers1.innerHTML = data[i].searches.toLocaleString();
     }, 2530);
     // setTimeout(function () {
     //   name2.innerHTML = data[i + 1].name;
@@ -74,7 +74,7 @@ const higher = async () => {
     container1.style.backgroundImage = `url(${data[i + 1].photo})`;
     container2.style.backgroundImage = `url(${data[i + 2].photo})`;
     Answer = true;
-    followers2.innerHTML = data[i + 1].imdb.toLocaleString();
+    followers2.innerHTML = data[i + 1].searches.toLocaleString();
     correct_animation_1();
     link1.href = data[i + 1].photo;
     link2.href = data[i + 2].photo;
@@ -97,7 +97,7 @@ const higher = async () => {
     }
   } else {
     localStorage.setItem("highlight", onoo);
-    followers2.innerHTML = data[i + 1].imdb.toLocaleString();
+    followers2.innerHTML = data[i + 1].searches.toLocaleString();
     setTimeout(function () {
       wrong_animation_1();
     }, 300);
@@ -110,7 +110,7 @@ const higher = async () => {
 
 const lower = async () => {
   const currentUser = firebase.auth().currentUser;
-  if (data[i].searches >= data[i + 1].imdb) {
+  if (data[i].searches >= data[i + 1].searches) {
     setTimeout(function () {
       name1.innerHTML = data[i].name;
       link1.innerHTML = data[i].name;
@@ -120,11 +120,11 @@ const lower = async () => {
       link2.innerHTML = data[i + 1].name;
     }, 2530);
     setTimeout(function () {
-      followers1.innerHTML = data[i].imdb.toLocaleString();
+      followers1.innerHTML = data[i].searches.toLocaleString();
     }, 2530);
     container1.style.backgroundImage = `url(${data[i + 1].photo})`;
     container2.style.backgroundImage = `url(${data[i + 2].photo})`;
-    followers2.innerHTML = data[i + 1].imdb.toLocaleString();
+    followers2.innerHTML = data[i + 1].searches.toLocaleString();
     link1.href = data[i + 1].photo;
     link2.href = data[i + 2].photo;
     correct_animation_1();
@@ -146,7 +146,7 @@ const lower = async () => {
     }
   } else {
     localStorage.setItem("highlight", onoo);
-    followers2.innerHTML = data[i + 1].imdb.toLocaleString();
+    followers2.innerHTML = data[i + 1].searches.toLocaleString();
     setTimeout(function () {
       wrong_animation_1();
     }, 300);
@@ -252,7 +252,7 @@ timeLeft = 10;
 
 let intervala = setInterval(() => {
   if (timeLeft < 1) {
-    followers2.innerHTML = data[i + 1].imdb.toLocaleString();
+    followers2.innerHTML = data[i + 1].searches.toLocaleString();
     setTimeout(function () {
       wrong_animation_1();
     }, 300);

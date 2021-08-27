@@ -1,6 +1,12 @@
 let data = [];
 let timeLeft;
 
+// window.addEventListener("beforeunload", function (event) {
+// event.preventDefault();
+//   window.location = "./index.html";
+//   console.log("app");
+// });
+
 db.collection("song")
   .get()
   .then((docs) => {
@@ -37,8 +43,8 @@ setTimeout(() => {
   container2.style.backgroundSize = "cover";
   container1.style.transitionDelay = "2.5s";
   container2.style.transitionDelay = "2.5s";
-  link1.href = data[i].image;
-  link2.href = data[i + 1].image;
+  link1.href = data[i].photo;
+  link2.href = data[i + 1].photo;
   link1.innerHTML = data[i].name;
   link2.innerHTML = data[i + 1].name;
 
@@ -54,23 +60,25 @@ const higher = async () => {
     setTimeout(function () {
       name1.innerHTML = data[i].name;
       link1.innerHTML = data[i].name;
-    }, 2530);
-    setTimeout(function () {
       name2.innerHTML = data[i + 1].name;
       link2.innerHTML = data[i + 1].name;
-    }, 2530);
-    setTimeout(function () {
       followers1.innerHTML = data[i].views.toLocaleString();
     }, 2530);
+    // setTimeout(function () {
+    //   name2.innerHTML = data[i + 1].name;
+    //   link2.innerHTML = data[i + 1].name;
+    // }, 2530);
+    // setTimeout(function () {
+    //   followers1.innerHTML = data[i].searches.toLocaleString();
+    // }, 2530);
     container1.style.backgroundImage = `url(${data[i + 1].photo})`;
     container2.style.backgroundImage = `url(${data[i + 2].photo})`;
     Answer = true;
     followers2.innerHTML = data[i + 1].views.toLocaleString();
     correct_animation_1();
-    link1.href = data[i + 1].image;
-    link2.href = data[i + 2].image;
-    link1.innerHTML = data[i].name;
-    link2.innerHTML = data[i + 1].name;
+    link1.href = data[i + 1].photo;
+    link2.href = data[i + 2].photo;
+    
     i++;
     onoo++;
     reset();
@@ -98,6 +106,7 @@ const higher = async () => {
     }, 2500);
   }
 };
+
 
 const lower = async () => {
   const currentUser = firebase.auth().currentUser;

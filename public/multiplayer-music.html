@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title> multiplayer-instagram </title>
+    <title> multiplayer-music </title>
 </head>
 
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
@@ -584,7 +584,7 @@
         <div class="vs" id="vs_id"></div>
         <div class="vs" id="vs_id2"></div>
         <div class="score_bar">
-            <div class="high_score">
+            <div class="high_score">Дээд оноо: 0
                 <div> <a target="_blank"  id="link" href=""> </a></div>
             </div>
             <div class="current_score"id="Bscore">Оноо:0
@@ -595,7 +595,7 @@
             <div class="left_box">
                 <h1 class="left_name" id="name1"></h1>
                 <h1 class="left_ammount" id="followers1"></h1>
-                <h2 class="textunderleftammount">Дагагчид</h2>
+                <h2 class="textunderleftammount">Үзэлт</h2>
             </div>
             <div class="right_box">
                 <h1 class="right_name" id="name2"></h1>
@@ -607,12 +607,12 @@
                     </div>
                 </div>
                 <h1 class="right_ammount invisible" id="r_ammount"></h1>
-                <h2 class="textunderrightammount invisible" id="r_ammount_text">Дагагчид</h2>
+                <h2 class="textunderrightammount invisible" id="r_ammount_text">Үзэлт</h2>
             </div>
           </div>
           <h1 class="right_ammount invisible" id="r_ammount"></h1>
           <h2 class="textunderrightammount invisible" id="r_ammount_text">
-            Дагагчид
+            Үзэлт
           </h2>
         </div>
       </div>
@@ -620,13 +620,5 @@
     <div id="loader"></div>
 </body>
 <script src="./js/firebase.js"></script>
-<script src="./js/multiplayer-instagram.js"></script>
-
-<script>
- window.addEventListener("beforeunload", function (event) {
-    event.preventDefault();
-    window.location = "./multiplayer.html";
-});
-</script>
-
+<script src="./js/multiplayer-movie.js"></script>
 </html>

@@ -1,6 +1,12 @@
 let data = [];
 let timeLeft;
 
+// window.addEventListener("beforeunload", function (event) {
+// event.preventDefault();
+//   window.location = "./index.html";
+//   console.log("app");
+// });
+
 db.collection("instagram accounts")
   .get()
   .then((docs) => {
@@ -54,14 +60,17 @@ const higher = async () => {
     setTimeout(function () {
       name1.innerHTML = data[i].account;
       link1.innerHTML = data[i].account;
-    }, 2530);
-    setTimeout(function () {
       name2.innerHTML = data[i + 1].account;
       link2.innerHTML = data[i + 1].account;
+      followers1.innerHTML = data[i].searches.toLocaleString();
     }, 2530);
-    setTimeout(function () {
-      followers1.innerHTML = data[i].followers.toLocaleString();
-    }, 2530);
+    // setTimeout(function () {
+    //   name2.innerHTML = data[i + 1].name;
+    //   link2.innerHTML = data[i + 1].name;
+    // }, 2530);
+    // setTimeout(function () {
+    //   followers1.innerHTML = data[i].searches.toLocaleString();
+    // }, 2530);
     container1.style.backgroundImage = `url(${data[i + 1].photo})`;
     container2.style.backgroundImage = `url(${data[i + 2].photo})`;
     Answer = true;
@@ -69,8 +78,7 @@ const higher = async () => {
     correct_animation_1();
     link1.href = data[i + 1].photo;
     link2.href = data[i + 2].photo;
-    link1.innerHTML = data[i].account;
-    link2.innerHTML = data[i + 1].account;
+    
     i++;
     onoo++;
     reset();
@@ -98,6 +106,7 @@ const higher = async () => {
     }, 2500);
   }
 };
+
 
 const lower = async () => {
   const currentUser = firebase.auth().currentUser;
@@ -242,8 +251,8 @@ function wrong_animation_1() {
 timeLeft = 10;
 
 let intervala = setInterval(() => {
-  if (timeLeft === 0) {
-    followers2.innerHTML = data[i + 1].imdb.toLocaleString();
+  if (timeLeft < 1) {
+    followers2.innerHTML = data[i + 1].followers.toLocaleString();
     setTimeout(function () {
       wrong_animation_1();
     }, 300);

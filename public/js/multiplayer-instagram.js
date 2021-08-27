@@ -273,19 +273,19 @@ timeLeft = 10;
 let intervala = setInterval(() => {
   if (timeLeft < 1) {
     setTimeout(function () {
-      name1.innerHTML = data[i].name;
-      link1.innerHTML = data[i].name;
+      name1.innerHTML = data[i].account;
+      link1.innerHTML = data[i].account;
     }, 2530);
     setTimeout(function () {
-      name2.innerHTML = data[i + 1].name;
-      link2.innerHTML = data[i + 1].name;
+      name2.innerHTML = data[i + 1].account;
+      link2.innerHTML = data[i + 1].account;
     }, 2530);
     setTimeout(function () {
-      followers1.innerHTML = data[i].imdb.toLocaleString();
+      followers1.innerHTML = data[i].followers.toLocaleString();
     }, 2530);
     container1.style.backgroundImage = `url(${data[i + 1].photo})`;
     container2.style.backgroundImage = `url(${data[i + 2].photo})`;
-    followers2.innerHTML = data[i + 1].imdb.toLocaleString();
+    followers2.innerHTML = data[i + 1].followers.toLocaleString();
     link1.href = data[i + 1].photo;
     link2.href = data[i + 2].photo;
     wrong_animation_1();
@@ -302,3 +302,8 @@ let intervala = setInterval(() => {
 let reset = () => {
   timeLeft = 12;
 };
+
+window.addEventListener("beforeunload", function (event) {
+  event.preventDefault();
+  window.location = "./multiplayer.html";
+});
