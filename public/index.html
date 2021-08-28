@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="icon" src="./assets/logo/close.svg   " />
+    <link rel="icon" href="./assets/logo/logo.png" />
     <title>Их үү Бага уу ?</title>
   </head>
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
@@ -13,39 +14,41 @@
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-storage.js"></script>
 
-<body>
+  <body>
     <div id="overlay1">
-        <div id="settings">
-            <img src="./assets/logo/close.svg" class="close" onclick="haah()">
-            <div id="heading1"> ТОХИРГОО </div>
-            <div class="contain1">
-                <img id="circle" src="./assets/players.svg" />
-                <div class="field">
-                <div id="username"> </div>
-                <div class="yourhighest"></div>
-              </div>
-            </div>
-            <div id="heading2"> Нэр солих </div>
-            <div id="line"></div>
-            <div class="contain2">
-                <input id="name">
-                <div id="save" onclick="save()"> Хадгалах </div>
-            </div>
-            <div id="logOut" onclick="logOut()"> Гарах </div>
+      <div id="settings">
+        <img src="./assets/logo/close.svg" class="close" onclick="haah()" />
+        <div id="heading1">ТОХИРГОО</div>
+        <div class="contain1">
+          <img id="circle" src="./assets/players.svg" />
+          <div class="field">
+            <div id="username"></div>
+            <div class="yourhighest"></div>
+          </div>
         </div>
-        
+        <div id="heading2">Нэр солих</div>
+        <div id="line"></div>
+        <div class="contain2">
+          <input id="name" />
+          <div id="save" onclick="save()">Хадгалах</div>
+        </div>
+        <div id="logOut" onclick="logOut()">Гарах</div>
       </div>
-  
+    </div>
+
     <div class="nevtreh">
       <div class="Sign">
         <div id="login" class="Login" onclick="Login()">Login</div>
         <div id="signup" class="SignUp" onclick="SignUp()">Sign up</div>
-        <div id="profile" class="profile" onclick="on1()"
-        onmouseover="profile_hover(this)"
-          onmouseout="profile_normal(this)">
-          <div  id="ner"></div>
-          <img src="./assets/down.svg" class="down" 
-          />
+        <div
+          id="profile"
+          class="profile"
+          onclick="on1()"
+          onmouseover="profile_hover(this)"
+          onmouseout="profile_normal(this)"
+        >
+          <div id="ner"></div>
+          <img src="./assets/down.svg" class="down" />
         </div>
       </div>
     </div>
@@ -69,9 +72,12 @@
               >
                 Классик
               </p>
-              <img src="./assets/logo/!.svg" id="myBtn" 
-              onmouseover="myBtn_hover(this)"
-              onmouseout="myBtn_normal(this)"/>
+              <img
+                src="./assets/logo/!.svg"
+                id="myBtn"
+                onmouseover="myBtn_hover(this)"
+                onmouseout="myBtn_normal(this)"
+              />
             </div>
           </div>
           <div class="Choice">
@@ -87,9 +93,12 @@
                  Холбогдож тоглох
               </p>
 
-              <img src="./assets/logo/!.svg" id="myBtn2"
-              onmouseover="myBtn2_hover(this)"
-              onmouseout="myBtn2_normal(this)" />
+              <img
+                src="./assets/logo/!.svg"
+                id="myBtn2"
+                onmouseover="myBtn2_hover(this)"
+                onmouseout="myBtn2_normal(this)"
+              />
             </div>
           </div>
           <div class="genre_container">
@@ -106,9 +115,12 @@
                     Төрөл
                 </p>
 
-                <img src="./assets/logo/!.svg" id="myBtn3"
-                onmouseover="myBtn3_hover(this)"
-                onmouseout="myBtn3_normal(this)" />
+                <img
+                  src="./assets/logo/!.svg"
+                  id="myBtn3"
+                  onmouseover="myBtn3_hover(this)"
+                  onmouseout="myBtn3_normal(this)"
+                />
               </div>
             </div>
             <div class="genre_start_button" id="genre_start">
@@ -251,8 +263,8 @@
     let genre__button = document.getElementById("genre__button");
     let genre_start_p = document.getElementById("genre_start_p");
     let myBtn = document.getElementById("myBtn");
-    let myBtn2  = document.getElementById("myBtn2");
-    let myBtn3  = document.getElementById("myBtn3");
+    let myBtn2 = document.getElementById("myBtn2");
+    let myBtn3 = document.getElementById("myBtn3");
     let profile = document.getElementsByClassName("profile")[0];
     let unen;
 
@@ -408,53 +420,40 @@
     }
     function profile_hover(x) {
       ner.style.fontSize = "23px";
-     profile.style.boxShadow = "0px 0px 40px 0px black";
-      
+      profile.style.boxShadow = "0px 0px 40px 0px black";
     }
 
     function profile_normal(x) {
       ner.style.fontSize = "20px";
       profile.style.boxShadow = "0px 0px 20px 0px #b1a043";
-    
-      
     }
-  
+
     function myBtn_hover(x) {
-  
-  myBtn.style.width="40px"
-  myBtn.style.height="40px"
-      
+      myBtn.style.width = "40px";
+      myBtn.style.height = "40px";
     }
 
     function myBtn_normal(x) {
-      myBtn.style.width="30px"
-      myBtn.style.height="30px"
-    
-      
+      myBtn.style.width = "30px";
+      myBtn.style.height = "30px";
     }
     function myBtn2_hover(x) {
-      myBtn2.style.width="40px"
-      myBtn2.style.height="40px"
-      
-  }
+      myBtn2.style.width = "40px";
+      myBtn2.style.height = "40px";
+    }
 
-  function myBtn2_normal(x) {
-    myBtn2.style.width="30px"
-    myBtn2.style.height="30px"
-  
-    
-  }
-  function myBtn3_hover(x) {
-    myBtn3.style.width="40px"
-  myBtn3.style.height="40px"
-      
-  }
+    function myBtn2_normal(x) {
+      myBtn2.style.width = "30px";
+      myBtn2.style.height = "30px";
+    }
+    function myBtn3_hover(x) {
+      myBtn3.style.width = "40px";
+      myBtn3.style.height = "40px";
+    }
 
-  function myBtn3_normal(x) {
-    myBtn3.style.width="30px"
-  myBtn3.style.height="30px"
-  
-    
-  }
+    function myBtn3_normal(x) {
+      myBtn3.style.width = "30px";
+      myBtn3.style.height = "30px";
+    }
   </script>
 </html>

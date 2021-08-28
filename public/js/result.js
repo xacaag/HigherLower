@@ -1,6 +1,8 @@
 let id = localStorage.getItem("id");
 let gamerScore = localStorage.getItem("gamerScore");
 
+document.getElementById("loader").style.display = "block";
+document.getElementsByClassName("pillar_holder")[0].style.filter = "blur(10px)";
 firebase.auth().onAuthStateChanged(async (user) => {
   await db
     .collection("links")
@@ -20,8 +22,6 @@ firebase.auth().onAuthStateChanged(async (user) => {
             .then((el) => {
               let object = { name: n.data().name, points: gamerScore };
               arr = el.data().gamer;
-              console.log(arr);
-              console.log(object);
               arr.push(object);
             });
           await db.collection("rooms").doc(`${code}`).set(
@@ -41,8 +41,8 @@ firebase.auth().onAuthStateChanged(async (user) => {
       await db
         .collection("rooms")
         .doc(`${code}`)
-        .onSnapshot(async (el) => {
-          let medals = el.data().gamer;
+        .onSnapshot(async (elm) => {
+          let medals = elm.data().gamer;
 
           let sorted = _.chain(medals).sortBy("points").reverse().value();
 
@@ -51,6 +51,13 @@ firebase.auth().onAuthStateChanged(async (user) => {
             document.getElementById(
               `p${1 + ind}_points`
             ).innerHTML = `${el.points} оноо`;
+            if (medals.length === elm.data().total) {
+              document.getElementById("loader").style.display = "none";
+              document.getElementsByClassName("pillar_holder")[0].style.filter =
+                "none";
+              document.getElementsByClassName("big_text")[0].innerHTML =
+                " --- Тоглолтын тооны харьцаа ---";
+            }
           });
 
           if (document.getElementById("p6_name").innerHTML === "") {
@@ -74,3 +81,10 @@ firebase.auth().onAuthStateChanged(async (user) => {
         });
     });
 });
+
+// setTimeout(() => {
+window.addEventListener("beforeunload", function (event) {
+  event.preventDefault();
+  location.href = "multiplayer.html";
+});
+// }, 5000);

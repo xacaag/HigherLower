@@ -63,21 +63,10 @@ setTimeout(() => {
   bg.style.backgroundSize = "cover";
   bg.style.backgroundRepeat = "round";
 }, 2000);
+
 const retry = () => {
-  location.href = "./classic.html ";
+  window.history.back();
 };
 const menu = () => {
   location.href = "./index.html ";
 };
-
-// if (performance.type == performance.TYPE_RELOAD) {
-//   window.location = 'index.html'
-// }
-
-// console.log(PerformanceNavigation.TYPE_RELOAD)
-
-// if (PerformanceNavigation.type === PerformanceNavigation.TYPE_RELOAD) {
-//     window.location = 'index.html'
-// } else {
-//   console.info( "This page is not reloaded");
-// }

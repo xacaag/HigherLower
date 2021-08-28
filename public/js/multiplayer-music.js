@@ -98,7 +98,7 @@ const higher = async () => {
     reset();
     document.getElementById("Bscore").innerHTML = `Оноо: ${onoo}`;
   }
-  if (i >= 20) {
+  if (i > 20) {
     location.href = "./result.html";
     localStorage.setItem("gamerScore", onoo);
   } else {
@@ -152,7 +152,7 @@ const lower = async () => {
     reset();
     document.getElementById("Bscore").innerHTML = `Оноо: ${onoo}`;
   }
-  if (i >= 20) {
+  if (i > 20) {
     location.href = "./result.html";
     localStorage.setItem("gamerScore", onoo);
   } else {

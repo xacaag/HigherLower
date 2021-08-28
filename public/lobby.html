@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
+    <link rel="icon" href="./assets/logo/logo.png" />
     <title>Өрөө нээх</title>
   </head>
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
@@ -179,6 +180,10 @@
   <script src="./js/firebase.js"></script>
   <script src="./js/join.js"></script>
   <script>
+    const back = () => {
+      location.href = "multiplayer.html";
+    };
+
     let uls = document.getElementById("genres");
     let lobbygenre = document.getElementById("lobby_genre");
     let classic_button = document.getElementById("classic");
