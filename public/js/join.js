@@ -374,7 +374,6 @@ const back = () => {
             await tt.then(async (a) => {
               let newArr = arr.filter((word) => word !== a.name);
               db.collection("rooms").doc(`${code}`).update({
-                total: elem.data().players,
                 players: toglogchid,
                 nameArr: newArr,
               });
