@@ -300,57 +300,56 @@ db.collection("links")
       });
   });
 
-firebase.auth().onAuthStateChanged(async (user) => {
-  const tt = new Promise((res, rej) => {
-    db.collection("users")
-      .doc(user.uid)
-      .get()
-      .then((doc) => {
-        let test = doc.data();
-        res(test);
-      });
-  });
-
-  window.addEventListener("beforeunload", function (event) {
-    event.preventDefault();
-    firebase.auth().onAuthStateChanged(async (user) => {
-      await db
-        .collection("links")
-        .doc(`${roomid}`)
+const back = () => {
+  firebase.auth().onAuthStateChanged(async (user) => {
+    const tt = new Promise((res, rej) => {
+      db.collection("users")
+        .doc(user.uid)
         .get()
-        .then(async (el) => {
-          let code = el.data().link;
-          await db
-            .collection("rooms")
-            .doc(`${code}`)
-            .get()
-            .then(async (elem) => {
-              let toglogchid = elem.data().players;
-              toglogchid--;
-              let arr = elem.data().nameArr;
-
-              tt.then((a) => {
-                let newArr = arr.filter((word) => word !== a.name);
-                db.collection("rooms").doc(`${code}`).update({
-                  total: elem.data().players,
-                  players: toglogchid,
-                  nameArr: newArr,
-                });
-              });
-            });
-          db.collection("links")
-            .doc(`${roomid}`)
-            .onSnapshot((el) => {
-              let code = el.data().link;
-              db.collection("rooms")
-                .doc(code)
-                .onSnapshot((shot) => {
-                  if (shot.data().players <= 0) {
-                    db.collection("rooms").doc(code).delete();
-                  }
-                });
-            });
+        .then((doc) => {
+          let test = doc.data();
+          res(test);
         });
     });
+    await db
+      .collection("links")
+      .doc(`${roomid}`)
+      .get()
+      .then(async (el) => {
+        let code = el.data().link;
+        await db
+          .collection("rooms")
+          .doc(`${code}`)
+          .get()
+          .then(async (elem) => {
+            let toglogchid = elem.data().players;
+            toglogchid--;
+            let arr = elem.data().nameArr;
+            await tt.then(async (a) => {
+              let newArr = arr.filter((word) => word !== a.name);
+              db.collection("rooms").doc(`${code}`).update({
+                total: elem.data().players,
+                players: toglogchid,
+                nameArr: newArr,
+              });
+            });
+          });
+        await db
+          .collection("links")
+          .doc(`${roomid}`)
+          .onSnapshot((el) => {
+            let code = el.data().link;
+            db.collection("rooms")
+              .doc(code)
+              .onSnapshot((shot) => {
+                if (shot.data().players <= 0) {
+                  db.collection("rooms").doc(code).delete();
+                } else {
+                  console.log("no error");
+                }
+                location.href = "/multiplayer.html";
+              });
+          });
+      });
   });
-});
+};

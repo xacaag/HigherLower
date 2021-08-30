@@ -149,12 +149,12 @@ firebase.auth().onAuthStateChanged((user) => {
         )[0].innerHTML = `Таны дээд амжилт: ${el.data().score}`;
       });
     unen = true;
-    logind.classList.add("none");
-    signupd.classList.add("none");
+    // logind.classList.add("none");
+    // signupd.classList.add("none");
   } else {
     unen = false;
-    logind.classList.remove("none");
-    signupd.classList.remove("none");
+    // logind.classList.remove("none");
+    // signupd.classList.remove("none");
     leaderboard.classList.add("none");
     profiled.classList.add("none");
   }

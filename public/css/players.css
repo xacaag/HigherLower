@@ -12,11 +12,8 @@ body {
   animation-duration: 0.5s;
   animation-timing-function: ease-out;
 }
-ul{
+ul {
   flex-direction: column;
-  
-  
-
 }
 .title {
   display: flex;
@@ -29,8 +26,8 @@ ul{
   margin-top: 2.5vh;
   margin-left: 1.5vw;
   cursor: pointer;
-  width: 2.5vw;
-  height: 2.5vh;
+  width: 3.7vw;
+  height: 3.7vh;
 }
 .container {
   display: flex;
@@ -57,7 +54,7 @@ ul{
   justify-content: space-evenly;
   align-items: center;
 }
-.flex{
+.flex {
   display: flex;
 }
 .classic {
@@ -74,14 +71,14 @@ ul{
   cursor: pointer;
   margin-top: 20px;
   box-shadow: 0px 0px 20px 0px #b1a043;
-  transition: all 0.3s ease ;
+  transition: all 0.3s ease;
 }
 @keyframes genre_list_animation {
   0% {
-      transform: translateY(-170px);
+    transform: translateY(-170px);
   }
   100% {
-      transform: translateY(0);
+    transform: translateY(0);
   }
 }
 .genre {
@@ -99,8 +96,7 @@ ul{
   cursor: pointer;
   margin-top: 20px;
   box-shadow: 0px 0px 20px 0px #b1a043;
-  transition: all 0.3s ease ;
-  
+  transition: all 0.3s ease;
 }
 .roomid {
   border-bottom: 4px gold solid;
@@ -130,10 +126,9 @@ ul{
   color: white;
   list-style-type: none;
   transition: all 0.3s ease;
-  
 }
-.chosen_style{
-  border:4px black solid
+.chosen_style {
+  border: 4px black solid;
 }
 
 .container {
