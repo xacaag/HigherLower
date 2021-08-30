@@ -128,13 +128,18 @@ const save = async () => {
   document.getElementById("overlay1").style.display = "none";
 };
 const logOut = () => {
-  firebase
+   firebase
     .auth()
     .signOut()
     .then(() => {
       // Sign-out successful.
     });
   document.getElementById("overlay1").style.display = "none";
+  document.getElementById("loader").style.visibility = "visible";
+  setTimeout(() => {
+    
+    location.href = "index.html"
+  }, 2000);
 };
 
 firebase.auth().onAuthStateChanged((user) => {

@@ -62,7 +62,7 @@ const higher = async () => {
       link1.innerHTML = data[i].account;
       name2.innerHTML = data[i + 1].account;
       link2.innerHTML = data[i + 1].account;
-      followers1.innerHTML = data[i].searches.toLocaleString();
+      followers1.innerHTML = data[i].followers.toLocaleString();
     }, 2530);
     // setTimeout(function () {
     //   name2.innerHTML = data[i + 1].name;

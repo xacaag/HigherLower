@@ -26,17 +26,26 @@ const createroom = async () => {
 };
 
 const join = async () => {
-  document.getElementById("loader").style.visibility = "visible";
 
   const joincode = document.getElementById("join").value;
 
   let doc = await db.collection("links").doc(`${joincode}`).get();
+
+  if(doc.data() === undefined){
+    alert('Joincode invalid')
+   }else{
+  document.getElementById('joinroom').disabled = true
+
+  document.getElementById("loader").style.visibility = "visible";
 
   let { link } = doc.data();
 
   let roomData = await db.collection("rooms").doc(`${link}`).get();
 
   let { players } = roomData.data();
+
+
+
   if (players > 5) {
     alert("Өрөө дүүрсэн байна");
     return;
@@ -52,4 +61,5 @@ const join = async () => {
       { merge: true }
     );
   window.location = `lobby.html?roomid=${joincode}`;
+}
 };

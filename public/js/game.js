@@ -243,7 +243,7 @@ timeLeft = 10;
 
 let intervala = setInterval(() => {
   if (timeLeft === 0) {
-    players2.innerHTML = data[i + 1].players1.toLocaleString();
+    players2.innerHTML = data[i + 1].players.toLocaleString();
     setTimeout(function () {
       wrong_animation_1();
     }, 300);
