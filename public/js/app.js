@@ -43,8 +43,8 @@ setTimeout(() => {
   container2.style.backgroundSize = "cover";
   container1.style.transitionDelay = "2.5s";
   container2.style.transitionDelay = "2.5s";
-  link1.href = data[i].photo;
-  link2.href = data[i + 1].photo;
+  link1.href = data[i].link;
+  link2.href = data[i + 1].link;
   link1.innerHTML = data[i].name;
   link2.innerHTML = data[i + 1].name;
 
@@ -76,8 +76,8 @@ const higher = async () => {
     Answer = true;
     followers2.innerHTML = data[i + 1].imdb.toLocaleString();
     correct_animation_1();
-    link1.href = data[i + 1].photo;
-    link2.href = data[i + 2].photo;
+    link1.href = data[i + 1].link;
+    link2.href = data[i + 2].link;
     
     i++;
     onoo++;
@@ -110,7 +110,7 @@ const higher = async () => {
 
 const lower = async () => {
   const currentUser = firebase.auth().currentUser;
-  if (data[i].searches >= data[i + 1].imdb) {
+  if (data[i].imdb >= data[i + 1].imdb) {
     setTimeout(function () {
       name1.innerHTML = data[i].name;
       link1.innerHTML = data[i].name;
@@ -125,8 +125,8 @@ const lower = async () => {
     container1.style.backgroundImage = `url(${data[i + 1].photo})`;
     container2.style.backgroundImage = `url(${data[i + 2].photo})`;
     followers2.innerHTML = data[i + 1].imdb.toLocaleString();
-    link1.href = data[i + 1].photo;
-    link2.href = data[i + 2].photo;
+    link1.href = data[i + 1].link;
+    link2.href = data[i + 2].link;
     correct_animation_1();
     i++;
     onoo++;

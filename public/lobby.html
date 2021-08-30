@@ -32,10 +32,10 @@
         </div>
         <div class="genre-st">
           <div
-            id="classic"
+            id="classic_button"
             class="classic"
-            onclick="typer(this)"
-            onclick="classic_b()"
+            onclick="typer(this); classic_b()"
+            
             onmouseover="classic_hover(this)"
             onmouseout="classic_normal(this)"
           >
@@ -180,23 +180,8 @@
   <script src="./js/firebase.js"></script>
   <script src="./js/join.js"></script>
   <script>
-    let uls = document.getElementById("genres");
-    let lobbygenre = document.getElementById("lobby_genre");
-    let classic_button = document.getElementById("classic");
-    const lobbyGenre = () => {
-      if (uls.classList.contains("none")) {
-        uls.setAttribute("class", "flex");
-        uls.classList.add("genre_list_anim");
-      } else {
-        uls.classList.remove("genre_list_anim");
-        uls.setAttribute("class", "none");
-      }
-      classic_button.classList.remove("chosen_style");
-    };
-    const classic_b = () => {
-      uls.setAttribute("class", "none");
-      classic_button.classList.add("chosen_style");
-    };
+
+
     // console.log(classic_button.innerHTML)
     function classic_hover(x) {
       classic_button.style.fontSize = "22px";
