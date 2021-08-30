@@ -51,7 +51,7 @@ firebase.auth().onAuthStateChanged(async (user) => {
             document.getElementById(
               `p${1 + ind}_points`
             ).innerHTML = `${el.points} оноо`;
-            if (medals.length === elm.data().total) {
+            if (medals.length === elm.data().nameArr.length) {
               document.getElementById("loader").style.display = "none";
               document.getElementsByClassName("pillar_holder")[0].style.filter =
                 "none";

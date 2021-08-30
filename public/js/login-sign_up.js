@@ -1,3 +1,5 @@
+// let loader_ani = documnet.getElementById("loader")
+let logo = document.getElementById("logo_")
 const auth = firebase.auth;
 
 const signInWithGoogle = () => {
@@ -19,13 +21,20 @@ const signInWithGoogle = () => {
             console.log("asuudalgui baina");
           }
         });
+        document.getElementById("loader").style.visibility = "visible";
       setTimeout(() => {
         location.href = "./index.html";
       }, 2000);
+
     }
   });
-};
+ 
 
+};
+const logo_button = () =>{
+ location.href="index.html";
+
+}
 const signInWithFb = () => {
   const provider = new firebase.auth.FacebookAuthProvider();
   auth().signInWithPopup(provider);

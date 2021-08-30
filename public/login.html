@@ -13,7 +13,10 @@
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
   <body>
     <div class="column">
-      <img src="./assets/logo/logo.svg" class="logo" />
+      <img src="./assets/logo/logo.svg" 
+      id="logo_"
+      class="logo" 
+      onclick="logo_button()"/>
       <div class="word1" style="margin-top: 5vh">НЭВТРЭХ</div>
       <div class="row">
         <div class="column">
@@ -51,6 +54,7 @@
         </div>
       </div>
     </div>
+    <div id="loader"></div>
   </body>
   <!-- <script src="./js/login.js"></script> -->
   <script src="./js/login-sign_up.js"></script>
