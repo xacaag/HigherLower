@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/logo/logo.png" />
+    <title>About-Us</title>
+  </head>
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-storage.js"></script>
+
+  <style>
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px;
+      margin: auto;
+      background: radial-gradient(#353c44, #222931);
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .contianer {
+      display: flex;
+      flex-direction: row;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      height: 25vh;
+    }
+    .team{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+    .logo{
+      position: absolute;
+      bottom: 50px;
+      right: 42%;
+      color: #fff;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 35px;
+      font-weight: 300px;
+    }
+    .img{
+      margin-top: 30px;
+      width: 250px;
+      height: 250px;
+    }
+    .name{
+      font-size: 30px;
+      color: #fff;
+      text-align: center;
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <img src="./assets/back.svg" style="position: absolute; top: 30px; left: 30px; cursor: pointer;" onclick="back()" />
+      <div class="header">
+        <img src="./assets/logo/logo.svg"/>
+      </div>
+      
+      <div class="team">
+        <div class="name">
+          <img class="img" id='img1'></img>
+          <div> xacaag </div>
+       </div>
+
+      <div class="name">
+        <img class="img" id='img2'></img>
+        <div> Orgil </div>
+      </div>
+
+      <div class="name">
+        <img class="img" id='img3'></img>
+        <div> Tuguldur </div>
+      </div>
+
+      <div class="name">
+        <img class="img" id='img4'></img>
+        <div> Khuslen </div>
+      </div>
+
+      <div class="name">
+        <img class="img" id='img5'></img>
+        <div> Munkh-E </div>
+      </div>
+
+    </div>
+
+      <div class="logo"> 
+        <div> TEAM </div>
+        <img style="width: 50px; height: 50px; margin-left: 10px; margin-right: 10px;" src="./assets/logo//nest.svg"></img>
+        <div> FOUR </div>
+    </div>
+    </div>
+  </body>
+  <script src="./js/firebase.js"></script>
+  <script>
+
+    const back = () => {
+      location.href = '/index.html'
+    }
+
+    db.collection('aboutUs').doc('photo').get().then(el => {
+      document.getElementById('img1').src = el.data().Khuslen;
+      document.getElementById('img2').src = el.data().Khuslen;
+      document.getElementById('img3').src = el.data().Khuslen;
+      document.getElementById('img4').src = el.data().Khuslen;
+      document.getElementById('img5').src = el.data().Khuslen;
+    })
+  </script>
+
+</html>
