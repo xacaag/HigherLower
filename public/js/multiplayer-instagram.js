@@ -1,7 +1,7 @@
 let data = [];
 let timeLeft;
 
-db.collection("instagram accounts")
+db.collection("instagram")
   .get()
   .then((docs) => {
     docs.forEach((doc) => {

@@ -18,7 +18,8 @@ firebase.auth().onAuthStateChanged(async (user) => {
           await db
             .collection("rooms")
             .doc(`${code}`)
-            .onSnapshot((el) => {
+            .get()
+            .then((el) => {
               let object = { name: n.data().name, points: gamerScore };
               arr = el.data().gamer;
               arr.push(object);
@@ -56,27 +57,27 @@ firebase.auth().onAuthStateChanged(async (user) => {
                 "none";
               document.getElementsByClassName("big_text")[0].innerHTML =
                 " --- Тоглолтын тооны харьцаа ---";
+
+              if (document.getElementById("p6_name").innerHTML === "") {
+                document.getElementById("p6id").style.display = "none";
+              }
+              if (document.getElementById("p5_name").innerHTML === "") {
+                document.getElementById("p5id").style.display = "none";
+              }
+              if (document.getElementById("p4_name").innerHTML === "") {
+                document.getElementById("p4id").style.display = "none";
+              }
+              if (document.getElementById("p3_name").innerHTML === "") {
+                document.getElementById("p3id").style.display = "none";
+              }
+              if (document.getElementById("p2_name").innerHTML === "") {
+                document.getElementById("p2id").style.display = "none";
+              }
+              if (document.getElementById("p1_name").innerHTML === "") {
+                document.getElementById("p1id").style.display = "none";
+              }
             }
           });
-
-          if (document.getElementById("p6_name").innerHTML === "") {
-            document.getElementById("p6id").style.display = "none";
-          }
-          if (document.getElementById("p5_name").innerHTML === "") {
-            document.getElementById("p5id").style.display = "none";
-          }
-          if (document.getElementById("p4_name").innerHTML === "") {
-            document.getElementById("p4id").style.display = "none";
-          }
-          if (document.getElementById("p3_name").innerHTML === "") {
-            document.getElementById("p3id").style.display = "none";
-          }
-          if (document.getElementById("p2_name").innerHTML === "") {
-            document.getElementById("p2id").style.display = "none";
-          }
-          if (document.getElementById("p1_name").innerHTML === "") {
-            document.getElementById("p1id").style.display = "none";
-          }
         });
     });
 });

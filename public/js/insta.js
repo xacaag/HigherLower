@@ -1,13 +1,7 @@
 let data = [];
 let timeLeft;
 
-// window.addEventListener("beforeunload", function (event) {
-// event.preventDefault();
-//   window.location = "./index.html";
-//   console.log("app");
-// });
-
-db.collection("instagram accounts")
+db.collection("instagram")
   .get()
   .then((docs) => {
     docs.forEach((doc) => {
@@ -78,7 +72,7 @@ const higher = async () => {
     correct_animation_1();
     link1.href = data[i + 1].photo;
     link2.href = data[i + 2].photo;
-    
+
     i++;
     onoo++;
     reset();
@@ -106,7 +100,6 @@ const higher = async () => {
     }, 2500);
   }
 };
-
 
 const lower = async () => {
   const currentUser = firebase.auth().currentUser;
