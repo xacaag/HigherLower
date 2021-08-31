@@ -1,7 +1,7 @@
 let data = [];
 let timeLeft;
 
-db.collection("game")
+db.collection("Game")
   .get()
   .then((docs) => {
     docs.forEach((doc) => {
