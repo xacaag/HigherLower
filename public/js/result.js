@@ -18,8 +18,7 @@ firebase.auth().onAuthStateChanged(async (user) => {
           await db
             .collection("rooms")
             .doc(`${code}`)
-            .get()
-            .then((el) => {
+            .onSnapshot((el) => {
               let object = { name: n.data().name, points: gamerScore };
               arr = el.data().gamer;
               arr.push(object);
@@ -82,9 +81,7 @@ firebase.auth().onAuthStateChanged(async (user) => {
     });
 });
 
-// setTimeout(() => {
 window.addEventListener("beforeunload", function (event) {
   event.preventDefault();
   location.href = "multiplayer.html";
 });
-// }, 5000);
