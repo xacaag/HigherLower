@@ -281,7 +281,7 @@ let intervala = setInterval(() => {
       link2.innerHTML = data[i + 1].name;
     }, 2530);
     setTimeout(function () {
-      followers1.innerHTML = data[i].imdb.toLocaleString();
+      followers1.innerHTML = data[i].views.toLocaleString();
     }, 2530);
     container1.style.backgroundImage = `url(${data[i + 1].photo})`;
     container2.style.backgroundImage = `url(${data[i + 2].photo})`;

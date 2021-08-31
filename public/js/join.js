@@ -52,15 +52,23 @@ db.collection("links")
         }
       });
   });
-let uls = document.getElementById("genres");
-let lobbygenre = document.getElementById("lobby_genre");
-let classic_button = document.getElementById("classic_button");
-const lobbyGenre = () => {
-  if (uls.classList.contains("none")) {
-    uls.setAttribute("class", "flex");
-    uls.classList.add("genre_list_anim");
-  } else {
-    uls.classList.remove("genre_list_anim");
+  let uls = document.getElementById("genres");
+  let lobbygenre = document.getElementById("lobby_genre");
+  let classic_button = document.getElementById("multiplayer-classic");
+  const lobbyGenre = () => {
+    if (uls.classList.contains("none")) {
+      uls.setAttribute("class", "flex");
+      uls.classList.add("genre_list_anim");
+    } else {
+      uls.classList.remove("genre_list_anim");
+      uls.setAttribute("class", "none");
+    }
+    classic_button.classList.remove("chosen_style");
+    lobbygenre.classList.add("chosen_style");
+    type = "hehe";
+   
+  };
+  const classic_b = () => {
     uls.setAttribute("class", "none");
   }
   classic_button.classList.remove("chosen_style");
