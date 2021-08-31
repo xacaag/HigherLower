@@ -73,8 +73,7 @@ db.collection("links")
   }
   classic_button.classList.remove("chosen_style");
   lobbygenre.classList.add("chosen_style");
-  type = "hehe";
-};
+
 const classic_b = () => {
   uls.setAttribute("class", "none");
   classic_button.classList.add("chosen_style");
