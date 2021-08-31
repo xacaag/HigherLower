@@ -11,6 +11,7 @@ let music = document.getElementById("multiplayer-music");
 let ner = document.getElementById("ner");
 let param = new URLSearchParams(window.location.search);
 let roomid = param.get("roomid");
+let classic_button = document.getElementById("multiplayer-classic");
 
 localStorage.setItem("id", roomid);
 
@@ -54,7 +55,7 @@ db.collection("links")
   });
   let uls = document.getElementById("genres");
   let lobbygenre = document.getElementById("lobby_genre");
-  let classic_button = document.getElementById("multiplayer-classic");
+  let classic_button = document.getElementById("classic_button");
   const lobbyGenre = () => {
     if (uls.classList.contains("none")) {
       uls.setAttribute("class", "flex");
@@ -70,33 +71,28 @@ db.collection("links")
   };
   const classic_b = () => {
     uls.setAttribute("class", "none");
-  }
-  classic_button.classList.remove("chosen_style");
-  lobbygenre.classList.add("chosen_style");
+    classic_button.classList.add("chosen_style");
+    lobbygenre.classList.remove("chosen_style");
 
-const classic_b = () => {
-  uls.setAttribute("class", "none");
-  classic_button.classList.add("chosen_style");
-  lobbygenre.classList.remove("chosen_style");
+    movie.style.fontSize = "20px";
+    game.style.fontSize = "20px";
+    music.style.fontSize = "20px";
+    instagram.style.fontSize = "20px";
+    movie.style.color = "white";
+    game.style.color = "white";
+    music.style.color = "white";
+    instagram.style.color = "white";
 
-  movie.style.fontSize = "20px";
-  game.style.fontSize = "20px";
-  music.style.fontSize = "20px";
-  instagram.style.fontSize = "20px";
-  movie.style.color = "white";
-  game.style.color = "white";
-  music.style.color = "white";
-  instagram.style.color = "white";
-
-  movie.style.marginTop = "0px";
-  movie.style.marginBottom = "0px";
-  game.style.marginTop = "0px";
-  game.style.marginBottom = "0px";
-  music.style.marginTop = "0px";
-  music.style.marginBottom = "0px";
-  instagram.style.marginBottom = "0px";
-  instagram.style.marginTop = "0px";
-};
+    movie.style.marginTop = "0px";
+    movie.style.marginBottom = "0px";
+    game.style.marginTop = "0px";
+    game.style.marginBottom = "0px";
+    music.style.marginTop = "0px";
+    music.style.marginBottom = "0px";
+    instagram.style.marginBottom = "0px";
+    instagram.style.marginTop = "0px";
+    
+  };
 const typer = async (e) => {
   await db
     .collection("links")
@@ -106,9 +102,9 @@ const typer = async (e) => {
       let roomname = el.data().link;
       await db.collection("rooms").doc(roomname).update({
         name: e.id,
+        
       });
     });
-  console.log("hi");
 };
 
 const startGame = async () => {
@@ -333,6 +329,7 @@ firebase.auth().onAuthStateChanged(async (user) => {
   }
 });
 
+
 db.collection("links")
   .doc(`${roomid}`)
   .onSnapshot((el) => {
@@ -343,11 +340,12 @@ db.collection("links")
         let startbutton = el.data().start;
         let type = el.data().name;
         if (startbutton === true) {
-          if (type === "hehe") {
+          if(type === "hehe"){
             alert("Төрөлөө сонгоно уу!");
-          } else {
+          }else{
             window.location = `./${type}.html`;
           }
+          
         }
       });
   });
