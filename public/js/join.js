@@ -55,7 +55,7 @@ db.collection("links")
   });
   let uls = document.getElementById("genres");
   let lobbygenre = document.getElementById("lobby_genre");
-  let classic_button = document.getElementById("classic_button");
+ 
   const lobbyGenre = () => {
     if (uls.classList.contains("none")) {
       uls.setAttribute("class", "flex");
