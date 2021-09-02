@@ -19,6 +19,7 @@
       background: radial-gradient(#353c44, #222931);
       height: 100vh;
       width: 100vw;
+      overflow: hidden;
     }
 
     .contianer {
@@ -51,10 +52,20 @@
       font-size: 35px;
       font-weight: 300px;
     }
+    .logoimg:hover{
+      
+      cursor: pointer;
+
+    }
+    .logoimg{
+      transition: all 0.3s ease;
+      width: 20%;
+    }
     .img{
       margin-top: 30px;
       width: 250px;
       height: 250px;
+      
     }
     .name{
       font-size: 30px;
@@ -67,7 +78,7 @@
     <div class="container">
       <img src="./assets/back.svg" style="position: absolute; top: 30px; left: 30px; cursor: pointer;" onclick="back()" />
       <div class="header">
-        <img src="./assets/logo/logo.svg"/>
+        <img  onclick="logo()" id="logo" class="logoimg" src="./assets/logo/logo.svg"/>
       </div>
       
       <div class="team">
@@ -107,6 +118,9 @@
   </body>
   <script src="./js/firebase.js"></script>
   <script>
+    const logo = () =>{
+      location.href="/index.html"
+    }
 
     const back = () => {
       location.href = '/index.html'

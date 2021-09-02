@@ -47,7 +47,7 @@ body {
   border-radius: 8px;
   border: 1px solid #ECD55A;
   background-color: #ECD55A;
-  color: #fff;
+  color: black;
   font-size: 1vw;
   cursor: pointer;
 }
@@ -58,7 +58,7 @@ body {
 }
 .logo:hover{
   margin-top:100px;
-  width: 21vw;
+  width: 20.5vw;
   cursor: pointer;
 }
 .word1 {
