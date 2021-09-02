@@ -293,6 +293,10 @@ let intervala = setInterval(() => {
 
     reset();
     document.getElementById("Bscore").innerHTML = `Оноо: ${onoo}`;
+    if (i > 20) {
+      location.href = "./result.html";
+      localStorage.setItem("gamerScore", onoo);
+    }
   } else {
     VS.innerHTML = String(timeLeft);
     timeLeft--;
