@@ -3,7 +3,7 @@ db.collection("users")
   .limit(50)
   .onSnapshot((querySnapshot) => {
     let i = 1;
-    querySnapshot.forEach((doc) => {
+    querySnapshot.forEach(async (doc) => {
       if (
         doc
           .data()
