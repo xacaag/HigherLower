@@ -1,12 +1,27 @@
 body {
   margin: 0;
+  background-image:url("https://firebasestorage.googleapis.com/v0/b/higherlowergame-176e9.appspot.com/o/bg%2FHome_page_2.png?alt=media&token=0a479541-9284-46aa-a293-a1bf58343514");
   height: 100vh;
-  background: radial-gradient(#353c44, #222931);
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-size: 100% 100%;
+  overflow: hidden;
 }
 .lologo {
   height: 200px;
   width: 360px;
   margin-top: 6.5vh;
+  transition: all 0.3s ease;
+}
+.lologo:hover{
+  height: 210px;
+  width: 370px;
+  cursor: pointer;
 }
 .column {
   display: flex;

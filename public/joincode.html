@@ -13,30 +13,9 @@
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-storage.js"></script>
   <body>
-    <div id="overlay1">
-      <div id="settings">
-        <img src="./assets/logo/close.svg" class="close" onclick="haah()" />
-        <div id="heading1">ТОХИРГОО</div>
-        <div class="contain1">
-          <div id="circle"></div>
-          <div id="username"></div>
-        </div>
-        <div id="heading2">Хэрэглэгчийн нэр</div>
-        <div id="line"></div>
-        <div class="contain2">
-          <input id="name" />
-          <div id="save" onclick="save()">Хадгалах</div>
-        </div>
-        <div id="logOut" onclick="logOut()">Гарах</div>
-      </div>
-    </div>
     <img src="./assets/back.svg" class="backBtn" onclick="back()" />
-    <div id="profile" class="profile" onclick="on1()">
-      <div id="ner"></div>
-      <img src="./assets/down.svg" class="down" />
-    </div>
     <div class="column">
-      <img src="./assets/logo/logo.svg" class="lologo" />
+      <img src="./assets/logo/logo.svg" class="lologo" onclick="logo()"/>
       <div class="row">
         <div class="input-wrapper">
           <input
@@ -62,6 +41,9 @@
   <script src="./js/firebase.js"></script>
 
   <script>
+    const logo = () =>{
+      location.href="index.html"
+    }
     let joinroom = document.getElementById("joinroom");
     let joinvalue = document.getElementById("join");
     // console.log(joinvalue.value)
@@ -71,7 +53,8 @@
     // joinroom.classList.remove("hello")
     // }
     function changeTheColorOfButtonDemo() {
-      joinroom.style.backgroundColor = "gold";
+      joinroom.style.backgroundColor = "#ECD55A";
+      joinroom.style.boxShadow="0px 0px 10px 0px gold"
       joinroom.style.color = "black";
     }
 

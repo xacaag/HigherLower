@@ -1,5 +1,12 @@
 body {
-    background: radial-gradient(#353c44, #222931);
+    
+    background-image:url("https://firebasestorage.googleapis.com/v0/b/higherlowergame-176e9.appspot.com/o/bg%2FHome_page_2.png?alt=media&token=0a479541-9284-46aa-a293-a1bf58343514");
+    height: 100vh;
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    overflow: hidden;
 }
 .Container1 {
     display: flex;
