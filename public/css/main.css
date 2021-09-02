@@ -78,7 +78,7 @@ body {
 }
 
 ul {
-  width: 150px;
+  width: 200px;
   display: flex;
   flex-direction: column;
   border: 1px #ecd55a solid;
@@ -86,7 +86,7 @@ ul {
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
   height: 0px;
-  justify-content: space-evenly;
+  justify-content:space-evenly;
 }
 
 li:hover {
@@ -657,7 +657,7 @@ li:hover {
 
 .genre_list_anim {
   display: flex;
-  width: 158px;
+  width: 190px;
   margin-bottom: -172px;
   transition: none;
   animation-name: genre_list_animation;
@@ -666,8 +666,8 @@ li:hover {
 }
 
 .genre_list_holder {
-  width: 160px;
-  height: 152px;
+  width: 200px;
+  height: 180px;
   display: flex;
   justify-content: center;
   overflow: hidden;

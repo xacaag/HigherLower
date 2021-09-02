@@ -54,7 +54,7 @@
     </div>
     <div class="haha">
       <div class="GodLogo">
-        <img src="./assets/logo/logo.svg" class="logo" />
+        <img src="./assets/logo/logo.svg" class="logo" onclick="logo_b()" />
       </div>
     </div>
     <div class="bair">
@@ -130,16 +130,18 @@
                 onclick="genrestart()"
                 id="genre_start_p"
               >
-                Эхлэх >
+                Эхлэх 
               </p>
             </div>
             <div class="genre_list_holder">
               <div id="genre_list" class="none" class="genres">
                 <ul id="ul_" style="padding-left: 25px">
                   <li onclick="kino()" class="genres_button">Кино</li>
-                  <li onclick="duu()" class="genres_button">Дуу</li>
+                  <li onclick="duu()" class="genres_button">Гадаад дуу</li>
+                  <li onclick="mglduu()"class="genres_button">Монгол дуу</li>
                   <li onclick="insta()" class="genres_button">Инстаграм</li>
                   <li onclick="togloom()" class="genres_button">Тоглоом</li>
+
                 </ul>
               </div>
             </div>
@@ -378,6 +380,13 @@
       a = "game";
       genre_list.classList.remove("genre_list_anim");
     };
+    const mglduu = () => {
+      genre_list.classList.add("none");
+      genre_button.innerHTML = "Монгол дуу";
+      genre_start.style.display = "flex";
+      a = "mglsong";
+      genre_list.classList.remove("genre_list_anim");
+    };
 
     function start_hover(x) {
       start_p.style.fontSize = "22px";
@@ -465,5 +474,6 @@
       myBtn3.style.width = "30px";
       myBtn3.style.height = "30px";
     }
+   
   </script>
 </html>
