@@ -5,8 +5,30 @@ db.collection("users")
     let i = 1;
     querySnapshot.forEach((doc) => {
       if (
-        doc.data().name.includes("<a href") &&
-        doc.data().score.includes("<a href")
+        doc
+          .data()
+          .name.includes(
+            `www`,
+            `http`,
+            `src`,
+            `href`,
+            `onload`,
+            `=`,
+            `/`,
+            `<a`
+          ) &&
+        doc
+          .data()
+          .score.includes(
+            `www`,
+            `http`,
+            `src`,
+            `href`,
+            `onload`,
+            `=`,
+            `/`,
+            `<a`
+          )
       ) {
         console.log("haha");
       } else {
