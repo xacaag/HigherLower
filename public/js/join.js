@@ -138,7 +138,7 @@ firebase.auth().onAuthStateChanged(async (user) => {
               .then((doc) => {
                 let arr = doc.data().nameArr;
                 if(name.data().name.length > 12){
-                  arr.push(name.data().name.slice(0 , name.data().name.length-12));
+                  arr.push(name.data().name.slice(0 , 12));
                 }else{
                   arr.push(name.data().name);
                 }
