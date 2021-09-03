@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-image:url("https://firebasestorage.googleapis.com/v0/b/higherlowergame-176e9.appspot.com/o/bg%2FHome_page_2.png?alt=media&token=0a479541-9284-46aa-a293-a1bf58343514");
+  background-image: url("../assets/Home_page_2.png");
   height: 100vh;
   width: 100vw;
   background-repeat: no-repeat;
