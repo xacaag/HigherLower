@@ -4,9 +4,9 @@ const randomIdGenerator = () => {
   return uniqid;
 };
 
-var a;
+
 const createroom = async () => {
-  a = 1;
+  var a = 1;
   document.getElementById("loader").style.visibility = "visible";
   let ref = await db.collection("rooms").add({
     nameArr: [],
@@ -15,6 +15,7 @@ const createroom = async () => {
     start: false,
     time: firebase.firestore.FieldValue.serverTimestamp(),
     gamer: [],
+    name:"multiplayer-classic",
   });
   localStorage.setItem("admin", a);
 
