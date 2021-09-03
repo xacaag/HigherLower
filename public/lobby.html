@@ -32,7 +32,7 @@
           <h1>Тоглоомын горим</h1>
         </div>
         <div class="genre-st">
-          <div
+          <button
             id="multiplayer-classic"
             class="classic"
             onclick="typer(this); classic_b()"
@@ -41,11 +41,11 @@
             onmouseout="classic_normal(this)"
           >
             Классик
-          </div>
+        </button>
           <div
             id="lobby_genre"
             class="genre"
-            onclick="typer(this); lobbyGenre()"
+            onclick="lobbyGenre()"
             onmouseover="genre_hover(this)"
             onmouseout="genre_normal(this)"
           >
@@ -221,6 +221,8 @@
       music.style.marginBottom = "0px";
       instagram.style.marginBottom = "0px";
       instagram.style.marginTop = "0px";
+      lobbygenre.classList.add("chosen_style");
+      classic_button.classList.remove("chosen_style");
     };
     const game_b = () => {
       movie.style.fontSize = "20px";
@@ -240,6 +242,8 @@
       music.style.marginBottom = "0px";
       instagram.style.marginBottom = "0px";
       instagram.style.marginTop = "0px";
+      lobbygenre.classList.add("chosen_style");
+      classic_button.classList.remove("chosen_style");
     };
     const song_b = () => {
       movie.style.fontSize = "20px";
@@ -259,6 +263,8 @@
       music.style.marginBottom = "30px";
       instagram.style.marginBottom = "0px";
       instagram.style.marginTop = "0px";
+      lobbygenre.classList.add("chosen_style");
+      classic_button.classList.remove("chosen_style");
     };
     const insta_b = () => {
       movie.style.fontSize = "20px";
@@ -278,6 +284,8 @@
       music.style.marginBottom = "0px";
       instagram.style.marginBottom = "30px";
       instagram.style.marginTop = "30px";
+      lobbygenre.classList.add("chosen_style");
+      classic_button.classList.remove("chosen_style");
     };
   </script>
 </html>

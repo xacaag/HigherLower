@@ -15,8 +15,9 @@ body {
   margin-bottom: -172px;
   transition: none;
   animation-name: genre_list_animation;
-  animation-duration: 0.5s;
+  animation-duration: 0.8s;
   animation-timing-function: ease-out;
+
 }
 ul {
   flex-direction: column;
@@ -96,6 +97,7 @@ ul {
   margin-top: 20px;
   box-shadow: 0px 0px 30px 0px #b1a043;
   transition: all 0.3s ease;
+  border:0px;
 }
 @keyframes genre_list_animation {
   0% {

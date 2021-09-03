@@ -25,12 +25,12 @@ if (a === 1) {
   start.style.display = "flex";
 } else {
   start.disabled = true;
+  start.style.display = "none"
   movie.onclick = () => {};
   instagram.onclick = () => {};
   game.onclick = () => {};
   music.onclick = () => {};
-
-  // classic.disabled =true;
+  classic_button.disabled = true;
   // genre.disabled = true;
 }
 
@@ -65,9 +65,9 @@ const lobbyGenre = () => {
     uls.classList.remove("genre_list_anim");
     uls.setAttribute("class", "none");
   }
-  classic_button.classList.remove("chosen_style");
-  lobbygenre.classList.add("chosen_style");
-  type = "hehe";
+
+ 
+
 };
 const classic_b = () => {
   uls.setAttribute("class", "none");
