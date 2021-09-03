@@ -1,7 +1,11 @@
 body {
   margin: 0;
+  background-image:url("https://firebasestorage.googleapis.com/v0/b/higherlowergame-176e9.appspot.com/o/bg%2FHome_page_2.png?alt=media&token=0a479541-9284-46aa-a293-a1bf58343514");
   height: 100vh;
-  background: radial-gradient(#353c44, #222931);
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
   overflow: hidden;
 }
 .column {
@@ -55,14 +59,16 @@ body {
 .leaderboard {
   height: 50vh;
   width: 38vw;
-  background: radial-gradient(#353c44, #222931);
+  background: radial-gradient(#222931, black);
   border-radius: 0px 0px 8px 8px;
   word-wrap: break-word;
   overflow: scroll;
+  
 }
 .cololumn {
   display: flex;
   flex-direction: column;
+  background:none;
 }
 .row {
   display: flex;
@@ -94,16 +100,16 @@ body {
   color: #fdd017;
 }
 .row:nth-child(2) .name {
-  color: #c0c0c0;
+  color: #9b9b9b;
 }
 .row:nth-child(2) .score {
-  color: #c0c0c0;
+  color: #9b9b9b;
 }
 .row:nth-child(3) .name {
-  color: #c9ae5d;
+  color: #8f7b40;
 }
 .row:nth-child(3) .score {
-  color: #c9ae5d;
+  color: #8f7b40;
 }
 #loader {
   color: gold;

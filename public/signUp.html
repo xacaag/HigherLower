@@ -14,7 +14,7 @@
 
   <body>
     <div class="column">
-      <img src="./assets/logo/logo.svg" class="logo" />
+      <img src="./assets/logo/logo.svg" class="logo" onclick="goindex()"/>
       <div class="word1" style="margin-top: 5vh">БҮРТГҮҮЛЭХ</div>
       <div class="row">
         <div class="column">
@@ -27,6 +27,9 @@
           />
           <!-- <div class="idk2">Нууц үгээ мартсан уу?</div> -->
           <button class="button" onclick="signUp()">Бүртгүүлэх</button>
+          <div class="idk">
+            Аль хэдийн бүртгэлтэй юу? <a href="./login.html">Нэвтрэх</a>
+          </div>
         </div>
         <!-- <div class="column" style="margin-left: 5vw"> -->
           <!-- <div class="row">
@@ -52,7 +55,13 @@
         <!-- </div>
       </div>
     </div> -->
+  
   </body>
   <script src="./js/firebase.js"></script>
   <script src="./js/login-sign_up.js"></script>
+  <script>
+    const goindex = () =>{
+      location.href = "./index.html"
+    }
+  </script>
 </html>
