@@ -137,16 +137,24 @@ firebase.auth().onAuthStateChanged(async (user) => {
               .get()
               .then((doc) => {
                 let arr = doc.data().nameArr;
-                arr.push(name.data().name);
+                if(name.data().name.length > 12){
+                  arr.push(name.data().name.slice(0 , name.data().name.length-12));
+                }else{
+                  arr.push(name.data().name);
+                }
                 db.collection("rooms").doc(`${code}`).set(
                   {
                     nameArr: arr,
                   },
                   { merge: true }
                 );
+               
+                
+                
               });
           });
       });
+      
 
     await db
       .collection("links")
