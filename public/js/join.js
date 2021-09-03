@@ -339,7 +339,7 @@ db.collection("links")
         let startbutton = el.data().start;
         let type = el.data().name;
         if (startbutton === true) {
-          if (type === "hehe") {
+          if (type === "lobby_genre") {
             alert("Төрөлөө сонгоно уу!");
           } else {
             window.location = `./${type}.html`;
