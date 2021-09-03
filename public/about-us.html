@@ -91,28 +91,28 @@
       
       <div class="team">
         <div class="name">
-          <img class="img" id='img1'></img>
+          <img src='./assets/Xasaag.jpeg' class="img" id='img1'></img>
           <div> xacaag </div>
        </div>
 
       <div class="name">
-        <img class="img" id='img2'></img>
+        <img src="./assets/orgil.jpeg" class="img" id='img2'></img>
         <div> Orgil </div>
       </div>
 
       <div class="name">
-        <img class="img" id='img3'></img>
-        <div> Tuguldur </div>
+        <img src="./assets/MunkhE.JPG" class="img" id='img5'></img>
+        <div> Munkh-E </div>
       </div>
 
       <div class="name">
-        <img class="img" id='img4'></img>
+        <img src="./assets/Khuslen.JPG" class="img" id='img4'></img>
         <div> Khuslen </div>
       </div>
 
       <div class="name">
-        <img class="img" id='img5'></img>
-        <div> Munkh-E </div>
+        <img src="./assets/Tuugii.jpeg" class="img" id='img3'></img>
+        <div> Tuguldur </div>
       </div>
 
     </div>
@@ -133,14 +133,6 @@
     const back = () => {
       location.href = '/index.html'
     }
-
-    db.collection('aboutUs').doc('photo').get().then(el => {
-      document.getElementById('img1').src = el.data().Xasaa;
-      document.getElementById('img2').src = el.data().Orgil;
-      document.getElementById('img3').src = el.data().Tuguldur;
-      document.getElementById('img4').src = el.data().Khuslen;
-      document.getElementById('img5').src = el.data().MunkhE;
-    })
   </script>
 
 </html>
